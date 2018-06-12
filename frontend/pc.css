@@ -1,0 +1,271 @@
+.module {
+    scroll-behavior:  smooth;
+  }
+
+body {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    background: #1d2120;
+    overflow: hidden;
+    /* cursor: url('./srcs/cursor2.png') 2 2, default; */
+}
+
+svg {
+    height: 90%;
+    /* width: 40%; */
+}
+p{
+    color:white;
+}
+#content {
+    /* background: bisque; */
+    float: left;
+    height: 50vh;
+    width: 90vw;
+    color: white;
+    /* display: flex;
+    align-items: center; */
+    /* justify-content: center; */
+    text-align: center;
+}
+
+#mouse {
+    position: absolute;
+    bottom: 50%;
+    height: 50px;
+    width: 30px;
+    border-radius: 25px;
+    border: 3px solid white;
+    margin-left: calc(100vw/2.26);
+    box-sizing: border-box;
+    padding: 11px;
+    opacity: 0;
+}
+.mouseScroller {
+    width: 3px;
+    height: 10px;
+    background-color: white;
+    animation-name: scrolley;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes scrolley {
+    0% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+}
+
+#projectsPage, #contactPage, #educationPage, #aboutPage,#homePage {
+    position: absolute;
+    height: 50%;
+    width: 90%;
+    background-color: transparent;
+    transform: translate(0, -100%) ;
+    opacity: 0;
+    color: white;
+    text-align: center;
+    padding: 0 100px 0 100px;
+    font-size: 40;
+    overflow: scroll;
+    box-sizing: border-box;
+    padding-bottom: 100px; 
+}
+
+#homePage {
+    opacity: 0;
+    transform: translate(0, 0), rotateY(180deg);
+}
+
+
+::-webkit-scrollbar {
+    display: none;
+    }
+
+/* #contentCopy{
+    position: absolute;
+    height: 50%;
+    width: 90%;
+    background: white;
+    margin-left: 5%;
+} */
+
+#left, #right {
+    height: 100vh;
+    width: 5vw;
+    /* background: rgb(170, 163, 163); */
+}
+
+#left {
+    float: left;
+}
+
+#right {
+    float: right;
+}
+
+#logo {
+    margin-top: 25px;
+    margin-left: 5;
+    font-family: 'Pacifico', cursive;
+    color: white;
+    letter-spacing: 5px;
+    clear: both;
+}
+#letter1,#letter2,#letter3{
+    float:left;
+    animation: jump 2.5s linear infinite;
+}
+#letter1 {
+    animation-delay: 0s;
+}
+#letter2 {
+    animation-delay: 1s;
+}
+#letter3 {
+    animation-delay: 2s;
+}
+#line {
+    position: absolute;
+    clear: both;
+    bottom: 15;
+    width: 0.15%;
+    height: 25%;
+    margin-left: 5%;
+    background-color:white;
+    z-index: 9999;
+}
+
+#line::before{
+    position: absolute;
+    content: '';
+    height: 50%;
+    width: 100%;
+    background-color: purple;
+    animation: moveAround 3.5s ease-in-out infinite;
+    transform: scale(0);
+}
+
+@keyframes moveAround{
+    0%{
+        transform: scale(0);
+    }
+    25%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1);
+        transform: translate(0,0);
+        opacity: 1;
+    }
+    90%{
+        opacity: 1;
+    }
+    100%{
+        transform: scale(1);
+        transform: translate(0,100%);
+        opacity: 0;
+    }
+    /* 100%{
+        transform:translate(0,100%)
+    } */
+}
+
+@keyframes jump{
+    0%{
+        transform: translate(0, 0px)
+    }
+    33%{
+        transform: translate(0, -3px)
+    }
+    66%{
+        transform: translate(0, 3px)
+    }
+    100%{
+        transform: translate(0, 0px)
+    }
+}
+
+.mainMenu {
+    height: 50%;
+    width: 90%;
+    bottom: 0;
+    float: left;
+    /* box-sizing: border-box; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.st0, .st1, .st2, .st3, .st4, .st5, .st6, .st7, .st8, .st9, .st10, .st11, .st12, .st13, #centerWheel, #redWheel, #_x38_circles {
+    transform-origin: 50% 50%;
+}
+
+.st3 {
+    opacity: 0.8;
+}
+
+.st4 {
+    opacity: 0.8;
+    fill: #515151;
+    enable-background: new;
+}
+
+.st9 {
+    fill: #3674CE;
+}
+
+.st11 {
+    fill: #38CA92;
+    stroke: #3674CE;
+    stroke-width: 0.5;
+    stroke-miterlimit: 10;
+}
+
+
+/* .st0 {
+    fill: #ED1E25;
+}
+
+.st1 {
+    fill: #E75A24;
+}
+
+.st2 {
+    fill: #515151;
+}
+
+.st5 {
+    fill: #7FC242;
+    stroke: #4EEB6F;
+    stroke-miterlimit: 10;
+}
+
+.st6 {
+    fill: #231F20;
+}
+
+.st7 {
+    fill: #231F20;
+    stroke: #76C4EE;
+    stroke-miterlimit: 10;
+}
+
+.st8 {
+    fill: #7FC242;
+}
+.st10 {
+    fill: #1BC282;
+    stroke: #3674CE;
+    stroke-width: 0.5;
+    stroke-miterlimit: 10;
+}
+
+ */
