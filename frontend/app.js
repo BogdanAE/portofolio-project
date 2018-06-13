@@ -36,6 +36,7 @@ var mouse = document.getElementById('mouse');
 var line = document.getElementById('line');
 var fullPage = document.getElementById('fullPage');
 var logo = document.getElementById('logo1');
+var startButton = document.getElementById('startButton');
 
 var pH = window.innerHeight;
 var pW = window.innerWidth;
@@ -47,6 +48,7 @@ let bbox = redCircle.getBBox();
 let bbox1 = menu1.getBBox();
 let mainBbox = s.getBBox();
 var enabled = true;
+var explore = false;
 
 var id = null;
 var mandala = document.getElementById('mandala');
@@ -66,8 +68,7 @@ function rotateFunction(idSent) {
 // ----------------------------------------------------------
 // ----------------HOME PAGE EVENTS--------------------------
 // ----------------------------------------------------------
-var explore = false;
-var startButton = document.getElementById('startButton');
+
 
 startButton.addEventListener('click', () => {
   explore = true;
@@ -101,16 +102,16 @@ window.addEventListener('mousemove', (event) => {
   logo.style.transition = "1s linear";
   if (event.clientX < pW / 2 && event.clientY < pH / 2) {
     console.log(pH);
-    logo.style.transform = "translate(" + -event.clientX / 16 + "px ," + -event.clientY / 16 + "px)";
+    logo.style.transform = "translate(" + -event.clientX / 16 + "px ," + -event.clientY / 16 + "px) scale(0.83)";
   }
   else if (event.clientX > pW / 2 && event.clientY < pH / 2) {
-    logo.style.transform = "translate(" + event.clientX / 16 + "px ," + -event.clientY / 16 + "px)";
+    logo.style.transform = "translate(" + event.clientX / 16 + "px ," + -event.clientY / 16 + "px) scale(0.83)";
   }
   else if (event.clientX > pW / 2 && event.clientY > pH / 2) {
-    logo.style.transform = "translate(" + event.clientX / 16 + "px ," + event.clientY / 16 + "px)";
+    logo.style.transform = "translate(" + event.clientX / 16 + "px ," + event.clientY / 16 + "px) scale(0.83)";
   }
   else if (event.clientX < pW / 2 && event.clientY > pH / 2) {
-    logo.style.transform = "translate(" + -event.clientX / 20 + "px ," + event.clientY / 20 + "px)";
+    logo.style.transform = "translate(" + -event.clientX / 20 + "px ," + event.clientY / 20 + "px) scale(0.83)";
   }
 });
 

@@ -11,6 +11,18 @@ body {
     overflow: hidden;
     cursor: url('./srcs/cursor4.png') , default;
 }
+
+#aura {
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: rgb(84, 84, 194);
+    /* filter: blur(1px); */
+    opacity: 0.8;
+    display: none;
+}
+
 #loading {
     display: block;
 }
@@ -167,8 +179,8 @@ p {
 #ro {
     float: right;
     width: 120px;
-    color: #c43235;
-    cursor: pointer;
+    /* color: #c43235; */
+    color: white;
     margin-left: 40px;
     margin-right: 40px;
 }
@@ -176,8 +188,8 @@ p {
 #en {
     float: right;
     width: 120px;
-    color: #c43235;
-    cursor: pointer;
+    /* color: #c43235; */
+    color: white;
 }
 
 #en:after, #ro:after {
@@ -259,7 +271,6 @@ p {
     opacity: 1;
     font-size: 0.8em;
     opacity: 0;
-    cursor: pointer;
     transition: 2s linear;
     z-index: 999;
 }
@@ -333,7 +344,6 @@ p {
     max-width: 30%;
     margin-left: 35%;
     border-radius: 15px;
-    cursor: pointer;
     transition: 1s linear;
     z-index: 999;
 }
@@ -343,10 +353,6 @@ p {
     /* color: black; */
 }
 
-#startButton:hover {
-    /* background-color: white; */
-    /* color: black; */
-}
 
 #startText1, #startText2 {
     width: 25%;
@@ -401,6 +407,10 @@ p {
     color: white;
     letter-spacing: 5px;
     clear: both;
+}
+
+#logo1{
+    transform: scale(0.83);
 }
 
 #happy, #sad {
