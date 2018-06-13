@@ -1,14 +1,18 @@
 var random = Math.floor(Math.random() * 4) + 1;
 
 
+
 init();
 function init() {
   //PAGE INIT
+  keepRoling();
   hoPg.style.transition = "3s linear";
-  hoPg.style.transform = "rotateY(180deg)";
   hoPg.style.transitionDelay = "2s";
   hoPg.style.opacity = "1";
-  
+  scrollHeightCheck();
+  document.getElementById('text').style.display = "none";
+  document.getElementById('happy').style.display = 'none';
+
 
   //MANDALA INIT
   centerWheel.animate({
@@ -22,7 +26,7 @@ function init() {
   check.animate({
     transform: 'r -90,' + ',' + 0 + ',' + 0,
   }, 2500);
-  
+
   s.animate({
     transform: 'r' + 90 * random + ', 0 , 0'
   }, 1000);

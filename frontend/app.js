@@ -27,13 +27,26 @@ var edPg = document.getElementById('educationPage');
 var coPg = document.getElementById('contactPage');
 var abPg = document.getElementById('aboutPage');
 var prPg = document.getElementById('projectsPage');
-var hoPg =  document.getElementById('homePage');
+var hoPg = document.getElementById('homePage');
+var cad1 = document.getElementById('cadran1');
+var cad2 = document.getElementById('cadran2');
+var cad3 = document.getElementById('cadran3');
+var cad4 = document.getElementById('cadran4');
+var mouse = document.getElementById('mouse');
+var line = document.getElementById('line');
+var fullPage = document.getElementById('fullPage');
+var logo = document.getElementById('logo1');
+
+var pH = window.innerHeight;
+var pW = window.innerWidth;
+
+var pArray = [0, 0, 0, 0, 0];
+pArray[4] = 1;
 
 let bbox = redCircle.getBBox();
 let bbox1 = menu1.getBBox();
 let mainBbox = s.getBBox();
-var relocate1 = false;
-var relocate2 = false;
+var enabled = true;
 
 var id = null;
 var mandala = document.getElementById('mandala');
@@ -49,28 +62,95 @@ function rotateFunction(idSent) {
   showPage();
 }
 
-window.addEventListener('click', () => {
+
+// ----------------------------------------------------------
+// ----------------HOME PAGE EVENTS--------------------------
+// ----------------------------------------------------------
+var explore = false;
+var startButton = document.getElementById('startButton');
+
+startButton.addEventListener('click', () => {
+  explore = true;
+  hoPg.style.display = 'none';
+  document.getElementById('mandala').classList.remove('rotateMandala');
+  document.getElementById('text').style.display = "block";
+  pArray[4] = 0;
+
+});
+
+startButton.addEventListener('mouseover', () => {
+  document.getElementById('happy').style.display = 'block';
+  document.getElementById('sad').style.display = 'none';
+});
+
+startButton.addEventListener('mouseout', () => {
+
+  document.getElementById('happy').style.display = 'none';
+  document.getElementById('sad').style.display = 'block';
+});
+
+
+
+function keepRoling() {
+  if (explore == false) {
+    document.getElementById('mandala').classList.add('rotateMandala');
+  }
+}
+
+window.addEventListener('mousemove', (event) => {
+  logo.style.transition = "1s linear";
+  if (event.clientX < pW / 2 && event.clientY < pH / 2) {
+    console.log(pH);
+    logo.style.transform = "translate(" + -event.clientX / 16 + "px ," + -event.clientY / 16 + "px)";
+  }
+  else if (event.clientX > pW / 2 && event.clientY < pH / 2) {
+    logo.style.transform = "translate(" + event.clientX / 16 + "px ," + -event.clientY / 16 + "px)";
+  }
+  else if (event.clientX > pW / 2 && event.clientY > pH / 2) {
+    logo.style.transform = "translate(" + event.clientX / 16 + "px ," + event.clientY / 16 + "px)";
+  }
+  else if (event.clientX < pW / 2 && event.clientY > pH / 2) {
+    logo.style.transform = "translate(" + -event.clientX / 20 + "px ," + event.clientY / 20 + "px)";
+  }
+});
+
+
+
+// ----------------------------------------------------------
+// ----------------END HOME PAGE EVENTS----------------------
+// ----------------------------------------------------------
+
+
+mandala.addEventListener('click', menuFunction);
+
+function menuFunction() {
   if (id == 'st8i6') {
+    disableReposition();
     s.animate({
       transform: 'r180, 0, 0',
-    }, 2000)
+    }, 2000);
   }
   else if (id == 'st8i8') {
+    disableReposition();
     s.animate({
       transform: 'r90, 0, 0',
     }, 2000)
   }
   else if (id == 'st8i4') {
+    disableReposition();
     s.animate({
       transform: 'r-90, 0, 0',
     }, 2000)
   }
   else if (id == 'st8i2') {
+    disableReposition();
     s.animate({
       transform: 'r0, 0, 0',
     }, 2000)
   }
-});
+}
+
+
 // ----------------------------------------------------
 // -------------------END MENU EVENTS------------------
 // ----------------------------------------------------
@@ -80,19 +160,26 @@ window.addEventListener('click', () => {
 // -----------------------------------------------------------
 // -------------------------PAGE SHOW/REMOVE------------------
 // -----------------------------------------------------------
-var pArray = [0, 0, 0, 0];
+
 
 function removePage() {
-  if (pArray[0] == 1) {
+  if (pArray[4] == 1) {
+    hoPg.style.opacity = '0';
+    hoPg.style.transform = 'translate(0, -110%)';
+    hoPg.style.transition = '1.5s linear';
+
+    pArray[4] = 0;
+  }
+  else if (pArray[0] == 1) {
     abPg.style.opacity = '0';
-    edPg.style.transform = 'translate(0, -100%)';
+    edPg.style.transform = 'translate(0, -115%)';
     edPg.style.transition = '1.5s linear';
 
     //pArray[0] = 0;
   }
   else if (pArray[1] == 1) {
     abPg.style.opacity = '0';
-    coPg.style.transform = 'translate(0, -100%)';
+    coPg.style.transform = 'translate(0, -115%)';
     coPg.style.transition = '1.5s linear';
 
     pArray[1] = 0;
@@ -100,14 +187,14 @@ function removePage() {
   else if (pArray[2] == 1) {
     console.log('REMOVE projects');
     abPg.style.opacity = '0';
-    prPg.style.transform = 'translate(0, -100%)';
+    prPg.style.transform = 'translate(0, -115%)';
     prPg.style.transition = '1.5s linear';
 
     //pArray[2] = 0;
   }
   else if (pArray[3] == 1) {
     abPg.style.opacity = '0';
-    abPg.style.transform = 'translate(0, -100%)';
+    abPg.style.transform = 'translate(0, -115%)';
     abPg.style.transition = '1.5s linear';
 
     //pArray[3] = 0;
@@ -153,78 +240,85 @@ function dropPage(value) {
     pArray[3] = 1;
   }
   //console.log(pArray);
+  fullPage.style.opacity = '1';
   scrollHeightCheck();
 }
 
-function showPage() {
-  if (id == 'st8i6') {
-    //education
-    if (pArray[0] == 0 && pArray[1] == 0 && pArray[2] == 0 && pArray[3] == 0) {
-      dropPage(0);
-      edPg.style.transitionDelay = '0s';
-    }
-    else {
-      removePage();
-      clearArray();
-      dropPage(0);
-      edPg.style.transitionDelay = '1s';
-    }
-  }
-  else if (id == 'st8i8') {
-    //contact
-    if (pArray[0] == 0 && pArray[1] == 0 && pArray[2] == 0 && pArray[3] == 0) {
-      dropPage(1);
-      edPg.style.transitionDelay = '0s';
-    }
-    else {
-      removePage();
-      clearArray();
-      dropPage(1);
-      coPg.style.transitionDelay = '1s';
-    }
-  }
-  else if (id == 'st8i4') {
-    //projects
-    if (pArray[0] == 0 && pArray[1] == 0 && pArray[2] == 0 && pArray[3] == 0) {
-      prPg.style.transitionDelay = '0s';
-      //console.log('project SHOW no delay');
-      dropPage(2);
-    }
-    else {
-      removePage();
-      //console.log('project SHOW WITH delay');
-      clearArray();
-      dropPage(2);
-      prPg.style.transitionDelay = '1s';
-    }
-  }
-  else if (id == 'st8i2') {
-    //about
-    if (pArray[0] == 0 && pArray[1] == 0 && pArray[2] == 0 && pArray[3] == 0) {
-      abPg.style.transitionDelay = '0s';
-      dropPage(3);
-    }
-    else {
-      removePage();
-      clearArray();
-      dropPage(3);
-      abPg.style.transitionDelay = '1s';
-    }
-  }
-};
 
-var mouse = document.getElementById('mouse');
+
+function showPage() {
+  if (explore == true) {
+    fullPage.style.opacity = '0';
+    if (id == 'st8i6') {
+      //education
+      if (pArray[0] == 0 && pArray[1] == 0 && pArray[2] == 0 && pArray[3] == 0 && pArray[4] == 0) {
+        dropPage(0);
+        edPg.style.transitionDelay = '0s';
+      }
+      else {
+        removePage();
+        clearArray();
+        dropPage(0);
+        edPg.style.transitionDelay = '1s';
+      }
+    }
+    else if (id == 'st8i8') {
+      //contact
+      if (pArray[0] == 0 && pArray[1] == 0 && pArray[2] == 0 && pArray[3] == 0 && pArray[4] == 0) {
+        dropPage(1);
+        edPg.style.transitionDelay = '0s';
+      }
+      else {
+        removePage();
+        clearArray();
+        dropPage(1);
+        coPg.style.transitionDelay = '1s';
+      }
+    }
+    else if (id == 'st8i4') {
+      //projects
+      if (pArray[0] == 0 && pArray[1] == 0 && pArray[2] == 0 && pArray[3] == 0 && pArray[4] == 0) {
+        prPg.style.transitionDelay = '0s';
+        //console.log('project SHOW no delay');
+        dropPage(2);
+      }
+      else {
+        removePage();
+        //console.log('project SHOW WITH delay');
+        clearArray();
+        dropPage(2);
+        prPg.style.transitionDelay = '1s';
+      }
+    }
+    else if (id == 'st8i2') {
+      //about
+      if (pArray[0] == 0 && pArray[1] == 0 && pArray[2] == 0 && pArray[3] == 0 && pArray[4] == 0) {
+        abPg.style.transitionDelay = '0s';
+        dropPage(3);
+      }
+      else {
+        removePage();
+        clearArray();
+        dropPage(3);
+        abPg.style.transitionDelay = '1s';
+      }
+    }
+  }
+  else
+    return;
+};
 
 function scrollHeightCheck() {
   if (pArray[0] == 1) {
-    if (edPg.innerHeight < edPg.scrollHeight) {
-      mouse.style.transition = '1s linear';
+    if (edPg.offsetHeight < edPg.scrollHeight) {
+      console.log(edPg.offsetHeight, edPg.scrollHeight);
+      mouse.style.transition = '2s linear';
       mouse.style.opacity = '1';
-      edPg.style.height = "43%";
+      edPg.style.height = "47%";
     }
 
     else {
-      mouse.style.transition = '1s linear';
+      mouse.style.transition = '2s linear';
       mouse.style.opacity = '0';
     }
 
@@ -232,37 +326,48 @@ function scrollHeightCheck() {
   else if (pArray[1] == 1) {
     if (coPg.offsetHeight < coPg.scrollHeight) {
       mouse.style.opacity = '1';
-      mouse.style.transition = '1s linear';
-      coPg.style.height = "43%";
+      mouse.style.transition = '2s linear';
+      coPg.style.height = "47%";
     }
     else {
-      mouse.style.transition = '1s linear';
+      mouse.style.transition = '2s linear';
       mouse.style.opacity = '0';
     }
 
   }
   else if (pArray[2] == 1) {
     if (prPg.offsetHeight < prPg.scrollHeight) {
-      mouse.style.transition = '1s linear';
+      mouse.style.transition = '2s linear';
       mouse.style.opacity = '1';
-      prPg.style.height = "43%";
+      prPg.style.height = "47%";
     }
     else {
-      mouse.style.transition = '1s linear';
+      mouse.style.transition = '2s linear';
       mouse.style.display = '0';
     }
   }
   else if (pArray[3] == 1) {
     if (abPg.offsetHeight < abPg.scrollHeight) {
       mouse.style.opacity = '1';
-      mouse.style.transition = '1s linear';
-      abPg.style.height = "43%";
+      mouse.style.transition = '2s linear';
+      abPg.style.height = "47%";
     }
     else {
-      mouse.style.transition = '1s linear';
+      mouse.style.transition = '2s linear';
       mouse.style.opacity = '0';
     }
   }
+  // else if (pArray[4] == 1) {
+  //   if (hoPg.offsetHeight < hoPg.scrollHeight) {
+  //     mouse.style.opacity = '1';
+  //     mouse.style.transition = '2s linear';
+  //     abPg.style.height = "48%";
+  //   }
+  //   else {
+  //     mouse.style.transition = '2s linear';
+  //     mouse.style.opacity = '0';
+  //   }
+  // }
 }
 // -----------------------------------------------------------
 // ---------------------END PAGE SHOW/REMOVE------------------
@@ -270,7 +375,6 @@ function scrollHeightCheck() {
 
 
 //-----------LINE ANIMATION-----------
-var line = document.getElementById('line');
 
 setInterval(() => {
   line.style.transition = '1s';
@@ -282,150 +386,129 @@ setInterval(() => {
 }, 10000);
 //-----------END LINE ANIMATION-----------
 
+//-----------------------------RESCALE MANDALA---------------------
+
+
+//-------------------------END RESCALE MANDALA---------------------
 
 
 // ----------------------------------------------------------------
 // ------------------------MENU MOUSE FOLLOW-----------------------
 // ----------------------------------------------------------------
-mainMenu.addEventListener('mouseout', () => {
-  relocate1 = true;
-  // console.log('out menu')
-  //console.log('relocate1:', relocate1)
-});
 
-// mandala.addEventListener('mouseout', () => {
-//   relocate2 = true;
-//   console.log('relocate2:',relocate2)
+
+function disableReposition() {
+  enabled = false;
+  setTimeout(() => {
+    enabled = true;
+  }, 2500);
+}
+
+// cad1.addEventListener('mouseenter', function () {
+//   //console.log('enter');
+//   if (enabled == true) {
+//     if (/*'ABOUT' */ pArray[3] == 1 || pArray[4] == 1) {
+//       s.animate({
+//         transform: 'T-15,-15r0,0,0'
+//       }, 500)
+//     }
+//     else if (/*'PROJECTS'*/ pArray[2] == 1 || pArray[4] == 1) {
+//       s.animate({
+//         transform: 'T-15,-15r-90,0,0'
+//       }, 500)
+//     }
+//     else if (/*'EDUCATION'*/ pArray[0] == 1 || pArray[4] == 1) {
+//       s.animate({
+//         transform: 'T-15,-15r180,0,0'
+//       }, 500)
+//     }
+//     else if (/*'CONTACT'*/ pArray[1] == 1 || pArray[4] == 1) {
+//       s.animate({
+//         transform: 'T-15,-15r90,0,0'
+//       }, 500)
+//     }
+//   }
 // });
 
-mainMenu.addEventListener('mousemove', function (event) {
+// cad2.addEventListener('mouseenter', function () {
+//   //console.log('enter');
+//   if (enabled == true) {
+//     if (/* 'ABOUT'*/pArray[3] == 1 /*|| content.innerHTML == ''*/ || pArray[4] == 1) {
+//       s.animate({
+//         transform: 'T15,-15r0,0,0'
+//       }, 500);
+//     }
+//     else if (/* 'PROJECTS'*/pArray[2] == 1 || pArray[4] == 1) {
+//       s.animate({
+//         transform: 'T15,-15r-90,0,0'
+//       }, 500)
+//     }
+//     else if (/*'EDUCATION'*/pArray[0] == 1 || pArray[4] == 1) {
+//       s.animate({
+//         transform: 'T15,-15r180,0,0'
+//       }, 500)
+//     }
+//     else if (/* 'CONTACT'*/ pArray[1] == 1 || pArray[4] == 1) {
+//       s.animate({
+//         transform: 'T15,-15r90,0,0'
+//       }, 500)
+//     }
+//   }
+// });
 
-  if (/*cadran 3*/event.clientX >= window.innerWidth * 0.67 && event.clientY >= window.innerHeight * 0.75) {
-    //console.log('cadran3')
-    relocate1 = false;
-    //relocate2 = false;
-    if (/*'ABOUT'*/ pArray[3] == 1) {
-      s.animate({
-        transform: 'T50,50r0,0,0'
-      }, 1000)
-    }
-    else if (/*'PROJECTS'*/ pArray[2] == 1) {
-      s.animate({
-        transform: 'T50,50r-90,0,0'
-      }, 1000)
-    }
-    else if (/*'EDUCATION'*/ pArray[0] == 1) {
-      s.animate({
-        transform: 'T50,50r180,0,0'
-      }, 1000)
-    }
-    else if (/*'CONTACT'*/ pArray[1] == 1) {
-      s.animate({
-        transform: 'T50,50r90,0,0'
-      }, 1000)
-    }
-  }
-  else if (/*cadran 2*/event.clientX >= window.innerWidth / 2 && event.clientY >= window.innerHeight / 2
-    && event.clientY <= window.innerHeight * 0.55) {
-    //console.log('cadran2')
-    relocate1 = false;
-    //relocate2 = false;
-    if (/* 'ABOUT'*/pArray[3] == 1 /*|| content.innerHTML == ''*/) {
-      s.animate({
-        transform: 'T50,-50r0,0,0'
-      }, 1000);
-    }
-    else if (/* 'PROJECTS'*/pArray[2] == 1) {
-      s.animate({
-        transform: 'T50,-50r-90,0,0'
-      }, 1000)
-    }
-    else if (/*'EDUCATION'*/pArray[0] == 1) {
-      s.animate({
-        transform: 'T50,-50r180,0,0'
-      }, 1000)
-    }
-    else if (/* 'CONTACT'*/ pArray[1] == 1) {
-      s.animate({
-        transform: 'T50,-50r90,0,0'
-      }, 1000)
-    }
-  }
-  else if (/*cadran 4*/event.clientX <= window.innerWidth * 0.35 && event.clientY >= window.innerHeight * 0.75
-    && event.clientY <= window.innerHeight) {
-    //console.log('cadran4')
-    relocate1 = false;
-    //relocate2 = false;
-    if (/*'ABOUT'*/ pArray[3] == 1) {
-      s.animate({
-        transform: 'T-50,50r0,0,0'
-      }, 1000)
-    }
-    else if (/*'PROJECTS'*/ pArray[2] == 1) {
-      s.animate({
-        transform: 'T-50,50r-90,0,0'
-      }, 1000)
-    }
-    else if (/*'EDUCATION'*/pArray[0] == 1) {
-      s.animate({
-        transform: 'T-50,50r180,0,0'
-      }, 1000)
-    }
-    else if (/*'CONTACT'*/pArray[1] == 1) {
-      s.animate({
-        transform: 'T-50,50r90,0,0'
-      }, 1000)
-    }
-  }
-  else if (/*cadran 1*/event.clientX <= window.innerWidth * 0.35 && event.clientY >= window.innerHeight * 0.5 && event.clientY <= window.innerHeight * 0.75) {
-    relocate1 = false;
-    //relocate2 = false;
-    //console.log('cadran1')
-    if (/*'ABOUT' */ pArray[3] == 1) {
-      s.animate({
-        transform: 'T-50,-50r0,0,0'
-      }, 1000)
-    }
-    else if (/*'PROJECTS'*/ pArray[2] == 1) {
-      s.animate({
-        transform: 'T-50,-50r-90,0,0'
-      }, 1000)
-    }
-    else if (/*'EDUCATION'*/ pArray[0] == 1) {
-      s.animate({
-        transform: 'T-50,-50r180,0,0'
-      }, 1000)
-    }
-    else if (/*'CONTACT'*/ pArray[1] == 1) {
-      s.animate({
-        transform: 'T-50,-50r90,0,0'
-      }, 1000)
-    }
-  }
-  else if (relocate1 == true /*&& relocate2 == true*/) {
-    if (/*'ABOUT' */ pArray[3] == 1) {
-      s.animate({
-        transform: 'T0,0r0,0,0'
-      }, 1000)
-    }
-    else if (/*'PROJECTS'*/ pArray[2] == 1) {
-      s.animate({
-        transform: 'T0,0r-90,0,0'
-      }, 1000)
-    }
-    else if (/*'EDUCATION'*/ pArray[0] == 1) {
-      s.animate({
-        transform: 'T0,0r180,0,0'
-      }, 1000)
-    }
-    else if (/*'CONTACT'*/ pArray[1] == 1) {
-      s.animate({
-        transform: 'T0,0r90,0,0'
-      }, 1000)
-    }
-  }
-});
+// cad3.addEventListener('mouseenter', function () {
+//   //console.log('enter');
+//   if (enabled == true) {
+//     if (/*'ABOUT'*/ pArray[3] == 1 || pArray[4] == 1) {
+//       s.animate({
+//         transform: 'T15,15r0,0,0'
+//       }, 500)
+//     }
+//     else if (/*'PROJECTS'*/ pArray[2] == 1 || pArray[4] == 1) {
+//       s.animate({
+//         transform: 'T15,15r-90,0,0'
+//       }, 500)
+//     }
+//     else if (/*'EDUCATION'*/ pArray[0] == 1 || pArray[4] == 1) {
+//       s.animate({
+//         transform: 'T15,15r180,0,0'
+//       }, 500)
+//     }
+//     else if (/*'CONTACT'*/ pArray[1] == 1 || pArray[4] == 1) {
+//       s.animate({
+//         transform: 'T15,15r90,0,0'
+//       }, 500)
+//     }
+//   }
+// });
+
+// cad4.addEventListener('mouseenter', function () {
+//   //console.log('enter');
+//   if (enabled == true) {
+//     if (/*'ABOUT'*/ pArray[3] == 1 || pArray[4] == 1) {
+//       s.animate({
+//         transform: 'T-15,15r0,0,0'
+//       }, 500)
+//     }
+//     else if (/*'PROJECTS'*/ pArray[2] == 1 || pArray[4] == 1) {
+//       s.animate({
+//         transform: 'T-15,15r-90,0,0'
+//       }, 500)
+//     }
+//     else if (/*'EDUCATION'*/pArray[0] == 1 || pArray[4] == 1) {
+//       s.animate({
+//         transform: 'T-15,15r180,0,0'
+//       }, 500)
+//     }
+//     else if (/*'CONTACT'*/pArray[1] == 1 || pArray[4] == 1) {
+//       s.animate({
+//         transform: 'T-15,15r90,0,0'
+//       }, 500)
+//     }
+//   }
+// });
 
 //----------------------------------------------------------------
 // ------------------------MENU MOUSE FOLLOW-----------------------
 // ----------------------------------------------------------------
+

@@ -1,21 +1,53 @@
 const express = require('express');
+var mongoose = require('./mongoose');
+var model = require('./model');
+var service = require('./service');
 var bodyParser = require('body-parser');
 const path = require('path');
-
 
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-app.use(express.static(path.join(__dirname,'../frontend')));
+mongoose.connect();
+
+app.use(express.static(path.join(__dirname, '../frontend/')));
+// app.use('/add', express.static(path.join(__dirname, '../frontend/add/')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+//LINK FROM EXPRESS TO MONGOOSE
+app.use(function (req, res, next) {
 
-app.get('/check', (req, res) => {
-   res.send('<h1>hello express!</h1>');
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
+
+app.post('/add', (req, res) => {
+    service.createText(req.body);
+    console.log('text posted');
+    res.redirect('/add.html')
+});
+
+app.get('/add.html', (req,res ) => {
+    // res.send();
+});
+
+app.get('/getTextRo', (req, res) =>{
+    service.getText(res);
 });
 
 app.listen(PORT, () => {
     console.log(`server running on port ${PORT}`)
-});
+})

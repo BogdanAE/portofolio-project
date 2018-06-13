@@ -1,0 +1,40 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="http://localhost:3000/add" method="post">
+        Limba:
+        <select name="lang" required>
+            <option value="ro">RO
+            </option>
+            <option value="en">EN
+            </option>
+        </select>
+        <br>
+        <br> unde:
+        <select name="where1" required>
+            <option value="about">about
+            </option>
+            <option value="porto">portofolio
+            </option>
+            <option value="contact">contact
+            </option>
+            <option value="proj">Projects
+            </option>
+        </select>
+        <br>
+        <br> TEXT:
+        <input type="text" name='text1' required>
+        <br>
+        <br>
+        <input id="submit" type="submit" value="submit">
+    </form>
+</body>
+
+</html>
