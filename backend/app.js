@@ -36,6 +36,7 @@ app.use(function (req, res, next) {
 
 app.post('/add', (req, res) => {
     service.createText(req.body);
+    //res.send('text posted');
     console.log('text posted');
     res.redirect('/add.html')
 });
@@ -45,7 +46,11 @@ app.get('/add.html', (req,res ) => {
 });
 
 app.get('/getTextRo', (req, res) =>{
-    service.getText(res);
+    service.getTextRo(res);
+});
+
+app.get('/getTextEn', (req, res) =>{
+    service.getTextEn(res);
 });
 
 app.listen(PORT, () => {

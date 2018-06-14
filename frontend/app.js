@@ -34,9 +34,11 @@ var cad3 = document.getElementById('cadran3');
 var cad4 = document.getElementById('cadran4');
 var mouse = document.getElementById('mouse');
 var line = document.getElementById('line');
-var fullPage = document.getElementById('fullPage');
+var fullPageButton = document.getElementById('fullPage');
+var fullView = document.getElementById('fullView');
 var logo = document.getElementById('logo1');
 var startButton = document.getElementById('startButton');
+var exPg = document.getElementById('exPg');
 
 var pH = window.innerHeight;
 var pW = window.innerWidth;
@@ -60,7 +62,7 @@ var mainMenu = document.querySelector('.mainMenu');
 // ----------------------------------------------------
 function rotateFunction(idSent) {
   id = idSent;
-  console.log(idSent);
+  //console.log(idSent);
   showPage();
 }
 
@@ -76,8 +78,10 @@ startButton.addEventListener('click', () => {
   document.getElementById('mandala').classList.remove('rotateMandala');
   document.getElementById('text').style.display = "block";
   pArray[4] = 0;
-
+  exPg.style.display = "block";
 });
+
+
 
 startButton.addEventListener('mouseover', () => {
   document.getElementById('happy').style.display = 'block';
@@ -101,7 +105,7 @@ function keepRoling() {
 window.addEventListener('mousemove', (event) => {
   logo.style.transition = "1s linear";
   if (event.clientX < pW / 2 && event.clientY < pH / 2) {
-    console.log(pH);
+    //console.log(pH);
     logo.style.transform = "translate(" + -event.clientX / 16 + "px ," + -event.clientY / 16 + "px) scale(0.83)";
   }
   else if (event.clientX > pW / 2 && event.clientY < pH / 2) {
@@ -111,7 +115,7 @@ window.addEventListener('mousemove', (event) => {
     logo.style.transform = "translate(" + event.clientX / 16 + "px ," + event.clientY / 16 + "px) scale(0.83)";
   }
   else if (event.clientX < pW / 2 && event.clientY > pH / 2) {
-    logo.style.transform = "translate(" + -event.clientX / 20 + "px ," + event.clientY / 20 + "px) scale(0.83)";
+    logo.style.transform = "translate(" + -event.clientX / 16 + "px ," + event.clientY / 16 + "px) scale(0.83)";
   }
 });
 
@@ -186,7 +190,7 @@ function removePage() {
     pArray[1] = 0;
   }
   else if (pArray[2] == 1) {
-    console.log('REMOVE projects');
+    //console.log('REMOVE projects');
     abPg.style.opacity = '0';
     prPg.style.transform = 'translate(0, -115%)';
     prPg.style.transition = '1.5s linear';
@@ -241,78 +245,90 @@ function dropPage(value) {
     pArray[3] = 1;
   }
   //console.log(pArray);
-  fullPage.style.opacity = '1';
+  fullPageButton.style.opacity = '1';
   scrollHeightCheck();
 }
 
 
 
 function showPage() {
-  if (explore == true) {
-    fullPage.style.opacity = '0';
-    if (id == 'st8i6') {
-      //education
-      if (pArray[0] == 0 && pArray[1] == 0 && pArray[2] == 0 && pArray[3] == 0 && pArray[4] == 0) {
-        dropPage(0);
-        edPg.style.transitionDelay = '0s';
-      }
-      else {
-        removePage();
-        clearArray();
-        dropPage(0);
-        edPg.style.transitionDelay = '1s';
-      }
+  exPg.animate([
+    // keyframes
+    {opacity: '1'},
+    {opacity: '0'}
+  ], { 
+    // timing options
+    duration: 1000,
+  });
+  setTimeout(() => {
+    exPg.style.display = 'none';
+  }, 1000);
+  
+if (explore == true) {
+  fullPageButton.style.opacity = '0';
+  if (id == 'st8i6') {
+    //education
+    if (pArray[0] == 0 && pArray[1] == 0 && pArray[2] == 0 && pArray[3] == 0 && pArray[4] == 0) {
+      dropPage(0);
+      edPg.style.transitionDelay = '0s';
     }
-    else if (id == 'st8i8') {
-      //contact
-      if (pArray[0] == 0 && pArray[1] == 0 && pArray[2] == 0 && pArray[3] == 0 && pArray[4] == 0) {
-        dropPage(1);
-        edPg.style.transitionDelay = '0s';
-      }
-      else {
-        removePage();
-        clearArray();
-        dropPage(1);
-        coPg.style.transitionDelay = '1s';
-      }
-    }
-    else if (id == 'st8i4') {
-      //projects
-      if (pArray[0] == 0 && pArray[1] == 0 && pArray[2] == 0 && pArray[3] == 0 && pArray[4] == 0) {
-        prPg.style.transitionDelay = '0s';
-        //console.log('project SHOW no delay');
-        dropPage(2);
-      }
-      else {
-        removePage();
-        //console.log('project SHOW WITH delay');
-        clearArray();
-        dropPage(2);
-        prPg.style.transitionDelay = '1s';
-      }
-    }
-    else if (id == 'st8i2') {
-      //about
-      if (pArray[0] == 0 && pArray[1] == 0 && pArray[2] == 0 && pArray[3] == 0 && pArray[4] == 0) {
-        abPg.style.transitionDelay = '0s';
-        dropPage(3);
-      }
-      else {
-        removePage();
-        clearArray();
-        dropPage(3);
-        abPg.style.transitionDelay = '1s';
-      }
+    else {
+      removePage();
+      clearArray();
+      dropPage(0);
+      edPg.style.transitionDelay = '1s';
     }
   }
-  else
-    return;
+  else if (id == 'st8i8') {
+    //contact
+    if (pArray[0] == 0 && pArray[1] == 0 && pArray[2] == 0 && pArray[3] == 0 && pArray[4] == 0) {
+      dropPage(1);
+      edPg.style.transitionDelay = '0s';
+    }
+    else {
+      removePage();
+      clearArray();
+      dropPage(1);
+      coPg.style.transitionDelay = '1s';
+    }
+  }
+  else if (id == 'st8i4') {
+    //projects
+    if (pArray[0] == 0 && pArray[1] == 0 && pArray[2] == 0 && pArray[3] == 0 && pArray[4] == 0) {
+      prPg.style.transitionDelay = '0s';
+      //console.log('project SHOW no delay');
+      dropPage(2);
+    }
+    else {
+      removePage();
+      //console.log('project SHOW WITH delay');
+      clearArray();
+      dropPage(2);
+      prPg.style.transitionDelay = '1s';
+    }
+  }
+  else if (id == 'st8i2') {
+    //about
+    if (pArray[0] == 0 && pArray[1] == 0 && pArray[2] == 0 && pArray[3] == 0 && pArray[4] == 0) {
+      abPg.style.transitionDelay = '0s';
+      dropPage(3);
+    }
+    else {
+      removePage();
+      clearArray();
+      dropPage(3);
+      abPg.style.transitionDelay = '1s';
+    }
+  }
+}
+else
+  return;
 };
 
 function scrollHeightCheck() {
   if (pArray[0] == 1) {
     if (edPg.offsetHeight < edPg.scrollHeight) {
-      console.log(edPg.offsetHeight, edPg.scrollHeight);
+      //console.log(edPg.offsetHeight, edPg.scrollHeight);
       mouse.style.transition = '2s linear';
       mouse.style.opacity = '1';
       edPg.style.height = "47%";
@@ -358,6 +374,7 @@ function scrollHeightCheck() {
       mouse.style.opacity = '0';
     }
   }
+
   // else if (pArray[4] == 1) {
   //   if (hoPg.offsetHeight < hoPg.scrollHeight) {
   //     mouse.style.opacity = '1';

@@ -14,19 +14,30 @@ var createText = (data) => {
     });
 };
 
-var getText = (res) => {
+var getTextRo = (res) => {
     model.textModel.find({'lang': 'ro'}, (err, data) => {
         if(err){
             console.log(err);
         }
-        console.log('text requested');
+        console.log('RO text requested');
+        res.send(data);
+    });
+};
+
+var getTextEn = (res) => {
+    model.textModel.find({'lang': 'en'}, (err, data) => {
+        if(err){
+            console.log(err);
+        }
+        console.log('EN text requested');
         res.send(data);
     });
 };
 
 module.exports = {
     createText,
-    getText
+    getTextRo,
+    getTextEn
 }
 
 

@@ -45,6 +45,8 @@ window.addEventListener('mousemove', (event) => {
     menu4.addEventListener('mouseout', itsOut);
     fullPage.addEventListener('mouseover', itsIn);
     fullPage.addEventListener('mouseout', itsOut);
+    homeButton.addEventListener('mouseover', itsIn);
+    homeButton.addEventListener('mouseout', itsOut);
     console.log(startHover);
     // console.log(event.clientX, event.clientY);
     addAura();
