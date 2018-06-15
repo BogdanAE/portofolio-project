@@ -1,6 +1,35 @@
-/* html {
+html, body, div, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, fieldset, input, hr {
+    margin: 0;
+    padding: 0;
     user-select: none;
-} */
+}
+
+h1, h2, h3, h4, h5, h6, pre, code, address, caption, cite, code, em, strong, th {
+    font-size: 1em;
+    font-weight: normal;
+    font-style: normal;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+fieldset, img, hr {
+    border: none;
+}
+
+caption, th {
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td {
+    vertical-align: top;
+}
 
 body {
     padding: 0;
@@ -21,7 +50,6 @@ body {
     opacity: 0.8;
     display: none;
 }
-
 
 #loading {
     display: block;
@@ -174,7 +202,8 @@ p {
     width: 50%;
     font-family: 'Lobster', cursive;
     font-size: 1.25em;
-    line-height: 50%;
+    line-height: 100%;
+    vertical-align: middle;
     letter-spacing: 2px;
 }
 
@@ -203,7 +232,7 @@ p {
 #en:after {
     width: 90px;
     height: 1px;
-    top: 4%;
+    top: 23px;
     right: 230px;
     opacity: 0;
     transition: opacity 1s linear;
@@ -212,7 +241,7 @@ p {
 #ro:after {
     width: 120px;
     height: 1px;
-    top: 4%;
+    top: 23px;
     right: 40px;
     opacity: 0;
     transition: opacity 1s linear;
@@ -230,22 +259,20 @@ p {
     filter: drop-shadow(1px 1px 2px rgb(187, 30, 30));
 }
 
-#homeButton{
-    z-index: 9999;
+#homeButton {
     float: left;
     font-family: 'Lobster', cursive;
     color: white;
     font-size: 1.25em;
-    line-height: 50%;
     letter-spacing: 2px;
     width: 80px;
     padding: 5px;
-    margin-top: 1.5%;
     margin-left: 8%;
+    letter-spacing: 2px;
+    line-height: 100%;
+    vertical-align: middle;
     display: none;
-
 }
-
 
 #content {
     float: left;
@@ -292,7 +319,7 @@ p {
     font-size: 0.8em;
     opacity: 0;
     transition: 2s linear;
-    z-index: 999;
+    /* z-index: 999; */
 }
 
 #fullPage>p {
@@ -317,6 +344,10 @@ p {
         opacity: 0;
         transform: translateY(8px);
     }
+}
+
+.desc>span {
+    opacity: 0;
 }
 
 #projectsPage, #contactPage, #educationPage, #aboutPage {
@@ -385,8 +416,8 @@ p {
     float: left;
 }
 
-
 /* PAGINA FULL VIEW */
+
 #fullView {
     float: left;
     width: 90%;
@@ -398,17 +429,55 @@ p {
     /* z-index: 999; */
     word-break: break-all;
     display: none;
-    overflow: scroll;
+    /* overflow: scroll; */
+    
 }
 
-#full1, #full2, #full3, #full4{
-    position: relative;
-    /* float: left; */
-    height: 100%;
-    width: 100%;
-    border: 1px solid black;
+#full1, #full2, #full3, #full4 {
+    position: absolute;
+    bottom: -100%;
+    height: 95%;
+    width: 90%;
     display: none;
+    color: #e6e9f0;
+    box-sizing: border-box;
+    padding: 5%;
+    background: radial-gradient(farthest-side at 0% 100%, #141616, #1d2120)
 }
+
+#full1 {
+    bottom: 0;
+    /* background-color: #3674CE; */
+}
+
+#full1img1{
+    position: relative;
+    height: 40%;
+    width: 30%;
+    background: url('./srcs/projects/cv1.png');
+    background-size: 100% 100%;
+}
+#full1img2{
+    position: relative;
+    top: -10%;
+    left: 5%;
+    height: 40%;
+    width: 30%;
+    background: url('./srcs/projects/cv2.png');
+    background-size: 100% 100%;
+}
+
+/* #full2 {
+    background-color: pink;
+}
+
+#full3 {
+    background-color: purple;
+}
+
+#full4 {
+    background-color: red;
+} */
 
 #arrowDown {
     transform: scale(0.6);
