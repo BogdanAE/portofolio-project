@@ -79,6 +79,7 @@ startButton.addEventListener('click', () => {
   document.getElementById('text').style.display = "block";
   pArray[4] = 0;
   exPg.style.display = "block";
+  logo.style.display = 'none';
 });
 
 

@@ -4,6 +4,11 @@ var full2 = document.getElementById('full2');
 var full3 = document.getElementById('full3');
 var full4 = document.getElementById('full4');
 var homeButton = document.getElementById('homeButton');
+var mapB = document.getElementById('map');
+var map1 = document.getElementById('map1');
+var map2 = document.getElementById('map2');
+var map3 = document.getElementById('map3');
+var map4 = document.getElementById('map4');
 
 var letScroll = true;
 
@@ -87,6 +92,7 @@ fullPageButton.addEventListener('click', () => {
         // fullView.style.transition = '1s linear'; 
         fullView.style.opacity = '1';
         homeButton.style.display = 'block';
+        mapB.style.display = 'block';
     }, 2000);
     setTimeout(() => {
         animateShow(fullView);
@@ -125,8 +131,8 @@ function nextFullPage(value, times) {
 
     //hide the current viewed page with opacity
     setTimeout(() => {
-        document.getElementById('full' + fullPageCounter).style.transform = 'translate(0,' + - 2 * window.innerHeight + 'px';
-        document.getElementById('full' + fullPageCounter).style.opacity = '0';
+        document.getElementById('full' + times).style.transform = 'translate(0,' + - 2 * window.innerHeight + 'px';
+        document.getElementById('full' + times).style.opacity = '0';
     }, 2000);
     value.style.opacity = '1';
     setTimeout(() => {
@@ -139,7 +145,6 @@ function previousFullPage(value, times) {
     previous = times + 2;
 
     //move the selected page on the top of the view with an animation
-    console.log(times);
     if (times == 0) {
         value.animate([
             // keyframes
@@ -211,11 +216,12 @@ function previousFullPage(value, times) {
     }
 };
 
+map();
+
 fullView.addEventListener('mousewheel', (event) => {
     if (event.deltaY > 0) {
         if (letScroll == true && fullPageCounter < 3) {
             fullPageCounter++;
-            console.log(fullPageCounter)
             if (fullPageCounter == 1)
                 nextFullPage(full2, fullPageCounter);
             else if (fullPageCounter == 2)
@@ -235,7 +241,6 @@ fullView.addEventListener('mousewheel', (event) => {
         }
         if (letScroll == true && fullPageCounter > 0) {
             fullPageCounter--;
-            console.log(fullPageCounter)
             if (fullPageCounter == 2) {
                 previousFullPage(full3, fullPageCounter);
             }
@@ -246,25 +251,90 @@ fullView.addEventListener('mousewheel', (event) => {
             }
         }
     }
+    map();
+
 });
+
+function resetMap() {
+    map1.style.background = "white";
+    map1.style.filter = "blur(0px)";
+    map2.style.background = "white";
+    map2.style.filter = "blur(0px)";
+    map3.style.background = "white";
+    map3.style.filter = "blur(0px)";
+    map4.style.background = "white";
+    map4.style.filter = "blur(0px)";
+}
+
+function map() {
+    if (fullPageCounter == 0) {
+        resetMap();
+        map1.style.background = "yellow";
+        map1.style.filter = "blur(2px)";
+    }
+    else if (fullPageCounter == 1) {
+        resetMap();
+        map2.style.background = "yellow";
+        map2.style.filter = "blur(2px)";
+    }
+    else if (fullPageCounter == 2) {
+        resetMap();
+        map3.style.background = "yellow";
+        map3.style.filter = "blur(2px)";
+    }
+    else if (fullPageCounter == 3) {
+        resetMap();
+        map4.style.background = "yellow";
+        map4.style.filter = "blur(2px)";
+    }
+}
 
 homeButton.addEventListener('click', () => {
     hide.style.display = 'block';
-    fullView.style.display = 'none';
-    full1.style.display = 'none';
-    full2.style.display = 'none';
-    full3.style.display = 'none';
-    full4.style.display = 'none';
-    fullView.style.transition = '1s linear';
-    fullView.style.opacity = '1';
-    homeButton.style.display = 'none';
+    hide.style.opacity = '0';
+    hide.animate([
+        // keyframes
+        { opacity: '0' },
+        { opacity: '1' }
+    ], {
+            // timing options
+            duration: 2000,
+        });
+    fullView.animate([
+        { opacity: '1' },
+        { opacity: '0' }
+    ], {
+            duration: 2000,
+        }
+    );
+    mapB.animate([
+        { opacity: '1' },
+        { opacity: '0' }
+    ],
+        {
+            duration: 2000
+        })
+    setTimeout(() => {
+        hide.style.opacity = '1';
+        hide.style.display = 'block';
+        fullView.style.display = 'none';
+        full1.style.display = 'none';
+        full2.style.display = 'none';
+        full3.style.display = 'none';
+        full4.style.display = 'none';
+        fullView.style.transition = '1s linear';
+        fullView.style.opacity = '1';
+        homeButton.style.display = 'none';
+        mapB.style.display = 'none';
+    }, 2000);
 });
 
 
 var p1i1 = document.getElementById('full1img1');
 var p1i2 = document.getElementById('full1img2');
+var p1i3 = document.getElementById('full1img3');
 
-function bringInFront(element1, element2){
+function bringInFront(element1, element2) {
     element1.style.transition = "0.5s";
     element2.style.transition = "0.5s";
 
@@ -274,7 +344,7 @@ function bringInFront(element1, element2){
     element2.style.filter = "blur(2px)";
 }
 
-function elementBehind(elem1, elem2){
+function elementBehind(elem1, elem2) {
     elem1.style.transition = "0.5s";
     elem2.style.transition = "0.5s";
 
@@ -284,22 +354,37 @@ function elementBehind(elem1, elem2){
     elem2.style.filter = "blur(0px)";
 }
 //-----------------P1I1--------------------
-p1i1.addEventListener('mouseover',  () =>{
+p1i1.addEventListener('mouseover', () => {
     bringInFront(p1i1, p1i2);
 });
 
-p1i1.addEventListener('mouseout',  () =>{
+p1i1.addEventListener('mouseout', () => {
     elementBehind(p1i1, p1i2);
 });
 //---------------END P1I1------------------
 
 //-----------------P1I2--------------------
-p1i2.addEventListener('mouseover',  () =>{
+p1i2.addEventListener('mouseover', () => {
     bringInFront(p1i2, p1i1);
 });
 
-p1i2.addEventListener('mouseout',  () =>{
+p1i2.addEventListener('mouseout', () => {
     elementBehind(p1i2, p1i1);
 });
 //---------------END P1I2------------------
+
+//-----------------P1I3--------------------
+p1i3.addEventListener('mouseover', () => {
+    p1i3.style.transition = "0.5s";
+    p1i3.style.zIndex = '10';
+    p1i3.style.boxShadow = "2px 2px 4px white";
+    p1i3.style.transform = "scale(1.15)";
+});
+
+p1i3.addEventListener('mouseout', () => {
+    p1i3.style.zIndex = '0';
+    p1i3.style.boxShadow = "none";
+    p1i3.style.transform = "scale(1)";
+});
+//---------------END P1I3------------------
 

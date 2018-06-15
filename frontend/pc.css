@@ -430,7 +430,6 @@ p {
     word-break: break-all;
     display: none;
     /* overflow: scroll; */
-    
 }
 
 #full1, #full2, #full3, #full4 {
@@ -450,21 +449,130 @@ p {
     /* background-color: #3674CE; */
 }
 
-#full1img1{
+#full1img1 {
+    float: left;
     position: relative;
     height: 40%;
     width: 30%;
     background: url('./srcs/projects/cv1.png');
     background-size: 100% 100%;
 }
-#full1img2{
-    position: relative;
-    top: -10%;
-    left: 5%;
+
+#full1img2 {
+    float: left;
+    margin-left: -10%; 
+    margin-top: 15%;
     height: 40%;
     width: 30%;
     background: url('./srcs/projects/cv2.png');
     background-size: 100% 100%;
+    margin-right: 25px;
+    margin-bottom: 15px;
+}
+
+#full1img3 {
+    float: right;
+    height: 40%;
+    width: 30%;
+    background: url('./srcs/projects/cv3.png');
+    background-size: 100% 100%;
+    margin-left: 20px;
+    margin-top: 15px;
+    clear: both;
+}
+
+#textFull1{
+    margin: 15px;
+    /* float: right; */
+    word-break: break-all;
+}
+
+#full2img1{
+    float: left;
+    height: 40%;
+    width: 30%;
+    background: url('./srcs/projects/pens1.png');
+    background-size: 100% 100%;
+    margin-right: 25px;
+    margin-bottom: 15px;
+}
+
+#full2img2{
+    float: left;
+    margin-left: -10%; 
+    margin-top: 15%;
+    height: 40%;
+    width: 30%;
+    background: url('./srcs/projects/pens2.png');
+    background-size: 100% 100%;
+    margin-right: 25px;
+    margin-bottom: 15px;
+}
+
+#full2img3{
+    float: left;
+    margin-left: -40%; 
+    margin-top: 40%;
+    height: 40%;
+    width: 30%;
+    background: url('./srcs/projects/pens3.png');
+    background-size: 100% 100%;
+    margin-right: 25px;
+    margin-bottom: 15px;
+}
+
+#full3img1{
+    float: left;
+    height: 40%;
+    width: 30%;
+    background: url('./srcs/projects/welcome1.png');
+    background-size: 100% 100%;
+    margin-right: 25px;
+    margin-bottom: 15px;
+}
+#full3img2{
+    float: right;
+    margin-top: 45%;
+    height: 40%;
+    width: 30%;
+    background: url('./srcs/projects/welcome2.png');
+    background-size: 100% 100%;
+    margin-right: 25px;
+    margin-bottom: 15px;
+}
+
+#full4video{
+    height: 65%;
+    float:left;
+}
+
+#full4img1{
+    float: right;
+    height: 40%;
+    width: 30%;
+    background: url('./srcs/projects/chat1.png');
+    background-size: 100% 100%;
+}
+
+#full4img2{
+    float: right;
+    height: 40%;
+    width: 30%;
+    margin-right: -20%; 
+    margin-top: 15%;
+    background: url('./srcs/projects/chat2.png');
+    background-size: 100% 100%;
+}
+
+#full4img3{
+    float: right;
+    height: 40%;
+    width: 30%;
+    margin-right: -40%; 
+    margin-top: 30%;
+    background: url('./srcs/projects/chat3.png');
+    background-size: 100% 100%;
+
 }
 
 /* #full2 {
@@ -554,6 +662,33 @@ p {
 
 #right {
     float: right;
+}
+
+#map {
+    position: relative;
+    height: 60%;
+    width: 80%;
+    display: none;
+}
+
+#map1, #map2, #map3, #map4 {
+    margin-top: calc(100vh / 8 - 10px);
+    margin-left: calc(100% / 2 - 11px);
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 2s linear;
+}
+
+#map1:after, #map2:after, #map3:after {
+    margin-top: 20px;
+    right: calc(100% / 2);
+    position: absolute;
+    content: '';
+    height: calc(100vh / 8 - 10px);
+    width: 2px;
+    background-color: white;
 }
 
 #logo {

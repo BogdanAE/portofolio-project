@@ -15,10 +15,10 @@ document.getElementById('loaded').style.display = 'none';
             coPg.innerHTML = data[1].text1;
             prPg.innerHTML = data[2].text1;
             abPg.innerHTML = data[3].text1;
-            setTimeout(() => {
+            // setTimeout(() => {
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('loaded').style.display = 'block';
-            }, 2000);
+            // }, 2000);
         }
     });6
 })();
@@ -33,10 +33,10 @@ enButton.addEventListener('click', () => {
             coPg.innerHTML = data[1].text1;
             prPg.innerHTML = data[2].text1;
             abPg.innerHTML = data[3].text1;
-            setTimeout(() => {
+            // setTimeout(() => {
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('loaded').style.display = 'block';
-            }, 2000);
+            // }, 2000);
         }
     });
 });
@@ -52,10 +52,10 @@ roButton.addEventListener('click', () => {
             coPg.innerHTML = data[1].text1;
             prPg.innerHTML = data[2].text1;
             abPg.innerHTML = data[3].text1;
-            setTimeout(() => {
+            // setTimeout(() => {
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('loaded').style.display = 'block';
-            }, 2000);
+            // }, 2000);
         }
     });
 });
