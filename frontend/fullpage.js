@@ -29,7 +29,8 @@ var full4;
 var letScroll = true;
 var projectsCreated = false; // PROJECTS PAGE ELEMENTS  =>  4 pages
 var ECAcreated = false; // EDUCATION, CONTACT, ABOUT PAGE ELEMENTS =>  2 pages each
-var mapCreated = false; // any map was vreated for PROJECTS or Edu, Contact and About
+var mapCreatedBig = false; // map created for PROJECTS 
+var mapCreatedSmall = false;//map created for Edu, Contact and About
 
 //----------------------------------------------------------
 //----------------CREATE FULLVIEW DIVS----------------------
@@ -51,22 +52,31 @@ function removeChildren(idValue) {
 };
 
 function removeMap() {
-    if (mapCreated == true) {
-        if (id == 'st8i4') {
-            mapS1.remove();
-            mapS2.remove();
-            mapCreated = false;
-        }
-        else {
-            map1.remove();
-            map2.remove();
-            map3.remove();
-            map4.remove();
-            mapCreated = false;
-        }
+    if (mapCreatedBig == true && mapCreatedSmall == true) {
+        mapS1.remove();
+        mapS2.remove();
+        map1.remove();
+        map2.remove();
+        map3.remove();
+        map4.remove();
+        mapCreatedBig = false;
+        mapCreatedSmall = false;
+        fullPageCounter = 0;
     }
-    else
-        return;
+    else if (mapCreatedBig == true && mapCreatedSmall == false) {
+        map1.remove();
+        map2.remove();
+        map3.remove();
+        map4.remove();
+        mapCreatedBig = false;
+        fullPageCounter = 0;
+    }
+    else if (mapCreatedSmall == true && mapCreatedBig == false) {
+        mapS1.remove();
+        mapS2.remove();
+        mapCreatedSmall = false;
+        fullPageCounter = 0;
+    }
 }
 
 
@@ -201,13 +211,14 @@ fullPageButton.addEventListener('click', () => {
                 var div = document.createElement('div');
                 div.setAttribute('id', 'map' + i);
                 mapB.appendChild(div);
+                mapCreatedBig = true;
             }
             else if (fullView.childNodes.length == 2) {
                 var div = document.createElement('div');
                 div.setAttribute('id', 'mapS' + i);
                 mapB.appendChild(div);
+                mapCreatedSmall = true;
             }
-            mapCreated = true;
         }
     }
 
