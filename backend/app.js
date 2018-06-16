@@ -45,11 +45,11 @@ app.get('/add.html', (req,res ) => {
     // res.send();
 });
 
-app.get('/getTextRo', (req, res) =>{
+app.get('/getTextRoSmall', (req, res) =>{
     service.getTextRo(res);
 });
 
-app.get('/getTextEn', (req, res) =>{
+app.get('/getTextEnSmall', (req, res) =>{
     service.getTextEn(res);
 });
 

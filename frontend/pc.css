@@ -66,112 +66,38 @@ body {
 
 .l1>p {
     float: left;
+    margin-left: 5px;
 }
 
-.l1>p:nth-child(2), .l1>p:nth-child(3), .l1>p:nth-child(4) {
-    animation: first 1s linear infinite;
-}
-
-.l1>p:nth-child(3) {
-    animation-delay: 1s;
-    /* color: #f0eceb; */
-    visibility: hidden;
-}
-
-.l1>p:nth-child(4) {
-    animation-delay: 2s;
-    /* color: #f0eceb; */
-    visibility: hidden;
-}
-
-@keyframes colors {
-    0% {
-        color: red;
-    }
-    33% {
-        color: blue;
-    }
-    66% {
-        color: cyan;
-    }
-    100% {
-        color: red;
-    }
-}
-
-#loaded {
-    display: none;
-}
-
-#loading {
-    display: block;
-}
-
-.l1 {
-    margin-left: 44%;
-    float: left;
-    margin-top: 7.5%;
-    font-size: 2.5em;
-    animation: colors 5s linear infinite;
-    animation-delay: 2.5s;
-}
-
-.l1>p {
-    float: left;
-}
-
-.l1>p:nth-child(2), .l1>p:nth-child(3), .l1>p:nth-child(4) {
-    animation: first 1s linear infinite;
+.l1>p:nth-child(2) {
+    opacity: 0;
+    animation: first 3s linear;
+    animation-iteration-count: infinite;
 }
 
 .l1>p:nth-child(3) {
-    animation-delay: 1s;
-    visibility: hidden;
+    opacity: 0;
+    animation-delay: 0.75s;
+    animation: first 3s linear;
+    animation-iteration-count: infinite;
 }
 
 .l1>p:nth-child(4) {
-    animation-delay: 2s;
-    visibility: hidden;
+    opacity: 0;
+    animation-delay: 1.5s;
+    animation: first 3s linear; 
+    animation-iteration-count: infinite; 
 }
 
 @keyframes first {
     0% {
-        visibility: hidden;
+        opacity: 0;
     }
     50% {
-        visibility: visible;
+        opacity: 1;
     }
     100% {
-        visibility: hidden;
-    }
-}
-
-@keyframes first {
-    0% {
-        /* color: #f0eceb;*/
-        visibility: hidden;
-    }
-    50% {
-        /* color: inherit; */
-        visibility: visible;
-    }
-    100% {
-        visibility: hidden;
-    }
-}
-
-@keyframes colors {
-    0% {
-        color: red;
-    }
-    33% {
-        color: blue;
-    }
-    66% {
-        color: cyan;
-    }
-    100% {
-        color: red;
+        opacity: 0;
     }
 }
 
@@ -308,7 +234,7 @@ p {
 
 #fullPage {
     position: absolute;
-    bottom: 42.5%;
+    bottom: 40%;
     width: 70px;
     height: auto;
     border-radius: 25px;

@@ -130,8 +130,8 @@ window.addEventListener('mousemove', (event) => {
 mandala.addEventListener('click', menuFunction);
 
 function menuFunction() {
-  fullPageButton.style.opacity = '1';
   fullPageButton.style.display = 'block';
+  fullPageButton.style.opacity = '0.9';
 
   if (id == 'st8i6') {
    // disableReposition();
@@ -268,7 +268,7 @@ function showPage() {
   }, 1000);
   
 if (explore == true) {
-  fullPageButton.style.opacity = '0';
+  // fullPageButton.style.opacity = '0';
   if (id == 'st8i6') {
     //education
     if (pArray[0] == 0 && pArray[1] == 0 && pArray[2] == 0 && pArray[3] == 0 && pArray[4] == 0) {

@@ -4,7 +4,9 @@ var createText = (data) => {
     var text = model.textModel({
         lang: data.lang,
         where1: data.where1,
-        text1: data.text1
+        where2: data.where2,
+        pId: data.pId,
+        text: data.text
     });
     text.save((err, text) => {
         if(err){
@@ -15,7 +17,7 @@ var createText = (data) => {
 };
 
 var getTextRo = (res) => {
-    model.textModel.find({'lang': 'ro'}, (err, data) => {
+    model.textModel.find({'lang': 'ro', 'where2': 'small'}, (err, data) => {
         if(err){
             console.log(err);
         }
@@ -25,7 +27,7 @@ var getTextRo = (res) => {
 };
 
 var getTextEn = (res) => {
-    model.textModel.find({'lang': 'en'}, (err, data) => {
+    model.textModel.find({'lang': 'en', 'where2': 'small'}, (err, data) => {
         if(err){
             console.log(err);
         }

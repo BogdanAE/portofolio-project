@@ -9,7 +9,7 @@
 
 <body>
     <form action="http://localhost:3000/add" method="post">
-        Limba:
+        Limba:  
         <select name="lang" required>
             <option value="ro">RO
             </option>
@@ -17,7 +17,7 @@
             </option>
         </select>
         <br>
-        <br> unde:
+        <br> PAGINA:  
         <select name="where1" required>
             <option value="education">education
             </option>
@@ -30,9 +30,18 @@
             <option value="explication">explication
             </option>
         </select>
+        <br><br>
+        SMALL/BIG  <select name="where2" required>
+            <option value="small">SMALL
+            </option>
+            <option value="big">BIG
+            </option>
+        </select>
+        <br><br>
+        ID: <input type="number" name="pId">
         <br>
         <br> TEXT:
-        <textarea type="text" name='text1' rows="45" cols="150"></textarea>
+        <textarea type="text" name='text' rows="25" cols="150"></textarea>
         <br>
         <br>
         <input id="submit" type="submit" value="submit">
