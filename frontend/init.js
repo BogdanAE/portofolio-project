@@ -1,6 +1,6 @@
 var random = Math.floor(Math.random() * 4) + 1;
 
-
+fullPageButton.style.display = 'none';
 
 init();
 function init() {

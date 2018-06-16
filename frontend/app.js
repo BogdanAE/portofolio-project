@@ -130,26 +130,29 @@ window.addEventListener('mousemove', (event) => {
 mandala.addEventListener('click', menuFunction);
 
 function menuFunction() {
+  fullPageButton.style.opacity = '1';
+  fullPageButton.style.display = 'block';
+
   if (id == 'st8i6') {
-    disableReposition();
+   // disableReposition();
     s.animate({
       transform: 'r180, 0, 0',
     }, 2000);
   }
   else if (id == 'st8i8') {
-    disableReposition();
+   // disableReposition();
     s.animate({
       transform: 'r90, 0, 0',
     }, 2000)
   }
   else if (id == 'st8i4') {
-    disableReposition();
+   // disableReposition();
     s.animate({
       transform: 'r-90, 0, 0',
     }, 2000)
   }
   else if (id == 'st8i2') {
-    disableReposition();
+  //  disableReposition();
     s.animate({
       transform: 'r0, 0, 0',
     }, 2000)
@@ -246,7 +249,6 @@ function dropPage(value) {
     pArray[3] = 1;
   }
   //console.log(pArray);
-  fullPageButton.style.opacity = '1';
   scrollHeightCheck();
 }
 
