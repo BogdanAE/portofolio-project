@@ -85,8 +85,8 @@ body {
 .l1>p:nth-child(4) {
     opacity: 0;
     animation-delay: 1.5s;
-    animation: first 3s linear; 
-    animation-iteration-count: infinite; 
+    animation: first 3s linear;
+    animation-iteration-count: infinite;
 }
 
 @keyframes first {
@@ -294,6 +294,10 @@ p {
     -webkit-mask-size: 100% 100%;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: bottom;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    mask-position: bottom;
 }
 
 #homePage {
@@ -352,7 +356,7 @@ p {
     z-index: -5;
     word-break: break-all;
     display: none;
-    background-color:#1d2120;
+    background-color: #1d2120;
 }
 
 #full1, #full2, #full3, #full4 {
@@ -384,7 +388,7 @@ p {
 
 #full1img2 {
     float: left;
-    margin-left: -10%; 
+    margin-left: -10%;
     margin-top: 15%;
     height: 40%;
     width: 30%;
@@ -405,13 +409,13 @@ p {
     clear: both;
 }
 
-#textFull1{
+#textFull1 {
     margin: 15px;
     /* float: right; */
     word-break: break-all;
 }
 
-#full2img1{
+#full2img1 {
     position: relative;
     float: left;
     height: 40%;
@@ -422,10 +426,10 @@ p {
     margin-bottom: 15px;
 }
 
-#full2img2{
+#full2img2 {
     float: left;
     position: relative;
-    margin-left: -10%; 
+    margin-left: -10%;
     margin-top: 15%;
     height: 40%;
     width: 30%;
@@ -435,9 +439,9 @@ p {
     margin-bottom: 15px;
 }
 
-#full2img3{
+#full2img3 {
     float: left;
-    margin-left: -40%; 
+    margin-left: -40%;
     margin-top: 40%;
     height: 40%;
     width: 30%;
@@ -447,7 +451,7 @@ p {
     margin-bottom: 15px;
 }
 
-#full3img1{
+#full3img1 {
     float: left;
     height: 40%;
     width: 30%;
@@ -456,7 +460,8 @@ p {
     margin-right: 25px;
     margin-bottom: 15px;
 }
-#full3img2{
+
+#full3img2 {
     float: right;
     margin-top: 45%;
     height: 40%;
@@ -467,12 +472,12 @@ p {
     margin-bottom: 15px;
 }
 
-#full4video{
+#full4video {
     height: 65%;
-    float:left;
+    float: left;
 }
 
-#full4img1{
+#full4img1 {
     float: right;
     position: relative;
     height: 40%;
@@ -481,26 +486,128 @@ p {
     background-size: 100% 100%;
 }
 
-#full4img2{
+#full4img2 {
     float: right;
     position: relative;
     height: 40%;
     width: 30%;
-    margin-right: -25%; 
+    margin-right: -25%;
     margin-top: 15%;
     background: url('./srcs/projects/chat2.png');
     background-size: 100% 100%;
 }
 
-#full4img3{
+#full4img3 {
     float: right;
     height: 40%;
     width: 30%;
-    margin-right: -35%; 
+    margin-right: -35%;
     margin-top: 40%;
     background: url('./srcs/projects/chat3.png');
     background-size: 100% 100%;
+}
 
+#full1ed1, #full1ed2, #full1ed3, #full1ed4 {
+    border: 1px solid white;
+    height: 30%;
+    width: 40%;
+    background-color: pink;
+}
+
+#full1ed2, #full1ed4 {
+    float: right;
+    margin-top: 10%;
+}
+
+#full1ed1, #full1ed3 {
+    float: left;
+    margin-top: 2.5%;
+}
+
+#full1ed4, #full1ed3 {
+    margin-top: 7.5%;
+}
+
+.arrowRight {
+    width: 0px;
+    height: 0px;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    border-left: 30px solid red;
+    position: relative;
+    left: 100%;
+    top: calc(50% - 30px);
+}
+
+.arrowLeft {
+    height: 0px;
+    width: 0px;
+    border-bottom: 30px solid transparent;
+    border-top: 30px solid transparent;
+    border-right: 30px solid red;
+    position: relative;
+    top: calc(50% - 30px);
+    right: 30px;
+}
+
+#full2ed1 {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 50%;
+    background-color: red;
+}
+
+#full2ed2 {
+    float: left;
+    width: 100%;
+    height: 50%;
+    background-color: gray;
+}
+
+#topWrapper {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 20%;
+    background-color: white;
+}
+
+#botWrapper {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 80%;
+    background-color: white;
+}
+
+#ed2line1, #ed2line2, #ed2line3, #ed2line4, #ed2line5 {
+    position: absolute;
+    height: 80%;
+    width: 10px;
+    background-color: purple;
+    bottom: 1px;
+    left: 15%;
+}
+
+#ed2line2 {
+    height: 60%;
+    left: 30%
+}
+
+#ed2line3 {
+    height: 50%;
+    left: 45%
+}
+
+#ed2line4 {
+    height: 70%;
+    left: 60%
+}
+
+#ed2line5 {
+    height: 90%;
+    left: 75%
 }
 
 /* #full2 {
@@ -619,7 +726,7 @@ p {
     background-color: white;
 }
 
-#mapS1, #mapS2{
+#mapS1, #mapS2 {
     margin-top: calc(100vh / 4 - 10px);
     margin-left: calc(100% / 2 - 11px);
     height: 20px;
