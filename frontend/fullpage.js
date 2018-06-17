@@ -32,6 +32,7 @@ var full2;
 var full3;
 var full4;
 
+var fullPageCounter = 0;
 var letScroll = true;
 var projectsCreated = false; // PROJECTS PAGE ELEMENTS  =>  4 pages
 var educationCreated = false; //EDUCATION PAGE ELEMENTS => 2pages
@@ -164,6 +165,7 @@ function createFullViewElements() {
         if (educationCreated == false) {
             //page 1
 
+            //arrows
             let arrowR1 = document.createElement('div');
             arrowR1.setAttribute('class', 'arrowRight');
             let arrowR2 = document.createElement('div');
@@ -174,7 +176,7 @@ function createFullViewElements() {
             let arrowL2 = document.createElement('div');
             arrowL2.setAttribute('class', 'arrowLeft');
 
-
+            //full page
             var div1 = document.createElement('div');
             div1.setAttribute('id', 'full1');
             fullView.appendChild(div1);
@@ -182,17 +184,42 @@ function createFullViewElements() {
             var div2 = document.createElement('div');
             div2.setAttribute('id', 'full1ed1');
             div2.appendChild(arrowR1);
-
+            //text element
+            var div31 = document.createElement('p');
+            var text1ed1 = document.createTextNode('text text text text');
+            div31.appendChild(text1ed1);
+            div31.setAttribute('id', 'ed1text1');
+            div2.appendChild(div31);
 
             var div3 = document.createElement('div');
             div3.setAttribute('id', 'full1ed2');
             div3.appendChild(arrowL1);
+            //text element
+            var div32 = document.createElement('p');
+            var text2ed1 = document.createTextNode('text text text text');
+            div32.appendChild(text2ed1);
+            div32.setAttribute('id', 'ed1text2');
+            div3.appendChild(div32);
+
             var div4 = document.createElement('div');
             div4.appendChild(arrowR2);
             div4.setAttribute('id', 'full1ed3');
+            //text element
+            var div33 = document.createElement('p');
+            var text3ed1 = document.createTextNode('text text text text');
+            div33.appendChild(text3ed1);
+            div33.setAttribute('id', 'ed1text3');
+            div4.appendChild(div33);
+
             var div5 = document.createElement('div');
             div5.setAttribute('id', 'full1ed4');
             div5.appendChild(arrowL2);
+            //text element
+            var div34 = document.createElement('p');
+            var text4ed1 = document.createTextNode('text text text text');
+            div34.appendChild(text4ed1);
+            div34.setAttribute('id', 'ed1text4');
+            div5.appendChild(div34);
 
             div1.appendChild(div2);
             div1.appendChild(div3);
@@ -214,17 +241,36 @@ function createFullViewElements() {
             var wrapperBot = document.createElement('div');
             wrapperBot.setAttribute('id', 'botWrapper');
             div7.appendChild(wrapperBot);
-            
+
             //page2 up container lines
+            var textContent = ['nimic :)', 'Windows', 'Linux / Ubuntu', 'Adobe Illustrator', 'Microsoft Office', 'Autocad/Surfer/ArcMap']
             for (let i = 1; i <= 5; i++) {
                 var line1 = document.createElement('div');
                 line1.setAttribute('id', 'ed2line' + i);
+                var text1 = document.createElement('div');
+                text1.innerHTML = textContent[i];
+                text1.setAttribute('class', 'ed2text1');
+                line1.appendChild(text1);
+
                 wrapperBot.appendChild(line1);
             }
 
-
             var div8 = document.createElement('div');
             div8.setAttribute('id', 'full2ed2');
+
+            //page2 down container lines
+            var textContentB = ['nimic', 'HTML', 'CSS', 'JS', 'NODE.JS', 'MONGOOSE', 'C/C++', 'Angular', 'Oracle']
+            for (let i = 1; i <= 8; i++) {
+                var line2 = document.createElement('div');
+                line2.setAttribute('id', 'ed2bline' + i);
+                var text2 = document.createElement('div');
+                text2.innerHTML = textContentB[i];
+                text2.setAttribute('class', 'ed2text2');
+                line2.appendChild(text2);
+
+                div8.appendChild(line2);
+            }
+
             var div8text = document.createTextNode('Programming Skills');
             div8.appendChild(div8text);
             div6.appendChild(div7);
@@ -248,14 +294,12 @@ function createFullViewElements() {
             fullView.appendChild(div1);
 
 
-
             //page 2
             var div2 = document.createElement('div');
             div2.setAttribute('id', 'full2');
             var t2 = document.createTextNode('ABOUT PAGE // PAGE 2')
             div2.appendChild(t2);
             fullView.appendChild(div2);
-
 
             aboutCreated = true;
         }
@@ -399,6 +443,7 @@ fullPageButton.addEventListener('click', () => {
             ed1d3.addEventListener('mouseover', animateEdPg1Individual3);
             ed1d4.addEventListener('mouseover', animateEdPg1Individual4);
         }, 7500);
+
     }
     else if (id == 'st8i2'/*ABOUT*/) {
         setTimeout(() => {
@@ -438,8 +483,6 @@ fullPageButton.addEventListener('click', () => {
     }
 
 });
-
-var fullPageCounter = 0;
 
 function nextFullPage(value, times) {
     // var topMenuOffset = window.innerHeight * 0.05;
@@ -562,8 +605,13 @@ fullView.addEventListener('mousewheel', (event) => {
     if (event.deltaY > 0) {
         if (letScroll == true && fullPageCounter < max) {
             fullPageCounter++;
-            if (fullPageCounter == 1)
+            if (fullPageCounter == 1) {
                 nextFullPage(full2, fullPageCounter);
+                if (educationCreated == true) {
+                    animateSoftwareSkill();
+                    animateProgrammingSkill();
+                }
+            }
             else if (fullPageCounter == 2)
                 nextFullPage(full3, fullPageCounter);
             else if (fullPageCounter == 3) {
@@ -990,52 +1038,150 @@ function hideOthers(el1, el2, el3) {
         { opacity: '1' },
         { opacity: '0' }
     ], {
-            duration: 1500,
+            duration: 600,
         });
     el2.animate([
         { opacity: '1' },
         { opacity: '0' }
     ], {
-            duration: 1500,
+            duration: 600,
         });
     el3.animate([
         { opacity: '1' },
         { opacity: '0' }
     ], {
-            duration: 1500,
+            duration: 600,
         });
-    setTimeout(() => {
+    // setTimeout(() => {
         el1.style.opacity = '0';
         el2.style.opacity = '0';
         el3.style.opacity = '0';
-    }, 1100);
+    // }, 500);
 };
 
 function showOthers(el1, el2, el3) {
-    el1.animate([
-        { opacity: '0' },
-        { opacity: '1' }
-    ], {
-            duration: 2200,
-        });
-    el2.animate([
-        { opacity: '0' },
-        { opacity: '1' }
-    ], {
-            duration: 2200,
-        });
-    el3.animate([
-        { opacity: '0' },
-        { opacity: '1' }
-    ], {
-            duration: 2200,
-        });
+    setTimeout(() => {
+        el1.animate([
+            { opacity: '0' },
+            { opacity: '1' }
+        ], {
+                duration: 500,
+            });
+        el2.animate([
+            { opacity: '0' },
+            { opacity: '1' }
+        ], {
+                duration: 500,
+            });
+        el3.animate([
+            { opacity: '0' },
+            { opacity: '1' }
+        ], {
+                duration: 500,
+            });
+    }, 1000);
     setTimeout(() => {
         el1.style.opacity = '1';
         el2.style.opacity = '1';
         el3.style.opacity = '1';
-    }, 2100);
+    }, 1510);
 };
+
+function rotateBoxText90(el) {
+    let ed1text1 = document.getElementById('ed1text1');
+    let ed1text2 = document.getElementById('ed1text2');
+    let ed1text3 = document.getElementById('ed1text3');
+    let ed1text4 = document.getElementById('ed1text4');
+
+    if (el == ed1d1) {
+        ed1text1.animate([
+            { transform: 'translate(0,0)' },
+            { transform: 'translate(0%, -25%) rotate(-90deg)' }
+        ],
+            {
+                duration: 700
+            });
+        ed1text1.style.transform = 'translate(0%, -25%) rotate(-90deg)';
+    }
+    else if (el == ed1d2) {
+        ed1text2.animate([
+            { transform: 'translate(0,0)' },
+            { transform: 'translate(0%, 25%) rotate(90deg)' }
+        ],
+            {
+                duration: 700
+            });
+        ed1text2.style.transform = 'translate(0%, 25%) rotate(90deg)';
+    }
+    else if (el == ed1d3) {
+        ed1text3.animate([
+            { transform: 'translate(0,0)' },
+            { transform: 'translate(0%, -25%) rotate(-90deg)' }
+        ],
+            {
+                duration: 700
+            });
+        ed1text3.style.transform = 'translate(0%, -25%) rotate(-90deg)';
+    }
+    else if (el == ed1d4) {
+        ed1text4.animate([
+            { transform: 'translate(0,0)' },
+            { transform: 'translate(0%, 25%) rotate(90deg)' }
+        ],
+            {
+                duration: 700
+            });
+        ed1text4.style.transform = 'translate(0%, 25%) rotate(90deg)';
+    }
+}
+
+function rotateBoxText0(el) {
+    let ed1text1 = document.getElementById('ed1text1');
+    let ed1text2 = document.getElementById('ed1text2');
+    let ed1text3 = document.getElementById('ed1text3');
+    let ed1text4 = document.getElementById('ed1text4');
+
+    if (el == ed1d1) {
+        ed1text1.animate([
+            { transform: 'translate(0%, -25%) rotate(-90deg)' },
+            { transform: 'translate(0%,0%) rotate(0deg)' }
+        ],
+            {
+                duration: 700
+            });
+        ed1text1.style.transform = 'translate(0%, 0%) rotate(0deg)';
+    }
+    else if (el == ed1d2) {
+        ed1text2.animate([
+            { transform: 'translate(0%, 25%) rotate(90deg)' },
+            { transform: 'translate(0%,0%) rotate(0deg)' }
+        ],
+            {
+                duration: 700
+            });
+        ed1text2.style.transform = 'translate(0%, 0%) rotate(0deg)';
+    }
+    else if (el == ed1d3) {
+        ed1text3.animate([
+            { transform: 'translate(0%, -25%) rotate(-90deg)' },
+            { transform: 'translate(0%,0%) rotate(0deg)' }
+        ],
+            {
+                duration: 700
+            });
+        ed1text3.style.transform = 'translate(0%, 0%) rotate(0deg)';
+    }
+    else if (el == ed1d4) {
+        ed1text4.animate([
+            { transform: 'translate(0%, 25%) rotate(90deg)' },
+            { transform: 'translate(0%,0%) rotate(0deg)' }
+        ],
+            {
+                duration: 700
+            });
+        ed1text4.style.transform = 'translate(0%, 0%) rotate(0deg)';
+    }
+}
 
 function animateBoxes(el) {
     let transformMode;
@@ -1082,37 +1228,66 @@ function animateBoxes(el) {
     if (animationCounter == 0) {
         if (el.style.transform == '' || el.style.transform == 'translate(0%, 0%) rotate(0deg)') {
             el.animate([
-                { transform: 'translate(0%,0%)' },
+                {
+                    transform: 'translate(0%,0%)',
+                    height: '30%'
+                },
                 {
                     transform: transformMode,
+                    height: '60%'
                 }
             ],
                 { duration: 1500 });
             setTimeout(() => {
                 el.style.transform = transformMode;
+                el.style.height = '60%';
             }, 1400);
             hideOthers(neighbour1, neighbour2, neighbour3);
+            rotateBoxText90(el);
         }
         else if (el.style.transform == transformMode) {
             el.animate([
-                { transform: transformMode },
+                {
+                    transform: transformMode,
+                    height: '60%'
+                },
                 {
                     transform: 'translate(0%,0%) rotate(0deg)',
+                    height: '30%'
                 }
             ],
                 { duration: 1500 });
             setTimeout(() => {
-                el.style.transform = 'translate(0%,0%) rotate(0deg)'
+                el.style.transform = 'translate(0%,0%) rotate(0deg)';
+                el.style.height = '30%';
             }, 1400);
-            ed1d1.addEventListener("mouseover", animateEdPg1Individual1);
-            ed1d2.addEventListener("mouseover", animateEdPg1Individual2);
-            ed1d3.addEventListener("mouseover", animateEdPg1Individual3);
-            ed1d4.addEventListener("mouseover", animateEdPg1Individual4);
+            rotateBoxText0(el);
             showOthers(neighbour1, neighbour2, neighbour3);
+            setTimeout(() => {
+                if (el == ed1d4) {
+                    ed1d1.addEventListener("mouseover", animateEdPg1Individual1);
+                    ed1d2.addEventListener("mouseover", animateEdPg1Individual2);
+                    ed1d3.addEventListener("mouseover", animateEdPg1Individual3);
+                }
+                else if (el == ed1d3) {
+                    ed1d1.addEventListener("mouseover", animateEdPg1Individual1);
+                    ed1d2.addEventListener("mouseover", animateEdPg1Individual2);
+                    ed1d4.addEventListener("mouseover", animateEdPg1Individual4);
+                }
+                else if (el == ed1d2) {
+                    ed1d1.addEventListener("mouseover", animateEdPg1Individual1);
+                    ed1d3.addEventListener("mouseover", animateEdPg1Individual3);
+                    ed1d4.addEventListener("mouseover", animateEdPg1Individual4);
+                }
+                else if (el == ed1d1) {
+                    ed1d2.addEventListener("mouseover", animateEdPg1Individual2);
+                    ed1d3.addEventListener("mouseover", animateEdPg1Individual3);
+                    ed1d4.addEventListener("mouseover", animateEdPg1Individual4);
+                }
+            }, 1500);
         }
     }
-    else
-        return;
+
 };
 
 function animateEdPg1Individual1() {
@@ -1137,9 +1312,158 @@ function animateEdPg1Individual4() {
 
 
 //>)>)>)>)>)>)>)>)>)>) PAGE 2 (<(<(<(<(<(<(<(<(<(<
+//-----------TOP--------------------------
+function animateSoftwareSkill() {
+    var line1 = document.getElementById('ed2line1');
+    var line2 = document.getElementById('ed2line2');
+    var line3 = document.getElementById('ed2line3');
+    var line4 = document.getElementById('ed2line4');
+    var line5 = document.getElementById('ed2line5');
+
+    //reset
+    for (let i = 1; i <= 5; i++) {
+        document.getElementById('ed2line' + i).style.height = '0';
+        document.getElementById('ed2line' + i).style.opacity = '0';
+    }
+    lineAnim(line1, 0, 70);
+    lineAnim(line2, 1000, 80);
+    lineAnim(line3, 2000, 65);
+    lineAnim(line4, 3000, 75);
+    lineAnim(line5, 4000, 90);
 
 
+    function lineAnim(el, elDelay, elHeight) {
+        setTimeout(() => {
+            el.animate([
+                {
+                    opacity: '0',
+                    height: '0%'
+                },
+                {
+                    opacity: '1',
+                    height: elHeight + '%'
+                }
+            ], {
+                    duration: 1200,
+                    delay: elDelay
+                });
+            el.style.height = elHeight + '%';
+        }, 2000);
+    }
+    reappearLine();
+    function reappearLine() {
+        for (let i = 1; i <= 5; i++) {
+            setTimeout(() => {
+                document.getElementById('ed2line' + i).style.opacity = '1';
+                document.getElementById('ed2line' + i).style.display = 'block';
 
+            }, 2000 + 1000 * i);
+        }
+    }
+
+    //text animation in lines top
+    animateLineText();
+    function animateLineText() {
+        var lineText = document.querySelectorAll('.ed2text1');
+
+        //reset text
+        for (let i = 0; i < 5; i++) {
+            lineText[i].style.opacity = '0';
+        }
+        lineText[4].style.width = "175px";
+        for (let j = 1; j <= 5; j++) {
+            setTimeout(() => {
+                lineText[j - 1].animate([
+                    { transform: 'translate(0 , 0) ', opacity: '0' },
+                    { transform: 'translate(-55%,55px) rotate(-90deg)', opacity: '1' }
+                ], {
+                        duration: 1200
+                    })
+                lineText[j - 1].style.opacity = '1';
+            }, 3500 + 1000 * j)
+        }
+    }
+}
+
+//-----------BOTTOM--------------------------
+
+function animateProgrammingSkill() {
+    var line1 = document.getElementById('ed2bline1');
+    var line2 = document.getElementById('ed2bline2');
+    var line3 = document.getElementById('ed2bline3');
+    var line4 = document.getElementById('ed2bline4');
+    var line5 = document.getElementById('ed2bline5');
+    var line6 = document.getElementById('ed2bline6');
+    var line7 = document.getElementById('ed2bline7');
+    var line8 = document.getElementById('ed2bline8');
+
+    //reset
+    for (let i = 1; i <= 8; i++) {
+        document.getElementById('ed2bline' + i).style.height = '0';
+        document.getElementById('ed2bline' + i).style.opacity = '0';
+    }
+    lineAnim(line1, 0, 90);
+    lineAnim(line2, 1000, 90);
+    lineAnim(line3, 2000, 80);
+    lineAnim(line4, 3000, 50);
+    lineAnim(line5, 4000, 60);
+    lineAnim(line6, 5000, 55);
+    lineAnim(line7, 6000, 45);
+    lineAnim(line8, 7000, 50);
+
+
+    function lineAnim(el, elDelay, elHeight) {
+        setTimeout(() => {
+            el.animate([
+                {
+                    opacity: '0',
+                    height: '0%'
+                },
+                {
+                    opacity: '1',
+                    height: elHeight + '%'
+                }
+            ], {
+                    duration: 1200,
+                    delay: elDelay
+                });
+            el.style.height = elHeight + '%';
+        }, 2000);
+    }
+    reappearLine1();
+    function reappearLine1() {
+        for (let i = 1; i <= 8; i++) {
+            setTimeout(() => {
+                document.getElementById('ed2bline' + i).style.opacity = '1';
+                document.getElementById('ed2bline' + i).style.display = 'block';
+
+            }, 2000 + 1000 * i);
+        }
+    }
+
+
+    //text animation in lines bottom
+    animateLineText();
+    function animateLineText() {
+        var lineText = document.querySelectorAll('.ed2text2');
+
+        //reset text
+        for (let i = 0; i < 8; i++) {
+            lineText[i].style.opacity = '0';
+        }
+        for (let j = 1; j <= 8; j++) {
+            setTimeout(() => {
+                lineText[j - 1].animate([
+                    { transform: 'translate(0 , 0) ', opacity: '0' },
+                    { transform: 'translate(-55%,55px) rotate(-90deg)', opacity: '1' }
+                ], {
+                        duration: 1200
+                    })
+                lineText[j - 1].style.opacity = '1';
+            }, 3500 + 1000 * j)
+        }
+    }
+}
 //----------------------------------------------------------
 //-------------END EDUCATION PAGE ANIMATIONS----------------
 //----------------------------------------------------------
