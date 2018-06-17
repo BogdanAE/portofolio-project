@@ -13,6 +13,12 @@ var p4i1;
 var p4i2;
 var p4i3;
 
+var ed1d1;
+var ed1d2;
+var ed1d3;
+var ed1d4;
+
+
 var map1;
 var map2;
 var mapS1;
@@ -152,18 +158,44 @@ function createFullViewElements() {
         if (ECAcreated == false) {
             console.log('aici');
             //page 1
+
+            let arrowR1 = document.createElement('div');
+            arrowR1.setAttribute('class', 'arrowRight');
+            let arrowR2 = document.createElement('div');
+            arrowR2.setAttribute('class', 'arrowRight');
+
+            let arrowL1 = document.createElement('div');
+            arrowL1.setAttribute('class', 'arrowLeft');
+            let arrowL2 = document.createElement('div');
+            arrowL2.setAttribute('class', 'arrowLeft');
+
+            //middle lines
+
+            //end middle lines
+
             var div1 = document.createElement('div');
             div1.setAttribute('id', 'full1');
             fullView.appendChild(div1);
-            var img1 = document.createElement('div');
-            img1.setAttribute('id', 'full1img1');
-            var img2 = document.createElement('div');
-            img2.setAttribute('id', 'full1img2');
-            var img3 = document.createElement('div');
-            img3.setAttribute('id', 'full1img3');
-            div1.appendChild(img1);
-            div1.appendChild(img2);
-            div1.appendChild(img3);
+
+            var div2 = document.createElement('div');
+            div2.setAttribute('id', 'full1ed1');
+            div2.appendChild(arrowR1);
+
+
+            var div3 = document.createElement('div');
+            div3.setAttribute('id', 'full1ed2');
+            div3.appendChild(arrowL1);
+            var div4 = document.createElement('div');
+            div4.appendChild(arrowR2);
+            div4.setAttribute('id', 'full1ed3');
+            var div5 = document.createElement('div');
+            div5.setAttribute('id', 'full1ed4');
+            div5.appendChild(arrowL2);
+
+            div1.appendChild(div2);
+            div1.appendChild(div3);
+            div1.appendChild(div4);
+            div1.appendChild(div5);
 
             //page 2
             var div2 = document.createElement('div');
@@ -267,6 +299,7 @@ fullPageButton.addEventListener('click', () => {
         }, 2000)
     }
     else {
+
         setTimeout(() => {
             hide.style.display = 'none';
             fullView.style.display = 'block';
@@ -276,15 +309,25 @@ fullPageButton.addEventListener('click', () => {
             homeButton.style.display = 'block';
             mapB.style.display = 'block';
         }, 2000);
+
+        ed1d1 = document.getElementById('full1ed1');
+        ed1d2 = document.getElementById('full1ed2');
+        ed1d3 = document.getElementById('full1ed3');
+        ed1d4 = document.getElementById('full1ed4');
         setTimeout(() => {
             animateShow(fullView);
             animateShow(full1);
             animateShow(full2);
             animateShow(homeButton);
-        }, 2000)
+            animateEdPg1();
+        }, 2000);
+        setTimeout(() => {
+            ed1d1.addEventListener('mouseover', animateEdPg1Individual1);
+            ed1d2.addEventListener('mouseover', animateEdPg1Individual2);
+            ed1d3.addEventListener('mouseover', animateEdPg1Individual3);
+            ed1d4.addEventListener('mouseover', animateEdPg1Individual4);
+        }, 7500);
     }
-
-
 });
 
 var fullPageCounter = 0;
@@ -765,5 +808,217 @@ function eventsImageProjectPage() {
         document.getElementById('full4video').pause()
     });
     //---------------END P4V------------------
+};
 
+
+function animateEdPg1() {
+    ed1d1.style.opacity = '0';
+    setTimeout(() => {
+        ed1d1.style.opacity = '1';
+    }, 3000);
+    ed1d2.style.opacity = '0';
+    setTimeout(() => {
+        ed1d2.style.opacity = '1';
+    }, 3500);
+    ed1d3.style.opacity = '0';
+    setTimeout(() => {
+        ed1d3.style.opacity = '1';
+    }, 4000);
+    ed1d4.style.opacity = '0';
+    setTimeout(() => {
+        ed1d4.style.opacity = '1';
+    }, 4500);
+    document.getElementById('full1ed1').animate([
+        { transform: 'translate(-150%, 0)', opacity: 0 },
+        { transform: 'translate(0%, 0)', opacity: 1 }
+    ], {
+            duration: 2000,
+            delay: 1000,
+        });
+    document.getElementById('full1ed2').animate([
+        { transform: 'translate(150%, 0)', opacity: 0 },
+        { transform: 'translate(0%, 0)', opacity: 1 }
+    ], {
+            duration: 2000,
+            delay: 1500
+        });
+    document.getElementById('full1ed3').animate([
+        { transform: 'translate(-150%, 0)', opacity: 0 },
+        { transform: 'translate(0%, 0)', opacity: 1 }
+    ], {
+            duration: 2000,
+            delay: 2000
+        });
+    document.getElementById('full1ed4').animate([
+        { transform: 'translate(150%, 0)', opacity: 0 },
+        { transform: 'translate(0%, 0)', opacity: 1 }
+    ], {
+            duration: 2000,
+            delay: 2500
+        });
+};
+
+var animationCounter = 0;
+
+function disableMultiHover() {
+    setTimeout(() => {
+        animationCounter = 1;
+    }, 100)
+
+    setTimeout(() => {
+        animationCounter = 0;
+    }, 1500);
 }
+
+function hideOthers(el1, el2, el3) {
+    el1.animate([
+        { opacity: '1' },
+        { opacity: '0' }
+    ], {
+            duration: 1500,
+        });
+    el2.animate([
+        { opacity: '1' },
+        { opacity: '0' }
+    ], {
+            duration: 1500,
+        });
+    el3.animate([
+        { opacity: '1' },
+        { opacity: '0' }
+    ], {
+            duration: 1500,
+        });
+    setTimeout(() => {
+        el1.style.opacity = '0';
+        el2.style.opacity = '0';
+        el3.style.opacity = '0';
+    }, 1100);
+};
+
+function showOthers(el1, el2, el3) {
+    el1.animate([
+        { opacity: '0' },
+        { opacity: '1' }
+    ], {
+            duration: 1500,
+        });
+    el2.animate([
+        { opacity: '0' },
+        { opacity: '1' }
+    ], {
+            duration: 1500,
+        });
+    el3.animate([
+        { opacity: '0' },
+        { opacity: '1' }
+    ], {
+            duration: 1500,
+        });
+    setTimeout(() => {
+        el1.style.opacity = '1';
+        el2.style.opacity = '1';
+        el3.style.opacity = '1';
+    }, 1100);
+};
+
+function animateBoxes(el) {
+    let transformMode;
+    let neighbour1;
+    let neighbour2;
+    let neighbour3;
+    let endPos;
+    if (el == ed1d1) {
+        transformMode = 'translate(75%, 35%) rotate(90deg)';
+        neighbour1 = ed1d2;
+        neighbour2 = ed1d3;
+        neighbour3 = ed1d4;
+        ed1d2.removeEventListener("mouseover", animateEdPg1Individual2);
+        ed1d3.removeEventListener("mouseover", animateEdPg1Individual3);
+        ed1d4.removeEventListener("mouseover", animateEdPg1Individual4);
+    }
+    else if (el == ed1d2) {
+        transformMode = 'translate(-75%, 35%) rotate(-90deg)';
+        neighbour1 = ed1d1;
+        neighbour2 = ed1d3;
+        neighbour3 = ed1d4;
+        ed1d1.removeEventListener("mouseover", animateEdPg1Individual1);
+        ed1d3.removeEventListener("mouseover", animateEdPg1Individual3);
+        ed1d4.removeEventListener("mouseover", animateEdPg1Individual4);
+    }
+    else if (el == ed1d3) {
+        transformMode = 'translate(75%, -45%) rotate(90deg)';
+        neighbour1 = ed1d1;
+        neighbour2 = ed1d2;
+        neighbour3 = ed1d4;
+        ed1d1.removeEventListener("mouseover", animateEdPg1Individual1);
+        ed1d2.removeEventListener("mouseover", animateEdPg1Individual2);
+        ed1d4.removeEventListener("mouseover", animateEdPg1Individual4);
+    }
+    else if (el == ed1d4) {
+        transformMode = 'translate(-75%, -55%) rotate(-90deg)';
+        neighbour1 = ed1d1;
+        neighbour2 = ed1d2;
+        neighbour3 = ed1d3;
+        ed1d2.removeEventListener("mouseover", animateEdPg1Individual2);
+        ed1d3.removeEventListener("mouseover", animateEdPg1Individual3);
+        ed1d1.removeEventListener("mouseover", animateEdPg1Individual1);
+    }
+
+    if (animationCounter == 0) {
+        if (el.style.transform == '' || el.style.transform == 'translate(0%, 0%) rotate(0deg)') {
+            el.animate([
+                { transform: 'translate(0%,0%)' },
+                {
+                    transform: transformMode,
+                }
+            ],
+                { duration: 1500 });
+            setTimeout(() => {
+                el.style.transform = transformMode;
+            }, 1400);
+            hideOthers(neighbour1, neighbour2, neighbour3);
+        }
+        else if (el.style.transform == transformMode) {
+            el.animate([
+                { transform: transformMode },
+                {
+                    transform: 'translate(0%,0%) rotate(0deg)',
+                }
+            ],
+                { duration: 1500 });
+            setTimeout(() => {
+                el.style.transform = 'translate(0%,0%) rotate(0deg)'
+            }, 1400);
+            ed1d1.addEventListener("mouseover", animateEdPg1Individual1);
+            ed1d2.addEventListener("mouseover", animateEdPg1Individual2);
+            ed1d3.addEventListener("mouseover", animateEdPg1Individual3);
+            ed1d4.addEventListener("mouseover", animateEdPg1Individual4);
+            showOthers(neighbour1, neighbour2, neighbour3);
+        }
+    }
+    else
+        return;
+};
+
+function animateEdPg1Individual1() {
+    disableMultiHover();
+    animateBoxes(ed1d1);
+};
+
+function animateEdPg1Individual2() {
+    disableMultiHover();
+    animateBoxes(ed1d2);
+};
+
+function animateEdPg1Individual3() {
+    disableMultiHover();
+    animateBoxes(ed1d3);
+};
+
+function animateEdPg1Individual4() {
+    disableMultiHover();
+    animateBoxes(ed1d4);
+};
+
+
