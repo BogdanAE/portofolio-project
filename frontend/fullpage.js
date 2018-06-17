@@ -32,6 +32,7 @@ var full2;
 var full3;
 var full4;
 
+var fullPageCounter = 0;
 var letScroll = true;
 var projectsCreated = false; // PROJECTS PAGE ELEMENTS  =>  4 pages
 var educationCreated = false; //EDUCATION PAGE ELEMENTS => 2pages
@@ -214,17 +215,37 @@ function createFullViewElements() {
             var wrapperBot = document.createElement('div');
             wrapperBot.setAttribute('id', 'botWrapper');
             div7.appendChild(wrapperBot);
-            
+
             //page2 up container lines
+            var textContent = ['nimic :)', 'Windows', 'Linux / Ubuntu', 'Adobe Illustrator', 'Microsoft Office', 'Autocad/Surfer/ArcMap']
             for (let i = 1; i <= 5; i++) {
                 var line1 = document.createElement('div');
                 line1.setAttribute('id', 'ed2line' + i);
+                var text1 = document.createElement('div');
+                text1.innerHTML = textContent[i];
+                text1.setAttribute('class', 'ed2text1');
+                line1.appendChild(text1);
+
                 wrapperBot.appendChild(line1);
             }
 
 
             var div8 = document.createElement('div');
             div8.setAttribute('id', 'full2ed2');
+
+            //page2 down container lines
+            var textContentB = ['nimic', 'HTML', 'CSS', 'JS', 'NODE.JS', 'MONGOOSE', 'C/C++', 'Angular', 'Oracle']
+            for (let i = 1; i <= 8; i++) {
+                var line2 = document.createElement('div');
+                line2.setAttribute('id', 'ed2bline' + i);
+                var text2 = document.createElement('div');
+                text2.innerHTML = textContentB[i];
+                text2.setAttribute('class', 'ed2text2');
+                line2.appendChild(text2);
+
+                div8.appendChild(line2);
+            }
+
             var div8text = document.createTextNode('Programming Skills');
             div8.appendChild(div8text);
             div6.appendChild(div7);
@@ -399,6 +420,7 @@ fullPageButton.addEventListener('click', () => {
             ed1d3.addEventListener('mouseover', animateEdPg1Individual3);
             ed1d4.addEventListener('mouseover', animateEdPg1Individual4);
         }, 7500);
+
     }
     else if (id == 'st8i2'/*ABOUT*/) {
         setTimeout(() => {
@@ -438,8 +460,6 @@ fullPageButton.addEventListener('click', () => {
     }
 
 });
-
-var fullPageCounter = 0;
 
 function nextFullPage(value, times) {
     // var topMenuOffset = window.innerHeight * 0.05;
@@ -562,8 +582,13 @@ fullView.addEventListener('mousewheel', (event) => {
     if (event.deltaY > 0) {
         if (letScroll == true && fullPageCounter < max) {
             fullPageCounter++;
-            if (fullPageCounter == 1)
+            if (fullPageCounter == 1) {
                 nextFullPage(full2, fullPageCounter);
+                if (educationCreated == true) {
+                    animateSoftwareSkill();
+                    animateProgrammingSkill();
+                }
+            }
             else if (fullPageCounter == 2)
                 nextFullPage(full3, fullPageCounter);
             else if (fullPageCounter == 3) {
@@ -1104,11 +1129,11 @@ function animateBoxes(el) {
             setTimeout(() => {
                 el.style.transform = 'translate(0%,0%) rotate(0deg)'
             }, 1400);
+            showOthers(neighbour1, neighbour2, neighbour3);
             ed1d1.addEventListener("mouseover", animateEdPg1Individual1);
             ed1d2.addEventListener("mouseover", animateEdPg1Individual2);
             ed1d3.addEventListener("mouseover", animateEdPg1Individual3);
             ed1d4.addEventListener("mouseover", animateEdPg1Individual4);
-            showOthers(neighbour1, neighbour2, neighbour3);
         }
     }
     else
@@ -1137,9 +1162,158 @@ function animateEdPg1Individual4() {
 
 
 //>)>)>)>)>)>)>)>)>)>) PAGE 2 (<(<(<(<(<(<(<(<(<(<
+//-----------TOP--------------------------
+function animateSoftwareSkill() {
+    var line1 = document.getElementById('ed2line1');
+    var line2 = document.getElementById('ed2line2');
+    var line3 = document.getElementById('ed2line3');
+    var line4 = document.getElementById('ed2line4');
+    var line5 = document.getElementById('ed2line5');
+
+    //reset
+    for (let i = 1; i <= 5; i++) {
+        document.getElementById('ed2line' + i).style.height = '0';
+        document.getElementById('ed2line' + i).style.opacity = '0';
+    }
+    lineAnim(line1, 0, 70);
+    lineAnim(line2, 1000, 80);
+    lineAnim(line3, 2000, 65);
+    lineAnim(line4, 3000, 75);
+    lineAnim(line5, 4000, 90);
 
 
+    function lineAnim(el, elDelay, elHeight) {
+        setTimeout(() => {
+            el.animate([
+                {
+                    opacity: '0',
+                    height: '0%'
+                },
+                {
+                    opacity: '1',
+                    height: elHeight + '%'
+                }
+            ], {
+                    duration: 1200,
+                    delay: elDelay
+                });
+            el.style.height = elHeight + '%';
+        }, 2000);
+    }
+    reappearLine();
+    function reappearLine() {
+        for (let i = 1; i <= 5; i++) {
+            setTimeout(() => {
+                document.getElementById('ed2line' + i).style.opacity = '1';
+                document.getElementById('ed2line' + i).style.display = 'block';
 
+            }, 2000 + 1000 * i);
+        }
+    }
+
+    //text animation in lines top
+    animateLineText();
+    function animateLineText() {
+        var lineText = document.querySelectorAll('.ed2text1');
+
+        //reset text
+        for (let i = 0; i < 5; i++) {
+            lineText[i].style.opacity = '0';
+        }
+        lineText[4].style.width = "175px";
+        for (let j = 1; j <= 5; j++) {
+            setTimeout(() => {
+                lineText[j - 1].animate([
+                    { transform: 'translate(0 , 0) ', opacity: '0' },
+                    { transform: 'translate(-55%,55px) rotate(-90deg)', opacity: '1' }
+                ], {
+                        duration: 1200
+                    })
+                lineText[j - 1].style.opacity = '1';
+            }, 3500 + 1000 * j)
+        }
+    }
+}
+
+//-----------BOTTOM--------------------------
+
+function animateProgrammingSkill() {
+    var line1 = document.getElementById('ed2bline1');
+    var line2 = document.getElementById('ed2bline2');
+    var line3 = document.getElementById('ed2bline3');
+    var line4 = document.getElementById('ed2bline4');
+    var line5 = document.getElementById('ed2bline5');
+    var line6 = document.getElementById('ed2bline6');
+    var line7 = document.getElementById('ed2bline7');
+    var line8 = document.getElementById('ed2bline8');
+
+    //reset
+    for (let i = 1; i <= 8; i++) {
+        document.getElementById('ed2bline' + i).style.height = '0';
+        document.getElementById('ed2bline' + i).style.opacity = '0';
+    }
+    lineAnim(line1, 0, 70);
+    lineAnim(line2, 1000, 80);
+    lineAnim(line3, 2000, 65);
+    lineAnim(line4, 3000, 75);
+    lineAnim(line5, 4000, 90);
+    lineAnim(line6, 5000, 40);
+    lineAnim(line7, 6000, 60);
+    lineAnim(line8, 7000, 55);
+
+
+    function lineAnim(el, elDelay, elHeight) {
+        setTimeout(() => {
+            el.animate([
+                {
+                    opacity: '0',
+                    height: '0%'
+                },
+                {
+                    opacity: '1',
+                    height: elHeight + '%'
+                }
+            ], {
+                    duration: 1200,
+                    delay: elDelay
+                });
+            el.style.height = elHeight + '%';
+        }, 2000);
+    }
+    reappearLine1();
+    function reappearLine1() {
+        for (let i = 1; i <= 8; i++) {
+            setTimeout(() => {
+                document.getElementById('ed2bline' + i).style.opacity = '1';
+                document.getElementById('ed2bline' + i).style.display = 'block';
+
+            }, 2000 + 1000 * i);
+        }
+    }
+
+
+    //text animation in lines bottom
+    animateLineText();
+    function animateLineText() {
+        var lineText = document.querySelectorAll('.ed2text2');
+
+        //reset text
+        for (let i = 0; i < 8; i++) {
+            lineText[i].style.opacity = '0';
+        }
+        for (let j = 1; j <= 8; j++) {
+            setTimeout(() => {
+                lineText[j - 1].animate([
+                    { transform: 'translate(0 , 0) ', opacity: '0' },
+                    { transform: 'translate(-55%,55px) rotate(-90deg)', opacity: '1' }
+                ], {
+                        duration: 1200
+                    })
+                lineText[j - 1].style.opacity = '1';
+            }, 3500 + 1000 * j)
+        }
+    }
+}
 //----------------------------------------------------------
 //-------------END EDUCATION PAGE ANIMATIONS----------------
 //----------------------------------------------------------
