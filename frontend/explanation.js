@@ -27,7 +27,7 @@ function fadeWords(words) {
         //word.style.duration = "3000";
         word.animate([{
             opacity: 0,
-            filter: "blur(" + getRandom(0, 8) + "px)"
+            filter: "blur(" + getRandom(1, 6) + "px)"
         }, {
             opacity: 1,
             filter: "blur(0px)"

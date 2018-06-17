@@ -80,6 +80,7 @@ startButton.addEventListener('click', () => {
   pArray[4] = 0;
   exPg.style.display = "block";
   logo.style.display = 'none';
+  /////////////////////////////////
 });
 
 
@@ -104,19 +105,21 @@ function keepRoling() {
 }
 
 window.addEventListener('mousemove', (event) => {
-  logo.style.transition = "1s linear";
-  if (event.clientX < pW / 2 && event.clientY < pH / 2) {
-    //console.log(pH);
-    logo.style.transform = "translate(" + -event.clientX / 16 + "px ," + -event.clientY / 16 + "px) scale(0.83)";
-  }
-  else if (event.clientX > pW / 2 && event.clientY < pH / 2) {
-    logo.style.transform = "translate(" + event.clientX / 16 + "px ," + -event.clientY / 16 + "px) scale(0.83)";
-  }
-  else if (event.clientX > pW / 2 && event.clientY > pH / 2) {
-    logo.style.transform = "translate(" + event.clientX / 16 + "px ," + event.clientY / 16 + "px) scale(0.83)";
-  }
-  else if (event.clientX < pW / 2 && event.clientY > pH / 2) {
-    logo.style.transform = "translate(" + -event.clientX / 16 + "px ," + event.clientY / 16 + "px) scale(0.83)";
+  if (hoPg.style.display == '') {
+    logo.style.transition = "1s linear";
+    if (event.clientX < pW / 2 && event.clientY < pH / 2) {
+      //console.log(pH);
+      logo.style.transform = "translate(" + -event.clientX / 16 + "px ," + -event.clientY / 16 + "px) scale(0.83)";
+    }
+    else if (event.clientX > pW / 2 && event.clientY < pH / 2) {
+      logo.style.transform = "translate(" + event.clientX / 16 + "px ," + -event.clientY / 16 + "px) scale(0.83)";
+    }
+    else if (event.clientX > pW / 2 && event.clientY > pH / 2) {
+      logo.style.transform = "translate(" + event.clientX / 16 + "px ," + event.clientY / 16 + "px) scale(0.83)";
+    }
+    else if (event.clientX < pW / 2 && event.clientY > pH / 2) {
+      logo.style.transform = "translate(" + -event.clientX / 16 + "px ," + event.clientY / 16 + "px) scale(0.83)";
+    }
   }
 });
 
@@ -134,25 +137,25 @@ function menuFunction() {
   fullPageButton.style.opacity = '0.9';
 
   if (id == 'st8i6') {
-   // disableReposition();
+    // disableReposition();
     s.animate({
       transform: 'r180, 0, 0',
     }, 2000);
   }
   else if (id == 'st8i8') {
-   // disableReposition();
+    // disableReposition();
     s.animate({
       transform: 'r90, 0, 0',
     }, 2000)
   }
   else if (id == 'st8i4') {
-   // disableReposition();
+    // disableReposition();
     s.animate({
       transform: 'r-90, 0, 0',
     }, 2000)
   }
   else if (id == 'st8i2') {
-  //  disableReposition();
+    //  disableReposition();
     s.animate({
       transform: 'r0, 0, 0',
     }, 2000)
@@ -257,75 +260,75 @@ function dropPage(value) {
 function showPage() {
   exPg.animate([
     // keyframes
-    {opacity: '1'},
-    {opacity: '0'}
-  ], { 
-    // timing options
-    duration: 1000,
-  });
+    { opacity: '1' },
+    { opacity: '0' }
+  ], {
+      // timing options
+      duration: 1000,
+    });
   setTimeout(() => {
     exPg.style.display = 'none';
   }, 1000);
-  
-if (explore == true) {
-  // fullPageButton.style.opacity = '0';
-  if (id == 'st8i6') {
-    //education
-    if (pArray[0] == 0 && pArray[1] == 0 && pArray[2] == 0 && pArray[3] == 0 && pArray[4] == 0) {
-      dropPage(0);
-      edPg.style.transitionDelay = '0s';
+
+  if (explore == true) {
+    // fullPageButton.style.opacity = '0';
+    if (id == 'st8i6') {
+      //education
+      if (pArray[0] == 0 && pArray[1] == 0 && pArray[2] == 0 && pArray[3] == 0 && pArray[4] == 0) {
+        dropPage(0);
+        edPg.style.transitionDelay = '0s';
+      }
+      else {
+        removePage();
+        clearArray();
+        dropPage(0);
+        edPg.style.transitionDelay = '1s';
+      }
     }
-    else {
-      removePage();
-      clearArray();
-      dropPage(0);
-      edPg.style.transitionDelay = '1s';
+    else if (id == 'st8i8') {
+      //contact
+      if (pArray[0] == 0 && pArray[1] == 0 && pArray[2] == 0 && pArray[3] == 0 && pArray[4] == 0) {
+        dropPage(1);
+        edPg.style.transitionDelay = '0s';
+      }
+      else {
+        removePage();
+        clearArray();
+        dropPage(1);
+        coPg.style.transitionDelay = '1s';
+      }
+    }
+    else if (id == 'st8i4') {
+      //projects
+      if (pArray[0] == 0 && pArray[1] == 0 && pArray[2] == 0 && pArray[3] == 0 && pArray[4] == 0) {
+        prPg.style.transitionDelay = '0s';
+        //console.log('project SHOW no delay');
+        dropPage(2);
+      }
+      else {
+        removePage();
+        //console.log('project SHOW WITH delay');
+        clearArray();
+        dropPage(2);
+        prPg.style.transitionDelay = '1s';
+      }
+    }
+    else if (id == 'st8i2') {
+      //about
+      if (pArray[0] == 0 && pArray[1] == 0 && pArray[2] == 0 && pArray[3] == 0 && pArray[4] == 0) {
+        abPg.style.transitionDelay = '0s';
+        dropPage(3);
+      }
+      else {
+        removePage();
+        clearArray();
+        dropPage(3);
+        abPg.style.transitionDelay = '1s';
+      }
     }
   }
-  else if (id == 'st8i8') {
-    //contact
-    if (pArray[0] == 0 && pArray[1] == 0 && pArray[2] == 0 && pArray[3] == 0 && pArray[4] == 0) {
-      dropPage(1);
-      edPg.style.transitionDelay = '0s';
-    }
-    else {
-      removePage();
-      clearArray();
-      dropPage(1);
-      coPg.style.transitionDelay = '1s';
-    }
-  }
-  else if (id == 'st8i4') {
-    //projects
-    if (pArray[0] == 0 && pArray[1] == 0 && pArray[2] == 0 && pArray[3] == 0 && pArray[4] == 0) {
-      prPg.style.transitionDelay = '0s';
-      //console.log('project SHOW no delay');
-      dropPage(2);
-    }
-    else {
-      removePage();
-      //console.log('project SHOW WITH delay');
-      clearArray();
-      dropPage(2);
-      prPg.style.transitionDelay = '1s';
-    }
-  }
-  else if (id == 'st8i2') {
-    //about
-    if (pArray[0] == 0 && pArray[1] == 0 && pArray[2] == 0 && pArray[3] == 0 && pArray[4] == 0) {
-      abPg.style.transitionDelay = '0s';
-      dropPage(3);
-    }
-    else {
-      removePage();
-      clearArray();
-      dropPage(3);
-      abPg.style.transitionDelay = '1s';
-    }
-  }
-}
-else
-  return;
+  else
+    return;
 };
 
 function scrollHeightCheck() {

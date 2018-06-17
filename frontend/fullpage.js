@@ -34,7 +34,10 @@ var full4;
 
 var letScroll = true;
 var projectsCreated = false; // PROJECTS PAGE ELEMENTS  =>  4 pages
-var ECAcreated = false; // EDUCATION, CONTACT, ABOUT PAGE ELEMENTS =>  2 pages each
+var educationCreated = false; //EDUCATION PAGE ELEMENTS => 2pages
+var aboutCreated = false //ABOUT PAGE ELEMENTS => 2 pages
+var contactCreated = false //CONTACT PAGE ELEMENTS => 2 pages
+
 var mapCreatedBig = false; // map created for PROJECTS 
 var mapCreatedSmall = false;//map created for Edu, Contact and About
 
@@ -53,7 +56,9 @@ function removeChildren(idValue) {
     else if (idValue == 2) {
         full1.remove();
         full2.remove();
-        ECAcreated = false;
+        contactCreated = false;
+        aboutCreated = false;
+        educationCreated = false;
     }
 };
 
@@ -87,9 +92,8 @@ function removeMap() {
 
 
 function createFullViewElements() {
-    console.log(id);
-    if (id == 'st8i4' && projectsCreated == false) {
-        if (ECAcreated == true && projectsCreated == false)
+    if (id == 'st8i4' && projectsCreated == false /*PROJECTS*/) {
+        if ((educationCreated == true || contactCreated == true || aboutCreated == true) && projectsCreated == false)
             removeChildren(2);
         //page 1
         var div1 = document.createElement('div');
@@ -152,11 +156,12 @@ function createFullViewElements() {
 
         projectsCreated = true;
     }
-    else if (id == 'st8i2' || id == 'st8i6' || id == 'st8i8') {
+    else if (id == 'st8i6'/*EDUCATION*/) {
         if (projectsCreated == true)
             removeChildren(1);
-        if (ECAcreated == false) {
-            console.log('aici');
+        else if (contactCreated == true || aboutCreated == true)
+            removeChildren(2);
+        if (educationCreated == false) {
             //page 1
 
             let arrowR1 = document.createElement('div');
@@ -169,9 +174,6 @@ function createFullViewElements() {
             let arrowL2 = document.createElement('div');
             arrowL2.setAttribute('class', 'arrowLeft');
 
-            //middle lines
-
-            //end middle lines
 
             var div1 = document.createElement('div');
             div1.setAttribute('id', 'full1');
@@ -198,20 +200,91 @@ function createFullViewElements() {
             div1.appendChild(div5);
 
             //page 2
+            var div6 = document.createElement('div');
+            div6.setAttribute('id', 'full2');
+            fullView.appendChild(div6);
+            var div7 = document.createElement('div');
+            div7.setAttribute('id', 'full2ed1');
+            var div7text = document.createTextNode('Software Skills');
+            div7.appendChild(div7text);
+
+            var wrapperTop = document.createElement('div');
+            wrapperTop.setAttribute('id', 'topWrapper');
+            div7.appendChild(wrapperTop);
+            var wrapperBot = document.createElement('div');
+            wrapperBot.setAttribute('id', 'botWrapper');
+            div7.appendChild(wrapperBot);
+            
+            //page2 up container lines
+            for (let i = 1; i <= 5; i++) {
+                var line1 = document.createElement('div');
+                line1.setAttribute('id', 'ed2line' + i);
+                wrapperBot.appendChild(line1);
+            }
+
+
+            var div8 = document.createElement('div');
+            div8.setAttribute('id', 'full2ed2');
+            var div8text = document.createTextNode('Programming Skills');
+            div8.appendChild(div8text);
+            div6.appendChild(div7);
+            div6.appendChild(div8);
+
+            educationCreated = true;
+        }
+    }
+    else if (id == 'st8i2' /*ABOUT*/) {
+        if (projectsCreated == true)
+            removeChildren(1);
+        else if (contactCreated == true || educationCreated == true)
+            removeChildren(2);
+        if (aboutCreated == false) {
+            //page 1
+
+            var div1 = document.createElement('div');
+            div1.setAttribute('id', 'full1');
+            var t1 = document.createTextNode('ABOUT PAGE // PAGE 1')
+            div1.appendChild(t1);
+            fullView.appendChild(div1);
+
+
+
+            //page 2
             var div2 = document.createElement('div');
             div2.setAttribute('id', 'full2');
+            var t2 = document.createTextNode('ABOUT PAGE // PAGE 2')
+            div2.appendChild(t2);
             fullView.appendChild(div2);
-            var img4 = document.createElement('div');
-            img4.setAttribute('id', 'full2img1');
-            var img5 = document.createElement('div');
-            img5.setAttribute('id', 'full2img2');
-            var img6 = document.createElement('div');
-            img6.setAttribute('id', 'full2img3');
-            div2.appendChild(img4);
-            div2.appendChild(img5);
-            div2.appendChild(img6);
 
-            ECAcreated = true;
+
+            aboutCreated = true;
+        }
+    }
+
+    else if (id == 'st8i8' /*CONTACT*/) {
+        if (projectsCreated == true)
+            removeChildren(1);
+        else if (aboutCreated == true || educationCreated == true)
+            removeChildren(2);
+        if (contactCreated == false) {
+            //page 1
+
+            var div1 = document.createElement('div');
+            div1.setAttribute('id', 'full1');
+            var t1 = document.createTextNode('CONTACT PAGE // PAGE 1')
+            div1.appendChild(t1);
+            fullView.appendChild(div1);
+
+
+            //page 2
+            var div2 = document.createElement('div');
+            div2.setAttribute('id', 'full2');
+            var t2 = document.createTextNode('CONTACT PAGE // PAGE 2')
+            div2.appendChild(t2);
+            fullView.appendChild(div2);
+
+
+            contactCreated = true;
         }
     }
 };
@@ -234,10 +307,9 @@ function animateShow(elem) {
 
 fullPageButton.addEventListener('click', () => {
     //console.log(fullView.childNodes.length);
-    if (projectsCreated == false || ECAcreated == false) {
+    if (projectsCreated == false || contactCreated == false || educationCreated == false || aboutCreated == false) {
         createFullViewElements();
         removeMap();
-        console.log(fullView.childNodes);
         for (let i = 1; i <= fullView.childNodes.length; i++) {
             if (fullView.childNodes.length == 4) {
                 var div = document.createElement('div');
@@ -274,9 +346,9 @@ fullPageButton.addEventListener('click', () => {
         { opacity: '0' }
     ], {
             // timing options
-            duration: 2000,
+            duration: 2200,
         });
-    if (id == 'st8i4') {
+    if (id == 'st8i4'/*PROJECTS*/) {
         setTimeout(() => {
             hide.style.display = 'none';
             fullView.style.display = 'block';
@@ -298,7 +370,7 @@ fullPageButton.addEventListener('click', () => {
             animateShow(homeButton);
         }, 2000)
     }
-    else {
+    else if (id == 'st8i6'/*EDUCATION*/) {
 
         setTimeout(() => {
             hide.style.display = 'none';
@@ -328,6 +400,43 @@ fullPageButton.addEventListener('click', () => {
             ed1d4.addEventListener('mouseover', animateEdPg1Individual4);
         }, 7500);
     }
+    else if (id == 'st8i2'/*ABOUT*/) {
+        setTimeout(() => {
+            animateShow(fullView);
+            animateShow(full1);
+            animateShow(full2);
+            animateShow(homeButton);
+            animateEdPg1();
+        }, 2000);
+        setTimeout(() => {
+            hide.style.display = 'none';
+            fullView.style.display = 'block';
+            full1.style.display = 'block';
+            full2.style.display = 'block';
+            fullView.style.opacity = '1';
+            homeButton.style.display = 'block';
+            mapB.style.display = 'block';
+        }, 2000);
+    }
+    else if (id == 'st8i8'/*CONTACT*/) {
+        setTimeout(() => {
+            animateShow(fullView);
+            animateShow(full1);
+            animateShow(full2);
+            animateShow(homeButton);
+            animateEdPg1();
+        }, 2000);
+        setTimeout(() => {
+            hide.style.display = 'none';
+            fullView.style.display = 'block';
+            full1.style.display = 'block';
+            full2.style.display = 'block';
+            fullView.style.opacity = '1';
+            homeButton.style.display = 'block';
+            mapB.style.display = 'block';
+        }, 2000);
+    }
+
 });
 
 var fullPageCounter = 0;
@@ -811,6 +920,12 @@ function eventsImageProjectPage() {
 };
 
 
+//----------------------------------------------------------
+//--------------EDUCATION PAGE ANIMATIONS-------------------
+//----------------------------------------------------------
+
+//>)>)>)>)>)>)>)>)>)>) PAGE 1 (<(<(<(<(<(<(<(<(<(<
+
 function animateEdPg1() {
     ed1d1.style.opacity = '0';
     setTimeout(() => {
@@ -901,25 +1016,25 @@ function showOthers(el1, el2, el3) {
         { opacity: '0' },
         { opacity: '1' }
     ], {
-            duration: 1500,
+            duration: 2200,
         });
     el2.animate([
         { opacity: '0' },
         { opacity: '1' }
     ], {
-            duration: 1500,
+            duration: 2200,
         });
     el3.animate([
         { opacity: '0' },
         { opacity: '1' }
     ], {
-            duration: 1500,
+            duration: 2200,
         });
     setTimeout(() => {
         el1.style.opacity = '1';
         el2.style.opacity = '1';
         el3.style.opacity = '1';
-    }, 1100);
+    }, 2100);
 };
 
 function animateBoxes(el) {
@@ -927,7 +1042,6 @@ function animateBoxes(el) {
     let neighbour1;
     let neighbour2;
     let neighbour3;
-    let endPos;
     if (el == ed1d1) {
         transformMode = 'translate(75%, 35%) rotate(90deg)';
         neighbour1 = ed1d2;
@@ -1022,3 +1136,10 @@ function animateEdPg1Individual4() {
 };
 
 
+//>)>)>)>)>)>)>)>)>)>) PAGE 2 (<(<(<(<(<(<(<(<(<(<
+
+
+
+//----------------------------------------------------------
+//-------------END EDUCATION PAGE ANIMATIONS----------------
+//----------------------------------------------------------
