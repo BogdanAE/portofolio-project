@@ -555,6 +555,8 @@ p {
     background-size: 100% 100%;
 }
 
+/* -----------------Education page -------------------------*/
+
 #full1ed1, #full1ed2, #full1ed3, #full1ed4 {
     border: 1px solid white;
     height: 30%;
@@ -732,6 +734,10 @@ p {
     }
 }
 
+/* -----------------end Education page -------------------------*/
+
+/* -----------------contact page -------------------------*/
+
 #container {
     position: relative;
     left: 40%;
@@ -895,21 +901,21 @@ p {
     height: 130px;
 } */
 
-#full2 > h2 {
+#full2>h2 {
     font-size: 1.7em;
     font-family: 'Pacifico', cursive;
     text-align: center;
 }
 
-table > tr:nth-child(odd){
+table>tr:nth-child(odd) {
     background-color: #c0dfd9;
 }
 
-table > tr:nth-child(even){
+table>tr:nth-child(even) {
     background-color: #e9ece5;
 }
 
-#full2 > form{
+#full2>form {
     position: absolute;
     bottom: 7.5%;
     height: 20%;
@@ -918,7 +924,7 @@ table > tr:nth-child(even){
     /* background-color: red; */
 }
 
-form > input {
+form>input {
     float: left;
     clear: left;
     padding: 5px;
@@ -927,23 +933,212 @@ form > input {
     box-shadow: 3px 3px 6px gray;
 }
 
-form > textarea {
+form>textarea {
     border-radius: 5px;
     margin-top: 5%;
     box-shadow: 3px 3px 6px gray;
     margin-left: 5%;
 }
 
-#submitButton{
+#submitButton {
     width: 30%;
     margin-left: 35%;
 }
 
-/* #col42 {
-    padding: 10px;
-    border: 1px solid yellow;
-    height: 130px;
-} */
+/* -----------------end contact page -------------------------*/
+
+/* -----------------about page -------------------------*/
+
+#co1d1 {
+    position: absolute;
+    width: 40%;
+    height: 20%;
+    left: 5%;
+    top: 5%;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, #e9ece5,  #1d2120);
+    box-shadow: 0px -3px 6px  white;
+}
+
+#co1f1 {
+    position: absolute;
+    width: calc(10% + 15px);
+    height: 5%;
+    left: 35.5%;
+    top: 6%;
+    background: linear-gradient(to bottom right, white , rgb(170, 161, 161) );
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: -2px -3px 6px  gray;
+}
+
+#co1t1 {
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    left: calc(45% - 10px);
+    top: 10.7%;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+    border-bottom: 15px solid gray;
+    transform: rotate(-45deg);
+}
+
+#co1b1{
+    position: absolute;
+    width: 2.5%;
+    height: 5%;
+    top: 8.2%;
+    left: 2.5%;
+    background: linear-gradient(to left, gray, white);
+    border-top-left-radius: 5px; 
+    border-bottom-left-radius: 5px;
+    box-shadow: -2px -3px 6px gray;
+}
+
+#co1d2 {
+    position: absolute;
+    width: 40%;
+    height: 20%;
+    right: 5%;
+    top: 15%;
+    background: linear-gradient(to bottom, #e9ece5,  #1d2120);
+    border-radius: 5px;
+    box-shadow: 0px -3px 6px  gray;
+}
+
+#co1f2 {
+    position: absolute;
+    width: calc(10% + 15px);
+    height: 5%;
+    right: 35.5%;
+    top: 16%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: linear-gradient(to bottom left, white , rgb(170, 161, 161) );
+    box-shadow: 2px -3px 6px  gray;
+}
+
+#co1t2 {
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    right: calc(45% - 10px);
+    top: 20.7%;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+    border-bottom: 15px solid gray;
+    transform: rotate(45deg);
+}
+
+#co1b2{
+    position: absolute;
+    width: 2.5%;
+    height: 5%;
+    top: 18.2%;
+    right: 2.5%;
+    background: linear-gradient(to right, gray, white);
+    border-top-right-radius: 5px; 
+    border-bottom-right-radius: 5px;
+    box-shadow: 2px -3px 6px gray;
+}
+
+#co1d3 {
+    position: absolute;
+    width: 40%;
+    height: 20%;
+    left: 5%;
+    top: 45%;
+    background: linear-gradient(to bottom, #e9ece5,  #1d2120);
+    border-radius: 5px;
+    box-shadow: 0px -3px 6px  gray;
+}
+
+#co1f3 {
+    position: absolute;
+    width: calc(10% + 15px);
+    height: 5%;
+    left: 35.5%;
+    top: 46%;
+    background: linear-gradient(to bottom right, white , rgb(170, 161, 161) );
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: -2px 3px 6px  gray;
+}
+
+#co1t3 {
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    left: calc(45% - 10px);
+    top: 50.7%;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+    border-bottom: 15px solid gray;
+    transform: rotate(-45deg);
+}
+
+#co1b3{
+    position: absolute;
+    width: 2.5%;
+    height: 5%;
+    top: 48.2%;
+    left: 2.5%;
+    background-color: gray;
+    border-top-left-radius: 5px; 
+    border-bottom-left-radius: 5px;
+    background: linear-gradient(to left, gray, white);
+    box-shadow: -2px 3px 6px gray;
+}
+
+#co1d4 {
+    position: absolute;
+    width: 40%;
+    height: 20%;
+    right: 5%;
+    top: 55%;
+    background: linear-gradient(to bottom, #e9ece5,  #1d2120);
+    border-radius: 5px;
+    box-shadow: 0px -3px 6px  gray;
+}
+
+#co1f4 {
+    position: absolute;
+    width: calc(10% + 15px);
+    height: 5%;
+    right: 35.5%;
+    top: 56%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 2px 3px 6px  gray;
+    background: linear-gradient(to bottom left, white , rgb(170, 161, 161) );
+}
+
+#co1t4 {
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    right: calc(45% - 10px);
+    top: 60.7%;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+    border-bottom: 15px solid gray;
+    transform: rotate(45deg);
+}
+
+#co1b4{
+    position: absolute;
+    width: 2.5%;
+    height: 5%;
+    top: 58.2%;
+    right: 2.5%;
+    background: linear-gradient(to right, gray, white);
+    border-top-right-radius: 5px; 
+    border-bottom-right-radius: 5px;
+    box-shadow: 2px 3px 6px gray;
+}
+
+/* -----------------end about page -------------------------*/
 
 #startButton {
     border: 1px solid white;

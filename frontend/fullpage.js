@@ -310,16 +310,29 @@ function createFullViewElements() {
     else if (id == 'st8i2' /*ABOUT*/) {
         if (projectsCreated == true)
             removeChildren(1);
-        else if (contactCreated == true || educationCreated == true)
+        else if (contactCreated == true || educationCreated == true || aboutCreated == true)
             removeChildren(2);
         if (aboutCreated == false) {
             //page 1
 
             var div1 = document.createElement('div');
             div1.setAttribute('id', 'full1');
-            var t1 = document.createTextNode('ABOUT PAGE // PAGE 1')
-            div1.appendChild(t1);
             fullView.appendChild(div1);
+
+            for (let i = 1; i <= 4; i++) {
+                var divContainer = document.createElement('div');
+                divContainer.setAttribute('id', 'co1d' + i);
+                div1.appendChild(divContainer);
+                var divFlag = document.createElement('div');
+                divFlag.setAttribute('id', 'co1f' + i);
+                div1.appendChild(divFlag);
+                var divTriangle = document.createElement('div');
+                divTriangle.setAttribute('id', 'co1t' + i);
+                div1.appendChild(divTriangle);
+                var divTail = document.createElement('div');
+                divTail.setAttribute('id','co1b' + i);
+                div1.appendChild(divTail);
+            }
 
 
             //page 2
@@ -436,7 +449,7 @@ function createFullViewElements() {
             //page 2
             var headingContact = document.createElement('h2');
             headingContact.innerHTML = 'Contact Page';
-            var textCoP2 = [['Nume: Epure', ''], ['','Prenume: Bogdan-Alin'],['23.02.1990',''], ['Sex: M', 'Nationality: Ro'], ['Adresa:', ' Clabucet nr. 4, 400537 Cluj-Napoca (Romania)'], ['Telefon:', ' +40754671417'], ['Gmail:', ' ep.bogdy@gmail.com']];
+            var textCoP2 = [['Nume: Epure', ''], ['', 'Prenume: Bogdan-Alin'], ['23.02.1990', ''], ['Sex: M', 'Nationality: Ro'], ['Adresa:', ' Clabucet nr. 4, 400537 Cluj-Napoca (Romania)'], ['Telefon:', ' +40754671417'], ['Gmail:', ' ep.bogdy@gmail.com']];
             var div20 = document.createElement('div');
             div20.setAttribute('id', 'full2');
             div20.appendChild(headingContact);
@@ -450,14 +463,14 @@ function createFullViewElements() {
                 for (let j = 1; j <= 2; j++) {
                     var divC = document.createElement('td');
                     divC.setAttribute('id', 'col' + i + j);
-                    divC.innerHTML = textCoP2[i-1][j - 1]
+                    divC.innerHTML = textCoP2[i - 1][j - 1]
                     divR.appendChild(divC);
                 }
             }
 
             var form = document.createElement('form');
             form.setAttribute('action', 'http://localhost:3000/add');
-            form.setAttribute('method','post')
+            form.setAttribute('method', 'post')
             var input1 = document.createElement('input');
             input1.setAttribute('type', 'text');
             input1.setAttribute('name', 'nume');
