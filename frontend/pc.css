@@ -40,15 +40,62 @@ body {
     cursor: url('./srcs/cursor4.png'), default;
 }
 
+a {
+    cursor: url('./srcs/cursor4.png'), default;
+}
+
 #aura {
     position: absolute;
     height: 60px;
     width: 60px;
     border-radius: 50%;
     background-color: rgb(84, 84, 194);
-    /* filter: blur(1px); */
-    opacity: 0.8;
+    opacity: 1;
+    /* z-index: 0; */
     display: none;
+}
+
+#aura2 {
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    /* background-color: green; */
+    display: none;
+    z-index: 99;
+    transform: translate(0px, -50px);
+    border-bottom: 5px solid blue;
+    border-left: 5px solid rgb(48, 48, 145);
+    border-radius: 50%;
+    animation: rotateA 1s ease-out infinite;
+}
+
+@keyframes rotateA {
+    from {
+        transform: translate(0px, -50px) rotate(0deg)
+    }
+    to {
+        transform: translate(0px, -50px) rotate(360deg)
+    }
+}
+
+/* #aura2:after{
+    position: absolute;
+    content: 'clickme';
+    color: purple;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2em;
+    animation: blinkAuraText 1s ease-in-out infinite;
+} */
+
+@keyframes blinkAuraText {
+    from {
+        transform: scale(0.8);
+        text-shadow: 0px 0px 0px transparent
+    }
+    to {
+        transform: scale(1.2);
+        text-shadow: 2px 2px 2px purple
+    }
 }
 
 #loading {
@@ -244,7 +291,7 @@ p {
     padding: 2px;
     font-size: 0.8em;
     transition: 2s linear;
-    opacity: 0.9;
+    /* opacity: 0.9; */
 }
 
 #fullPage>p {
@@ -353,10 +400,11 @@ p {
     height: 95%;
     background: white;
     opacity: 0;
-    z-index: -5;
+    /* z-index: -5; */
     word-break: break-all;
-    display: none;
+    /* display: none; */
     background-color: #1d2120;
+    /* z-index: -2; */
 }
 
 #full1, #full2, #full3, #full4 {
@@ -369,7 +417,7 @@ p {
     box-sizing: border-box;
     padding: 5%;
     background: radial-gradient(farthest-side at 0% 100%, #141616, #1d2120);
-    z-index: 0;
+    /* z-index: 0; */
 }
 
 #full1 {
@@ -684,6 +732,219 @@ p {
     }
 }
 
+#container {
+    position: relative;
+    left: 40%;
+    top: 30%;
+    height: 250px;
+    width: 250px;
+    /* border-radius: 50%; */
+    /* background-color: red; */
+}
+
+#containerContact {
+    position: relative;
+    /* left: 35%;
+    top: 35%; */
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 5px solid white;
+}
+
+#bC {
+    position: absolute;
+    height: 90%;
+    width: 90%;
+    left: 4%;
+    top: 4%;
+    border-radius: 50%;
+    border-bottom: 3px solid blue;
+}
+
+#lC {
+    position: absolute;
+    height: 80%;
+    width: 80%;
+    left: 10%;
+    top: 10%;
+    border-radius: 50%;
+    border-left: 3px solid red;
+}
+
+#rC {
+    position: absolute;
+    height: 70%;
+    width: 70%;
+    left: 15%;
+    top: 15%;
+    border-radius: 50%;
+    border-right: 3px solid green;
+}
+
+#tC {
+    position: absolute;
+    height: 60%;
+    width: 60%;
+    left: 20%;
+    top: 20%;
+    border-radius: 50%;
+    border-top: 3px solid purple;
+}
+
+#textLogo {
+    position: absolute;
+    left: 33%;
+    top: 45%;
+    font-size: 2em;
+    /* z-index: 0; */
+}
+
+#fbButton {
+    position: absolute;
+    left: 27.5%;
+    top: -50%;
+    height: 40%;
+    width: 40%;
+    border-radius: 50%;
+    background-color: white;
+    /* z-index: 0; */
+    /* opacity: 0.9; */
+    transition: 0.3s ease-in-out;
+}
+
+#fbButton:hover {
+    box-shadow: 2px 2px 6px white;
+    transform: translate(-2px, 1px);
+}
+
+#ghButton:hover {
+    box-shadow: 2px 2px 6px white;
+    transform: translate(-2px, 1px);
+}
+
+#liButton:hover {
+    box-shadow: 2px 2px 6px white;
+    transform: translate(-2px, 1px);
+}
+
+#cvButton:hover {
+    box-shadow: 2px 2px 6px white;
+    transform: translate(-2px, 1px);
+}
+
+#ghButton {
+    position: absolute;
+    left: 110%;
+    top: 7.5%;
+    height: 40%;
+    width: 40%;
+    border-radius: 50%;
+    background-color: white;
+    /* z-index: 0; */
+    transition: 0.3s ease-in-out;
+}
+
+#liButton {
+    position: absolute;
+    left: 27.5%;
+    top: 80%;
+    height: 40%;
+    width: 40%;
+    border-radius: 50%;
+    background-color: white;
+    /* z-index: 0; */
+    transition: 0.3s ease-in-out;
+}
+
+#cvButton {
+    position: absolute;
+    left: -50%;
+    top: 7.5%;
+    height: 40%;
+    width: 40%;
+    border-radius: 50%;
+    background-color: white;
+    /* z-index: 0; */
+    transition: 0.3s ease-in-out;
+}
+
+.fab {
+    position: absolute;
+    color: black;
+    top: 42.5%;
+    left: 42.5%;
+    transform: scale(4)
+}
+
+#tabelC {
+    position: absolute;
+    /* border: 2px solid white; */
+    width: 70%;
+    left: 15%;
+    height: 40%;
+    top: 15%;
+    box-shadow: -2px -2px 7px #e9ece5;
+    color: #3b3a36;
+    text-align: center;
+    font-size: 1.2em;
+    font-family: 'Pacifico', cursive;
+}
+
+/* #tabelC:nth-child(n):nth-child(n){
+    height: 130px;
+} */
+
+#full2 > h2 {
+    font-size: 1.7em;
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+}
+
+table > tr:nth-child(odd){
+    background-color: #c0dfd9;
+}
+
+table > tr:nth-child(even){
+    background-color: #e9ece5;
+}
+
+#full2 > form{
+    position: absolute;
+    bottom: 7.5%;
+    height: 20%;
+    width: 50%;
+    left: 25%;
+    /* background-color: red; */
+}
+
+form > input {
+    float: left;
+    clear: left;
+    padding: 5px;
+    margin-top: 5%;
+    border-radius: 5px;
+    box-shadow: 3px 3px 6px gray;
+}
+
+form > textarea {
+    border-radius: 5px;
+    margin-top: 5%;
+    box-shadow: 3px 3px 6px gray;
+    margin-left: 5%;
+}
+
+#submitButton{
+    width: 30%;
+    margin-left: 35%;
+}
+
+/* #col42 {
+    padding: 10px;
+    border: 1px solid yellow;
+    height: 130px;
+} */
+
 #startButton {
     border: 1px solid white;
     max-width: 30%;
@@ -722,18 +983,9 @@ p {
     display: none;
 }
 
-/* #contentCopy{
-    position: absolute;
-    height: 50%;
-    width: 90%;
-    background: white;
-    margin-left: 5%;
-} */
-
 #left, #right {
     height: 100vh;
     width: 5vw;
-    /* background: rgb(170, 163, 163); */
 }
 
 #left {

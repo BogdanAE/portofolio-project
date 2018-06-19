@@ -1,6 +1,24 @@
 var hide = document.getElementById('toHide');
 var homeButton = document.getElementById('homeButton');
 
+//let aura be created on dinamically created pages CONTROL
+let contactHover = false;
+let projectsHover = false;
+
+
+//contact variables
+var bigCircle;
+var leftC;
+var rightC;
+var topC;
+var bottomC;
+var textLogo;
+var ghButton;
+var fbButton;
+var liButton;
+var cvButton;
+
+//projects page variables
 var p1i1;
 var p1i2;
 var p1i3;
@@ -13,12 +31,13 @@ var p4i1;
 var p4i2;
 var p4i3;
 
+//educatiopage variables
 var ed1d1;
 var ed1d2;
 var ed1d3;
 var ed1d4;
 
-
+// map variables
 var map1;
 var map2;
 var mapS1;
@@ -27,11 +46,14 @@ var map3;
 var map4;
 var mapB = document.getElementById('map');
 
+//pages variables
 var full1;
 var full2;
 var full3;
 var full4;
 
+
+//control variables
 var fullPageCounter = 0;
 var letScroll = true;
 var projectsCreated = false; // PROJECTS PAGE ELEMENTS  =>  4 pages
@@ -89,13 +111,19 @@ function removeMap() {
         mapCreatedSmall = false;
         fullPageCounter = 0;
     }
+    else if (mapCreatedBig == false && mapCreatedSmall == false)
+        return;
 }
 
 
 function createFullViewElements() {
-    if (id == 'st8i4' && projectsCreated == false /*PROJECTS*/) {
+
+    if (id == 'st8i4' /*PROJECTS*/) {
         if ((educationCreated == true || contactCreated == true || aboutCreated == true) && projectsCreated == false)
             removeChildren(2);
+        else if (projectsCreated == true)
+            removeChildren(1);
+        projectsHover = true;
         //page 1
         var div1 = document.createElement('div');
         div1.setAttribute('id', 'full1');
@@ -160,7 +188,7 @@ function createFullViewElements() {
     else if (id == 'st8i6'/*EDUCATION*/) {
         if (projectsCreated == true)
             removeChildren(1);
-        else if (contactCreated == true || aboutCreated == true)
+        else if (contactCreated == true || aboutCreated == true || educationCreated == true)
             removeChildren(2);
         if (educationCreated == false) {
             //page 1
@@ -308,24 +336,155 @@ function createFullViewElements() {
     else if (id == 'st8i8' /*CONTACT*/) {
         if (projectsCreated == true)
             removeChildren(1);
-        else if (aboutCreated == true || educationCreated == true)
+        else if (aboutCreated == true || educationCreated == true || contactCreated == true)
             removeChildren(2);
         if (contactCreated == false) {
+            contactHover = true;
             //page 1
+
+            //HTML SCHELET
+            // <div id='container'>
+            //     <div id="bC"></div>
+            //     <div id="lC"></div>
+            //     <div id="rC"></div>
+            //     <div id="tC"></div>
+            //     <p id='textLogo'>&copyEBA</p>
+            //     <div id='fbButton'>
+            //         <i class="fab fa-facebook"></i>
+            //     </div>
+            //     <div id='ghButton'>
+            //         <i class="fab fa-github"></i>
+            //     </div>
+            //     <div id='liButton'>
+            //         <i class="fab fa-linkedin-in"></i>
+            //     </div>
+            //     <div id='cvButton'>
+            //         <i class="fab fa-angellist"></i>
+            //     </div>
+            // </div>
+            //END HTML SCHELET
 
             var div1 = document.createElement('div');
             div1.setAttribute('id', 'full1');
-            var t1 = document.createTextNode('CONTACT PAGE // PAGE 1')
-            div1.appendChild(t1);
+            //var t1 = document.createTextNode('CONTACT PAGE // PAGE 1')
+            //div1.appendChild(t1);
             fullView.appendChild(div1);
+            div100 = document.createElement('div');
+            div100.setAttribute('id', 'container');
+            div1.appendChild(div100);
+
+            var div2 = document.createElement('div');
+            div2.setAttribute('id', 'containerContact');
+            div100.appendChild(div2);
+            var div3 = document.createElement('div');
+            div3.setAttribute('id', 'bC');
+            div2.appendChild(div3);
+            var div4 = document.createElement('div');
+            div4.setAttribute('id', 'lC');
+            div2.appendChild(div4);
+            var div5 = document.createElement('div');
+            div5.setAttribute('id', 'rC');
+            div2.appendChild(div5);
+            var div6 = document.createElement('div');
+            div6.setAttribute('id', 'tC');
+            div2.appendChild(div6);
+            var div7 = document.createElement('div');
+            div7.setAttribute('id', 'textLogo');
+            var div71 = document.createElement('p');
+            div71.innerHTML = ' &copy EBA';
+            div7.appendChild(div71);
+            div2.appendChild(div7);
+
+            //media buttons
+            var div8 = document.createElement('a');
+            div8.setAttribute('id', 'fbButton');
+            div8.setAttribute('href', 'https://www.facebook.com/bogdan.epure.3');
+            div8.setAttribute('target', '_blank');
+            div100.appendChild(div8);
+            var div9 = document.createElement('i');
+            div9.setAttribute('class', 'fab fa-facebook');
+            div8.appendChild(div9);
+
+            var div10 = document.createElement('a');
+            div10.setAttribute('id', 'ghButton');
+            div10.setAttribute('href', 'https://github.com/BogdanAE');
+            div10.setAttribute('target', '_blank');
+            div100.appendChild(div10);
+            var div11 = document.createElement('i');
+            div11.setAttribute('class', 'fab fa-github');
+            div10.appendChild(div11);
+
+            var div12 = document.createElement('a');
+            div12.setAttribute('id', 'liButton');
+            div12.setAttribute('href', 'https://www.linkedin.com/in/epure-bogdan-74b320152/');
+            div12.setAttribute('target', '_blank');
+            div100.appendChild(div12);
+            var div13 = document.createElement('i');
+            div13.setAttribute('class', 'fab fa-linkedin-in');
+            div12.appendChild(div13);
+
+            var div14 = document.createElement('a');
+            div14.setAttribute('id', 'cvButton');
+            div14.setAttribute('href', 'https://bogdanepure.000webhostapp.com/');
+            div14.setAttribute('target', '_blank');
+            div100.appendChild(div14);
+            var div15 = document.createElement('i');
+            div15.setAttribute('class', 'fab fa-angellist');
+            div14.appendChild(div15);
 
 
             //page 2
-            var div2 = document.createElement('div');
-            div2.setAttribute('id', 'full2');
-            var t2 = document.createTextNode('CONTACT PAGE // PAGE 2')
-            div2.appendChild(t2);
-            fullView.appendChild(div2);
+            var headingContact = document.createElement('h2');
+            headingContact.innerHTML = 'Contact Page';
+            var textCoP2 = [['Nume: Epure', ''], ['','Prenume: Bogdan-Alin'],['23.02.1990',''], ['Sex: M', 'Nationality: Ro'], ['Adresa:', ' Clabucet nr. 4, 400537 Cluj-Napoca (Romania)'], ['Telefon:', ' +40754671417'], ['Gmail:', ' ep.bogdy@gmail.com']];
+            var div20 = document.createElement('div');
+            div20.setAttribute('id', 'full2');
+            div20.appendChild(headingContact);
+            var div21 = document.createElement('table');
+            div21.setAttribute('id', 'tabelC');
+
+            for (let i = 1; i <= 7; i++) {
+                var divR = document.createElement('tr');
+                divR.setAttribute('id', 'row' + i);
+                div21.appendChild(divR);
+                for (let j = 1; j <= 2; j++) {
+                    var divC = document.createElement('td');
+                    divC.setAttribute('id', 'col' + i + j);
+                    divC.innerHTML = textCoP2[i-1][j - 1]
+                    divR.appendChild(divC);
+                }
+            }
+
+            var form = document.createElement('form');
+            form.setAttribute('action', 'http://localhost:3000/add');
+            form.setAttribute('method','post')
+            var input1 = document.createElement('input');
+            input1.setAttribute('type', 'text');
+            input1.setAttribute('name', 'nume');
+            input1.setAttribute('placeholder', 'Name');
+            form.appendChild(input1);
+            var input2 = document.createElement('input');
+            input2.setAttribute('type', 'email');
+            input2.setAttribute('name', 'mail');
+            input2.setAttribute('placeholder', 'Email adress');
+            form.appendChild(input2);
+            var input3 = document.createElement('textarea');
+            input3.setAttribute('type', 'text');
+            input3.setAttribute('name', 'message');
+            input3.setAttribute('rows', '5');
+            input3.setAttribute('cols', '40');
+            input3.setAttribute('placeholder', 'Message');
+            form.appendChild(input3);
+            var submit = document.createElement('input');
+            submit.setAttribute('type', 'submit');
+            submit.setAttribute('value', 'submit');
+            submit.setAttribute('id', 'submitButton');
+            form.appendChild(submit);
+
+
+            div20.appendChild(form);
+            div20.appendChild(div21);
+            fullView.appendChild(div20);
 
 
             contactCreated = true;
@@ -354,6 +513,7 @@ fullPageButton.addEventListener('click', () => {
     if (projectsCreated == false || contactCreated == false || educationCreated == false || aboutCreated == false) {
         createFullViewElements();
         removeMap();
+
         for (let i = 1; i <= fullView.childNodes.length; i++) {
             if (fullView.childNodes.length == 4) {
                 var div = document.createElement('div');
@@ -412,6 +572,7 @@ fullPageButton.addEventListener('click', () => {
             animateShow(full3);
             animateShow(full4);
             animateShow(homeButton);
+
         }, 2000)
     }
     else if (id == 'st8i6'/*EDUCATION*/) {
@@ -451,7 +612,7 @@ fullPageButton.addEventListener('click', () => {
             animateShow(full1);
             animateShow(full2);
             animateShow(homeButton);
-            animateEdPg1();
+
         }, 2000);
         setTimeout(() => {
             hide.style.display = 'none';
@@ -464,12 +625,34 @@ fullPageButton.addEventListener('click', () => {
         }, 2000);
     }
     else if (id == 'st8i8'/*CONTACT*/) {
+        bigCircle = document.getElementById('containerContact');
+        leftC = document.getElementById('lC');
+        rightC = document.getElementById('rC');
+        topC = document.getElementById('tC');
+        bottomC = document.getElementById('bC');
+        textLogo = document.getElementById('textLogo');
+        ghButton = document.getElementById('ghButton');
+        fbButton = document.getElementById('fbButton');
+        liButton = document.getElementById('liButton');
+        cvButton = document.getElementById('cvButton');
+        displayNoneMedia();
+        hideMediaButtons();
+        smallCirclesAnimate();
+        cvButton.addEventListener('click', () => { console.log('cv') })
+        fbButton.addEventListener('click', () => { console.log('fb') })
+        ghButton.addEventListener('click', () => { console.log('gh') })
+        liButton.addEventListener('click', () => { console.log('li') })
+        bigCircle.addEventListener('click', () => {
+            bigCircleTransform();
+        });
+        setTimeout(() => {
+            staticBigCircleAnimate();
+        }, 3000);
         setTimeout(() => {
             animateShow(fullView);
             animateShow(full1);
             animateShow(full2);
             animateShow(homeButton);
-            animateEdPg1();
         }, 2000);
         setTimeout(() => {
             hide.style.display = 'none';
@@ -480,6 +663,7 @@ fullPageButton.addEventListener('click', () => {
             homeButton.style.display = 'block';
             mapB.style.display = 'block';
         }, 2000);
+
     }
 
 });
@@ -708,6 +892,11 @@ function map() {
 homeButton.addEventListener('click', () => {
     hide.style.display = 'block';
     hide.style.opacity = '0';
+    contactHover = false;
+    projectsHover = false;
+    removeMap();
+    fullPageCounter = 0;
+    console.log(projectsCreated);
     hide.animate([
         // keyframes
         { opacity: '0' },
@@ -1053,9 +1242,9 @@ function hideOthers(el1, el2, el3) {
             duration: 600,
         });
     // setTimeout(() => {
-        el1.style.opacity = '0';
-        el2.style.opacity = '0';
-        el3.style.opacity = '0';
+    el1.style.opacity = '0';
+    el2.style.opacity = '0';
+    el3.style.opacity = '0';
     // }, 500);
 };
 
@@ -1466,4 +1655,311 @@ function animateProgrammingSkill() {
 }
 //----------------------------------------------------------
 //-------------END EDUCATION PAGE ANIMATIONS----------------
+//----------------------------------------------------------
+
+//----------------------------------------------------------
+//---------------CONTACT PAGE ANIMATIONS--------------------
+//----------------------------------------------------------
+
+
+function displayNoneMedia() {
+    cvButton.style.display = 'none';
+    liButton.style.display = 'none';
+    fbButton.style.display = 'none';
+    ghButton.style.display = 'none';
+}
+
+function displayBlockMedia() {
+    cvButton.style.display = 'block';
+    liButton.style.display = 'block';
+    fbButton.style.display = 'block';
+    ghButton.style.display = 'block';
+
+    ghButton.style.opacity = '0';
+    cvButton.style.opacity = '0';
+    fbButton.style.opacity = '0';
+    liButton.style.opacity = '0';
+}
+
+function opacityFalseMedia() {
+    setTimeout(() => {
+        cvButton.style.opacity = '0';
+    }, 700);
+    setTimeout(() => {
+        liButton.style.opacity = '0';
+    }, 1200);
+    setTimeout(() => {
+        fbButton.style.opacity = '0';
+    }, 450);
+    setTimeout(() => {
+        ghButton.style.opacity = '0';
+    }, 950);
+}
+
+function opacityTrueMedia() {
+    setTimeout(() => {
+        cvButton.style.opacity = '1';
+    }, 750);
+    setTimeout(() => {
+        liButton.style.opacity = '1';
+    }, 1250);
+    setTimeout(() => {
+        fbButton.style.opacity = '1';
+    }, 500);
+    setTimeout(() => {
+        ghButton.style.opacity = '1';
+    }, 1000);
+}
+
+function smallCirclesAnimate() {
+    leftC.animate([
+        { transform: 'rotate(0deg)' },
+        { transform: 'rotate(360deg)' }
+    ], {
+            duration: 1500,
+            easing: 'ease-in-out',
+            iterations: Infinity
+        });
+
+    rightC.animate([
+        { transform: 'rotate(0deg)' },
+        { transform: 'rotate(-360deg)' }
+    ], {
+            duration: 1500,
+            easing: 'ease-in-out',
+            delay: 150,
+            iterations: Infinity
+        });
+
+    topC.animate([
+        { transform: 'rotate(0deg)' },
+        { transform: 'rotate(360deg)' }
+    ], {
+            duration: 1500,
+            easing: 'ease-in-out',
+            delay: 250,
+            iterations: Infinity
+        });
+
+    bottomC.animate([
+        { transform: 'rotate(0deg)' },
+        { transform: 'rotate(-360deg)' }
+    ], {
+            duration: 1500,
+            easing: 'ease-in-out',
+            delay: 350,
+            iterations: Infinity
+        });
+};
+
+function smallCirclesHide() {
+    leftC.animate([
+        { opacity: '1' },
+        { opacity: '0' }
+    ], {
+            duration: 300,
+            easing: 'ease-in-out',
+        });
+
+    rightC.animate([
+        { opacity: '1' },
+        { opacity: '0' }
+    ], {
+            duration: 300,
+            easing: 'ease-in-out',
+        });
+
+    topC.animate([
+        { opacity: '1' },
+        { opacity: '0' }
+    ], {
+            duration: 300,
+            easing: 'ease-in-out',
+        });
+
+    bottomC.animate([
+        { opacity: '1' },
+        { opacity: '0' }
+    ], {
+            duration: 300,
+            easing: 'ease-in-out',
+        });
+}
+
+
+function showMediaButtons() {
+    fbButton.animate([
+        { transform: 'translate(0%, 150px) scale(0)', opacity: '0' },
+        { transform: 'translate(0, 0) scale(1)', opacity: '1' }
+    ], {
+            duration: 500
+        });
+    ghButton.animate([
+        { transform: 'translate(-175px, 0%) scale(0)', opacity: '0' },
+        { transform: 'translate(0 , 0) scale(1)', opacity: '1' }
+    ], {
+            duration: 500,
+            delay: 500
+        });
+    cvButton.animate([
+        { transform: 'translate(175px, 0%) scale(0)', opacity: '0' },
+        { transform: 'translate(0px, 0px) scale(1)', opacity: '1' }
+    ], {
+            duration: 500,
+            delay: 250
+        });
+    liButton.animate([
+        { transform: 'translate(0%, -175px) scale(0)', opacity: '0' },
+        { transform: 'translate(0, 0) scale(1)', opacity: '1' }
+    ], {
+            duration: 500,
+            delay: 750
+        });
+};
+
+
+
+function hideMediaButtons() {
+    fbButton.animate([
+        { transform: 'translate(0px, 0px) scale(1)', opacity: '1' },
+        { transform: 'translate(0px, 150px) scale(0)', opacity: '0' }
+    ], {
+            duration: 500
+        });
+    ghButton.animate([
+        { transform: 'translate(0, 0) scale(1)', opacity: '1' },
+        { transform: 'translate(-175px, 0px) scale(0)', opacity: '0' }
+    ], {
+            duration: 500,
+            delay: 500
+        });
+    cvButton.animate([
+        { transform: 'translate(0px, 0px) scale(1)', opacity: '1' },
+        { transform: 'translate(175px, 0px) scale(0)', opacity: '0' }
+    ], {
+            duration: 500,
+            delay: 250
+        });
+    liButton.animate([
+        { transform: 'translate(0px, 0px) scale(1)', opacity: '1' },
+        { transform: 'translate(0px, -200px) scale(0)', opacity: '0' }
+    ], {
+            duration: 500,
+            delay: 750
+        });
+};
+
+function bigCircleTransform() {
+
+    console.log(bigCircle.style.borderBottom);
+    if (bigCircle.style.borderBottom == '' || bigCircle.style.borderBottom == '5px solid white') {
+        smallCirclesHide();
+        setTimeout(() => {
+            leftC.style.display = 'none';
+            rightC.style.display = 'none';
+            bottomC.style.display = 'none';
+            topC.style.display = 'none';
+            document.getElementById('textLogo').style.display = 'none';
+        }, 300);
+        bigCircle.animate([
+            {
+                transform: 'rotate(0deg)',
+                borderTop: '5px solid white',
+                borderLeft: '5px solid transparent',
+                borderRight: '5px solid transparent',
+                borderBottom: '5px solid transparent',
+                height: '250px',
+                width: '250px',
+                borderRadius: '50%'
+            },
+            {
+                transform: 'rotate(360deg)',
+                borderTop: '160px solid white',
+                borderLeft: '120px solid transparent',
+                borderRight: '120px solid transparent',
+                borderBottom: '0px solid transparent',
+                height: '1px',
+                width: '1px',
+                borderRadius: '0%'
+            }
+        ], {
+                duration: 1300
+            });
+        displayBlockMedia();
+        setTimeout(() => {
+            showMediaButtons();
+            opacityTrueMedia();
+            bigCircle.style = "border-top: 160px solid white; border-left: 120px solid transparent; border-right: 120px solid transparent; border-bottom: 0px solid transparent; height: 0px; width: 0px; border-radius: 0%";
+        }, 1200);
+    }
+    else if (bigCircle.style.borderBottom == '0px solid transparent') {
+        hideMediaButtons();
+        opacityFalseMedia();
+        setTimeout(() => {
+            displayNoneMedia();
+        }, 1000);
+        setTimeout(() => {
+            bigCircle.animate([
+                {
+
+                    transform: 'rotate(360deg)',
+                    borderTop: '160px solid white',
+                    borderLeft: '120px solid transparent',
+                    borderRight: '120px solid transparent',
+                    borderBottom: '0px solid transparent',
+                    height: '1px',
+                    width: '1px',
+                    borderRadius: '0%',
+                    backgroundColor: 'transparent'
+                },
+                {
+                    transform: 'rotate(0deg)',
+                    borderTop: '5px solid white',
+                    borderLeft: '5px solid white',
+                    borderRight: '5px solid white',
+                    borderBottom: '5px solid white',
+                    height: '250px',
+                    width: '250px',
+                    borderRadius: '50%',
+                    backgroundColor: 'transparent'
+                }
+            ], {
+                    duration: 1300
+                });
+        }, 1100);
+        setTimeout(() => {
+            leftC.style.display = 'block';
+            rightC.style.display = 'block';
+            bottomC.style.display = 'block';
+            topC.style.display = 'block';
+            bigCircle.style = "border-top: 5px solid white; border-left: 5px solid white; border-right: 5px solid white; border-bottom: 5px solid white; height: 250px; width: 250px; border-radius: 50%";
+            document.getElementById('textLogo').style.display = 'block';
+        }, 1800);
+    }
+}
+
+
+function staticBigCircleAnimate() {
+    bigCircle.animate([
+        { transform: 'translate(0px, 0px)', borderRadius: '50%', boxShadow: '0px 0px 0px white' },
+        { transform: 'translate(0px, -15px)', borderRadius: '70%', boxShadow: '10px 70px 50px -50px white' },
+        { transform: 'translate(0px, 0px)', borderRadius: '50%', boxShadow: '0px 0px 0px white' }
+    ], {
+            duration: 1000,
+            iterations: 2,
+        })
+};
+
+// window.addEventListener('click', clickCounting);
+
+// let countClicks = 0;
+// function clickCounting() {
+
+//     if(countClicks > 1){
+//         countClicks = 0;
+//     }
+//     console.log(countClicks);
+// }
+//----------------------------------------------------------
+//-------------END CONTACT PAGE ANIMATIONS------------------
 //----------------------------------------------------------
