@@ -57,8 +57,8 @@ a {
 
 #aura2 {
     position: absolute;
-    height: 60px;
-    width: 60px;
+    height: 30px;
+    width: 30px;
     /* background-color: green; */
     display: none;
     z-index: 99;
@@ -453,7 +453,7 @@ p {
     background: url('./srcs/projects/cv3.png');
     background-size: 100% 100%;
     margin-left: 20px;
-    margin-top: 15px;
+    margin-top: -100px;
     clear: both;
 }
 
@@ -496,7 +496,7 @@ p {
     background: url('./srcs/projects/pens3.png');
     background-size: 100% 100%;
     margin-right: 25px;
-    margin-bottom: 15px;
+    margin-top: -75px;
 }
 
 #full3img1 {
@@ -511,7 +511,7 @@ p {
 
 #full3img2 {
     float: right;
-    margin-top: 45%;
+    margin-top: 30%;
     height: 40%;
     width: 30%;
     background: url('./srcs/projects/welcome2.png');
@@ -550,7 +550,7 @@ p {
     height: 40%;
     width: 30%;
     margin-right: -35%;
-    margin-top: 40%;
+    margin-top: 30%;
     background: url('./srcs/projects/chat3.png');
     background-size: 100% 100%;
 }
@@ -562,6 +562,8 @@ p {
     height: 30%;
     width: 40%;
     background-color: pink;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 #full1ed2, #full1ed4 {
@@ -580,7 +582,6 @@ p {
 
 #ed1text1, #ed1text2, #ed1text3, #ed1text4 {
     color: black;
-    height: 100%;
 }
 
 .arrowRight {
@@ -620,7 +621,7 @@ p {
     position: relative;
     float: left;
     width: 100%;
-    height: 50%;
+    height: 47.5%;
     border-bottom: 3px dashed white;
     border-bottom-right-radius: 20%;
     border-bottom-left-radius: 20%;
@@ -756,6 +757,12 @@ p {
     width: 100%;
     border-radius: 50%;
     border: 5px solid white;
+    transition: 0.5s ease-in-out;
+}
+
+#containerContact:hover {
+    border: 10px solid white;
+    transform: translate(-5px, 0px);
 }
 
 #bC {
@@ -889,7 +896,7 @@ p {
     width: 70%;
     left: 15%;
     height: 40%;
-    top: 15%;
+    top: 22.5%;
     box-shadow: -2px -2px 7px #e9ece5;
     color: #3b3a36;
     text-align: center;
@@ -909,17 +916,29 @@ p {
 
 table>tr:nth-child(odd) {
     background-color: #c0dfd9;
+    transition: 0.3s ease-in-out;
+}
+
+table>tr:nth-child(odd):hover {
+    background-color: #cc9838;
+    color: white;
 }
 
 table>tr:nth-child(even) {
     background-color: #e9ece5;
+    transition: 0.3s ease-in-out;
+}
+
+table>tr:nth-child(even):hover {
+    background-color: #9baf81;
+    color: red;
 }
 
 #full2>form {
     position: absolute;
-    bottom: 7.5%;
+    bottom: 15%;
     height: 20%;
-    width: 50%;
+    width: 75%;
     left: 25%;
     /* background-color: red; */
 }
@@ -928,21 +947,38 @@ form>input {
     float: left;
     clear: left;
     padding: 5px;
-    margin-top: 5%;
+    margin-top: 3.5%;
     border-radius: 5px;
-    box-shadow: 3px 3px 6px gray;
+    box-shadow: 2px 2px 3px gray;
+    font-family: 'Lobster', cursive;
+    border-color: white;
+    width: 20%;
+}
+
+form > input:nth-child(4){
+    background-color: red;
+    box-shadow: 0px 0px 0px ;
+    border-color: red;
+    color: white;
+    font-size: 1.1em;
+    font-family: 'Lobster', cursive;
 }
 
 form>textarea {
     border-radius: 5px;
-    margin-top: 5%;
-    box-shadow: 3px 3px 6px gray;
+    margin-top: 3.5%;
+    box-shadow: 2px 2px 3px gray;
     margin-left: 5%;
+    font-family: 'Lobster', cursive;
+    font-size: 1.15em;
 }
 
 #submitButton {
-    width: 30%;
-    margin-left: 35%;
+    position: absolute;
+    width: 20%;
+    left:15%;
+    top: 100%;
+    cursor: url('./srcs/cursor4.png'), default;
 }
 
 /* -----------------end contact page -------------------------*/
@@ -952,7 +988,7 @@ form>textarea {
 #co1d1 {
     position: absolute;
     width: 40%;
-    height: 20%;
+    height: 30%;
     left: 5%;
     top: 5%;
     border-radius: 5px;
@@ -999,7 +1035,7 @@ form>textarea {
 #co1d2 {
     position: absolute;
     width: 40%;
-    height: 20%;
+    height: 30%;
     right: 5%;
     top: 15%;
     background: linear-gradient(to bottom, #e9ece5,  #1d2120);
@@ -1046,7 +1082,7 @@ form>textarea {
 #co1d3 {
     position: absolute;
     width: 40%;
-    height: 20%;
+    height: 30%;
     left: 5%;
     top: 45%;
     background: linear-gradient(to bottom, #e9ece5,  #1d2120);
@@ -1094,7 +1130,7 @@ form>textarea {
 #co1d4 {
     position: absolute;
     width: 40%;
-    height: 20%;
+    height: 30%;
     right: 5%;
     top: 55%;
     background: linear-gradient(to bottom, #e9ece5,  #1d2120);

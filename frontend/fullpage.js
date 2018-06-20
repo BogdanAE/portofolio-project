@@ -214,7 +214,7 @@ function createFullViewElements() {
             div2.appendChild(arrowR1);
             //text element
             var div31 = document.createElement('p');
-            var text1ed1 = document.createTextNode('text text text text');
+            var text1ed1 = document.createTextNode('text text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text text');
             div31.appendChild(text1ed1);
             div31.setAttribute('id', 'ed1text1');
             div2.appendChild(div31);
@@ -224,7 +224,7 @@ function createFullViewElements() {
             div3.appendChild(arrowL1);
             //text element
             var div32 = document.createElement('p');
-            var text2ed1 = document.createTextNode('text text text text');
+            var text2ed1 = document.createTextNode('text text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text text');
             div32.appendChild(text2ed1);
             div32.setAttribute('id', 'ed1text2');
             div3.appendChild(div32);
@@ -234,7 +234,7 @@ function createFullViewElements() {
             div4.setAttribute('id', 'full1ed3');
             //text element
             var div33 = document.createElement('p');
-            var text3ed1 = document.createTextNode('text text text text');
+            var text3ed1 = document.createTextNode('text text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text text');
             div33.appendChild(text3ed1);
             div33.setAttribute('id', 'ed1text3');
             div4.appendChild(div33);
@@ -244,7 +244,7 @@ function createFullViewElements() {
             div5.appendChild(arrowL2);
             //text element
             var div34 = document.createElement('p');
-            var text4ed1 = document.createTextNode('text text text text');
+            var text4ed1 = document.createTextNode('text text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text text');
             div34.appendChild(text4ed1);
             div34.setAttribute('id', 'ed1text4');
             div5.appendChild(div34);
@@ -484,13 +484,13 @@ function createFullViewElements() {
             var input3 = document.createElement('textarea');
             input3.setAttribute('type', 'text');
             input3.setAttribute('name', 'message');
-            input3.setAttribute('rows', '5');
-            input3.setAttribute('cols', '40');
+            input3.setAttribute('rows', '4');
+            input3.setAttribute('cols', '25');
             input3.setAttribute('placeholder', 'Message');
             form.appendChild(input3);
             var submit = document.createElement('input');
             submit.setAttribute('type', 'submit');
-            submit.setAttribute('value', 'submit');
+            submit.setAttribute('value', 'Submit');
             submit.setAttribute('id', 'submitButton');
             form.appendChild(submit);
 
@@ -1297,43 +1297,45 @@ function rotateBoxText90(el) {
 
     if (el == ed1d1) {
         ed1text1.animate([
-            { transform: 'translate(0,0)' },
-            { transform: 'translate(0%, -25%) rotate(-90deg)' }
+            { transform: 'translate(0,0)', width: '100%' },
+            { transform: 'translate(0px, 100%) rotate(-90deg)', width: '75%'}
         ],
             {
                 duration: 700
             });
-        ed1text1.style.transform = 'translate(0%, -25%) rotate(-90deg)';
+        ed1text1.style.transform = 'translate(0px, 100%) rotate(-90deg)';
+        ed1text1.style.width = '75%';
     }
     else if (el == ed1d2) {
         ed1text2.animate([
             { transform: 'translate(0,0)' },
-            { transform: 'translate(0%, 25%) rotate(90deg)' }
+            { transform: 'translate(250px, -50%) rotate(90deg)' }
         ],
             {
                 duration: 700
             });
-        ed1text2.style.transform = 'translate(0%, 25%) rotate(90deg)';
+        ed1text2.style.transform = 'translate(250px, -50%) rotate(90deg)';
     }
     else if (el == ed1d3) {
         ed1text3.animate([
-            { transform: 'translate(0,0)' },
-            { transform: 'translate(0%, -25%) rotate(-90deg)' }
+            { transform: 'translate(0,0)', width: '100%' },
+            { transform: 'translate(-25%, -100%) rotate(-90deg)', width: '75%' }
         ],
             {
                 duration: 700
             });
-        ed1text3.style.transform = 'translate(0%, -25%) rotate(-90deg)';
+        ed1text3.style.transform = 'translate(-40%, 250%) rotate(-90deg)';
+        ed1text3.style.width = '75%';
     }
     else if (el == ed1d4) {
         ed1text4.animate([
             { transform: 'translate(0,0)' },
-            { transform: 'translate(0%, 25%) rotate(90deg)' }
+            { transform: 'translate(250px, -25%) rotate(90deg)' }
         ],
             {
                 duration: 700
             });
-        ed1text4.style.transform = 'translate(0%, 25%) rotate(90deg)';
+        ed1text4.style.transform = 'translate(250px, -25%) rotate(90deg)';
     }
 }
 
@@ -1345,7 +1347,7 @@ function rotateBoxText0(el) {
 
     if (el == ed1d1) {
         ed1text1.animate([
-            { transform: 'translate(0%, -25%) rotate(-90deg)' },
+            { transform: 'translate(200px, 0%) rotate(-90deg)' },
             { transform: 'translate(0%,0%) rotate(0deg)' }
         ],
             {
@@ -1355,7 +1357,7 @@ function rotateBoxText0(el) {
     }
     else if (el == ed1d2) {
         ed1text2.animate([
-            { transform: 'translate(0%, 25%) rotate(90deg)' },
+            { transform: 'translate(250px, -50%) rotate(90deg)' },
             { transform: 'translate(0%,0%) rotate(0deg)' }
         ],
             {
@@ -1391,7 +1393,7 @@ function animateBoxes(el) {
     let neighbour2;
     let neighbour3;
     if (el == ed1d1) {
-        transformMode = 'translate(75%, 35%) rotate(90deg)';
+        transformMode = 'translate(75%, 20%) rotate(90deg)';
         neighbour1 = ed1d2;
         neighbour2 = ed1d3;
         neighbour3 = ed1d4;
@@ -1400,7 +1402,7 @@ function animateBoxes(el) {
         ed1d4.removeEventListener("mouseover", animateEdPg1Individual4);
     }
     else if (el == ed1d2) {
-        transformMode = 'translate(-75%, 35%) rotate(-90deg)';
+        transformMode = 'translate(-75%, 0%) rotate(-90deg)';
         neighbour1 = ed1d1;
         neighbour2 = ed1d3;
         neighbour3 = ed1d4;
@@ -1409,7 +1411,7 @@ function animateBoxes(el) {
         ed1d4.removeEventListener("mouseover", animateEdPg1Individual4);
     }
     else if (el == ed1d3) {
-        transformMode = 'translate(75%, -45%) rotate(90deg)';
+        transformMode = 'translate(75%, -50%) rotate(90deg)';
         neighbour1 = ed1d1;
         neighbour2 = ed1d2;
         neighbour3 = ed1d4;
@@ -1418,7 +1420,7 @@ function animateBoxes(el) {
         ed1d4.removeEventListener("mouseover", animateEdPg1Individual4);
     }
     else if (el == ed1d4) {
-        transformMode = 'translate(-75%, -55%) rotate(-90deg)';
+        transformMode = 'translate(-75%, -75%) rotate(-90deg)';
         neighbour1 = ed1d1;
         neighbour2 = ed1d2;
         neighbour3 = ed1d3;
