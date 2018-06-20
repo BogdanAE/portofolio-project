@@ -80,6 +80,7 @@ startButton.addEventListener('click', () => {
   pArray[4] = 0;
   exPg.style.display = "block";
   logo.style.display = 'none';
+  repeatWords();
   /////////////////////////////////
 });
 
@@ -129,32 +130,63 @@ window.addEventListener('mousemove', (event) => {
 // ----------------END HOME PAGE EVENTS----------------------
 // ----------------------------------------------------------
 
+function blinkFullPage() {
+  if (fullPageButton.style.display == 'block') {
+    setTimeout(() => {
+      fullPageButton.animate([
+        { transform: 'scale(1)', boxShadow: '0px 0px 0px', borderColor: 'white', background: 'transparent'},
+        { transform: 'scale(1.3)' , boxShadow: '2px 2px 4px yellow', borderColor: 'yellow', background: 'yellow'},
+        { transform: 'scale(1)', boxShadow: '0px 0px 0px', borderColor: 'white', background: 'transparent'}
+      ], {
+          duration: 1000
+        })
+    }, 3000)
+  }
+}
+
+function showFullPageButton() {
+  fullPageButton.animate([
+    { opacity: '0' },
+    { opacity: '1' }
+  ],
+    {
+      duration: 1100
+    })
+  // setTimeout(() => {
+  fullPageButton.style.display = 'block';
+  fullPageButton.style.opacity = '0.9';
+  blinkFullPage();
+
+  // }, 1000);
+}
+
 
 mandala.addEventListener('click', menuFunction);
 
 function menuFunction() {
-  fullPageButton.style.display = 'block';
-  fullPageButton.style.opacity = '0.9';
-
   if (id == 'st8i6') {
+    showFullPageButton();
     // disableReposition();
     s.animate({
       transform: 'r180, 0, 0',
     }, 2000);
   }
   else if (id == 'st8i8') {
+    showFullPageButton();
     // disableReposition();
     s.animate({
       transform: 'r90, 0, 0',
     }, 2000)
   }
   else if (id == 'st8i4') {
+    showFullPageButton();
     // disableReposition();
     s.animate({
       transform: 'r-90, 0, 0',
     }, 2000)
   }
   else if (id == 'st8i2') {
+    showFullPageButton();
     //  disableReposition();
     s.animate({
       transform: 'r0, 0, 0',

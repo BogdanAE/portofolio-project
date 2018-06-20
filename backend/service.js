@@ -36,10 +36,49 @@ var getTextEn = (res) => {
     });
 };
 
+var getTextRoBig = (res) => {
+    model.textModel.find({'lang': 'ro', 'where2': 'big'}, (err, data) => {
+        if(err){
+            console.log(err);
+        }
+        console.log('RO text requested');
+        res.send(data);
+    });
+};
+
+var getTextEnBig = (res) => {
+    model.textModel.find({'lang': 'en', 'where2': 'big'}, (err, data) => {
+        if(err){
+            console.log(err);
+        }
+        console.log('EN text requested');
+        res.send(data);
+    });
+};
+
+
+
+var createMessage = (data) => {
+    var message = model.message({
+        nume: data.nume,
+        mail: data.mail,
+        message: data.message
+    });
+    message.save((err, text) => {
+        if(err){
+            console.log(err);
+            return err;
+        }
+    });
+}
+
 module.exports = {
     createText,
     getTextRo,
-    getTextEn
+    getTextEn,
+    createMessage,
+    getTextEnBig,
+    getTextRoBig
 }
 
 

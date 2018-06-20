@@ -41,6 +41,13 @@ app.post('/add', (req, res) => {
     res.redirect('/add.html')
 });
 
+app.post('/addMessage', (req, res) => {
+    service.createMessage(req.body);
+    //res.send('text posted');
+    console.log('message posted');
+    res.redirect('/')
+});
+
 app.get('/add.html', (req,res ) => {
     // res.send();
 });
@@ -52,6 +59,15 @@ app.get('/getTextRoSmall', (req, res) =>{
 app.get('/getTextEnSmall', (req, res) =>{
     service.getTextEn(res);
 });
+
+app.get('/getTextRoBig', (req, res) =>{
+    service.getTextRoBig(res);
+});
+
+app.get('/getTextEnBig', (req, res) =>{
+    service.getTextEnBig(res);
+});
+
 
 app.listen(PORT, () => {
     console.log(`server running on port ${PORT}`)

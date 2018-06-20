@@ -8,6 +8,13 @@ var textSc = mongoose.Schema({
     text: String
 });
 
+var message = mongoose.Schema({
+    nume: String,
+    mail: String,
+    message: String
+});
+
 module.exports = {
-    textSc: textSc
+    textSc: textSc,
+    message: message
 }

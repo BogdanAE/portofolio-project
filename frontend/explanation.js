@@ -40,6 +40,14 @@ function fadeWords(words) {
         )
     })
 }
+
+function repeatWords() {
+    for (let i = 1; i <= 10; i++) {
+        setTimeout(() => {
+            splitWords();
+        }, 10000 * i);
+    }
+}
 splitWords();
 // -------------------------------------------------------
 // --------------END Explanation page text----------------

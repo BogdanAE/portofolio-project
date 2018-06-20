@@ -46,9 +46,10 @@ a {
 
 #aura {
     position: absolute;
-    height: 60px;
-    width: 60px;
+    height: 30px;
+    width: 30px;
     border-radius: 50%;
+    transform-origin: 30px 30px;
     background-color: rgb(84, 84, 194);
     opacity: 1;
     /* z-index: 0; */
@@ -318,6 +319,11 @@ p {
     }
 }
 
+.desc {
+    margin-top: 10%;
+    font-family: 'Sunflower', sans-serif;
+}
+
 .desc>span {
     opacity: 0;
 }
@@ -368,7 +374,7 @@ p {
 
 #exPg {
     position: absolute;
-    height: 50%;
+    height: 10%;
     width: 90%;
     opacity: 1s;
     background-color: transparent;
@@ -427,7 +433,7 @@ p {
 
 #full1img1 {
     float: left;
-    position: relative;
+    /* position: relative; */
     height: 40%;
     width: 30%;
     background: url('./srcs/projects/cv1.png');
@@ -476,7 +482,7 @@ p {
 
 #full2img2 {
     float: left;
-    position: relative;
+    /* position: relative; */
     margin-left: -10%;
     margin-top: 15%;
     height: 40%;
@@ -527,7 +533,7 @@ p {
 
 #full4img1 {
     float: right;
-    position: relative;
+    /* position: relative; */
     height: 40%;
     width: 30%;
     background: url('./srcs/projects/chat1.png');
@@ -536,7 +542,7 @@ p {
 
 #full4img2 {
     float: right;
-    position: relative;
+    /* position: relative; */
     height: 40%;
     width: 30%;
     margin-right: -25%;
@@ -555,15 +561,41 @@ p {
     background-size: 100% 100%;
 }
 
+#projectsText1 {
+    /* float: left; */
+    font-size: 2.5em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    word-break: break-all;
+}
+
+#projectsText2 {
+    /* float: left; */
+    font-size: 2.5em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    word-break: break-all;
+}
+
+#projectsText3 {
+    /* float: left; */
+    font-size: 2.5em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    word-break: break-all;
+}
+
+#projectsText4 {
+    /* float: left; */
+    font-size: 2.5em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    word-break: break-all;
+}
+
 /* -----------------Education page -------------------------*/
 
 #full1ed1, #full1ed2, #full1ed3, #full1ed4 {
     position: relative;
-
-    border: 1px solid white;
+    /* border: 1px solid white; */
     height: 37.5%;
     width: 40%;
-    background-color: pink;
     /* word-wrap: break-word; */
     word-break: break-all;
 }
@@ -571,11 +603,15 @@ p {
 #full1ed2, #full1ed4 {
     float: right;
     margin-top: 5%;
+    box-shadow: 4px 4px 8px #aa863a;
+    background: linear-gradient(to right, #aa863a, #f0eceb);
 }
 
 #full1ed1, #full1ed3 {
     float: left;
     margin-top: 2.5%;
+    box-shadow: -4px 4px 8px gray;
+    background: linear-gradient(to right, #f0eceb, #aa863a);
 }
 
 #full1ed4, #full1ed3 {
@@ -594,7 +630,7 @@ p {
     height: 0px;
     border-top: 30px solid transparent;
     border-bottom: 30px solid transparent;
-    border-left: 30px solid red;
+    border-left: 30px solid #aa863a;
     position: relative;
     left: 100%;
     top: calc(50% - 30px);
@@ -605,7 +641,7 @@ p {
     width: 0px;
     border-bottom: 30px solid transparent;
     border-top: 30px solid transparent;
-    border-right: 30px solid red;
+    border-right: 30px solid #aa863a;
     position: relative;
     top: calc(50% - 30px);
     right: 30px;
@@ -724,19 +760,19 @@ p {
 } */
 
 #arrowDown {
-    transform: scale(0.6);
+    transform: scale(0.1);
     animation: glow 2s linear infinite;
 }
 
 @keyframes glow {
     0% {
-        transform: scale(0.6)
+        transform: scale(0.3)
     }
     50% {
-        transform: scale(0.8)
+        transform: scale(0.4)
     }
     100% {
-        transform: scale(0.6)
+        transform: scale(0.3)
     }
 }
 
@@ -766,7 +802,7 @@ p {
 }
 
 #containerContact:hover {
-    border: 10px solid white;
+    border-width: 10px;
     transform: translate(-5px, 0px);
 }
 
@@ -960,9 +996,9 @@ form>input {
     width: 20%;
 }
 
-form > input:nth-child(4){
+form>input:nth-child(4) {
     background-color: red;
-    box-shadow: 0px 0px 0px ;
+    box-shadow: 0px 0px 0px;
     border-color: red;
     color: white;
     font-size: 1.1em;
@@ -981,7 +1017,7 @@ form>textarea {
 #submitButton {
     position: absolute;
     width: 20%;
-    left:15%;
+    left: 15%;
     top: 100%;
     cursor: url('./srcs/cursor4.png'), default;
 }
@@ -997,8 +1033,9 @@ form>textarea {
     left: 5%;
     top: 5%;
     border-radius: 5px;
-    background: linear-gradient(to bottom, #e9ece5,  #1d2120);
-    box-shadow: 0px -3px 6px  white;
+    background: linear-gradient(to bottom, #e9ece5, #1d2120);
+    box-shadow: 0px -3px 6px white;
+    color: black;
 }
 
 #co1f1 {
@@ -1007,10 +1044,11 @@ form>textarea {
     height: 5%;
     left: 35.5%;
     top: 6%;
-    background: linear-gradient(to bottom right, white , rgb(170, 161, 161) );
+    background: linear-gradient(to bottom right, white, rgb(170, 161, 161));
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-    box-shadow: -2px -3px 6px  gray;
+    box-shadow: -2px -3px 6px gray;
+    color: black;
 }
 
 #co1t1 {
@@ -1025,14 +1063,14 @@ form>textarea {
     transform: rotate(-45deg);
 }
 
-#co1b1{
+#co1b1 {
     position: absolute;
     width: 2.5%;
     height: 5%;
     top: 8.2%;
     left: 2.5%;
     background: linear-gradient(to left, gray, white);
-    border-top-left-radius: 5px; 
+    border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     box-shadow: -2px -3px 6px gray;
 }
@@ -1043,9 +1081,10 @@ form>textarea {
     height: 30%;
     right: 5%;
     top: 15%;
-    background: linear-gradient(to bottom, #e9ece5,  #1d2120);
+    background: linear-gradient(to bottom, #e9ece5, #1d2120);
     border-radius: 5px;
-    box-shadow: 0px -3px 6px  gray;
+    box-shadow: 0px -3px 6px gray;
+    color: black;
 }
 
 #co1f2 {
@@ -1056,8 +1095,9 @@ form>textarea {
     top: 16%;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    background: linear-gradient(to bottom left, white , rgb(170, 161, 161) );
-    box-shadow: 2px -3px 6px  gray;
+    background: linear-gradient(to bottom left, white, rgb(170, 161, 161));
+    box-shadow: 2px -3px 6px gray;
+    color: black;
 }
 
 #co1t2 {
@@ -1072,14 +1112,14 @@ form>textarea {
     transform: rotate(45deg);
 }
 
-#co1b2{
+#co1b2 {
     position: absolute;
     width: 2.5%;
     height: 5%;
     top: 18.2%;
     right: 2.5%;
     background: linear-gradient(to right, gray, white);
-    border-top-right-radius: 5px; 
+    border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     box-shadow: 2px -3px 6px gray;
 }
@@ -1090,9 +1130,10 @@ form>textarea {
     height: 30%;
     left: 5%;
     top: 45%;
-    background: linear-gradient(to bottom, #e9ece5,  #1d2120);
+    background: linear-gradient(to bottom, #e9ece5, #1d2120);
     border-radius: 5px;
-    box-shadow: 0px -3px 6px  gray;
+    box-shadow: 0px -3px 6px gray;
+    color: black;
 }
 
 #co1f3 {
@@ -1101,10 +1142,11 @@ form>textarea {
     height: 5%;
     left: 35.5%;
     top: 46%;
-    background: linear-gradient(to bottom right, white , rgb(170, 161, 161) );
+    background: linear-gradient(to bottom right, white, rgb(170, 161, 161));
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-    box-shadow: -2px 3px 6px  gray;
+    box-shadow: -2px 3px 6px gray;
+    color: black;
 }
 
 #co1t3 {
@@ -1119,14 +1161,14 @@ form>textarea {
     transform: rotate(-45deg);
 }
 
-#co1b3{
+#co1b3 {
     position: absolute;
     width: 2.5%;
     height: 5%;
     top: 48.2%;
     left: 2.5%;
     background-color: gray;
-    border-top-left-radius: 5px; 
+    border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     background: linear-gradient(to left, gray, white);
     box-shadow: -2px 3px 6px gray;
@@ -1138,9 +1180,10 @@ form>textarea {
     height: 30%;
     right: 5%;
     top: 55%;
-    background: linear-gradient(to bottom, #e9ece5,  #1d2120);
+    background: linear-gradient(to bottom, #e9ece5, #1d2120);
     border-radius: 5px;
-    box-shadow: 0px -3px 6px  gray;
+    box-shadow: 0px -3px 6px gray;
+    color: black;
 }
 
 #co1f4 {
@@ -1151,8 +1194,9 @@ form>textarea {
     top: 56%;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    box-shadow: 2px 3px 6px  gray;
-    background: linear-gradient(to bottom left, white , rgb(170, 161, 161) );
+    box-shadow: 2px 3px 6px gray;
+    background: linear-gradient(to bottom left, white, rgb(170, 161, 161));
+    color: black;
 }
 
 #co1t4 {
@@ -1167,16 +1211,21 @@ form>textarea {
     transform: rotate(45deg);
 }
 
-#co1b4{
+#co1b4 {
     position: absolute;
     width: 2.5%;
     height: 5%;
     top: 58.2%;
     right: 2.5%;
     background: linear-gradient(to right, gray, white);
-    border-top-right-radius: 5px; 
+    border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     box-shadow: 2px 3px 6px gray;
+}
+
+#bigTextAbout1 {
+    color: white;
+    font-size: 1.2em;
 }
 
 /* -----------------end about page -------------------------*/
@@ -1376,13 +1425,13 @@ form>textarea {
 }
 
 .mainMenu {
-    height: 40%;
+    height: 44%;
     width: 90%;
     bottom: 0;
     float: left;
     /* box-sizing: border-box; */
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
 }
 

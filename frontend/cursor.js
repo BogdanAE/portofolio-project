@@ -21,8 +21,8 @@ function itsOut() {
 function addAura() {
     if (startHover) {
         aura.style.display = "block";
-        aura.style.left = event.clientX - 25 + "px";
-        aura.style.top = event.clientY - 25 + "px";
+        aura.style.left = event.clientX - 10 + "px";
+        aura.style.top = event.clientY - 10 + "px";
     }
     else {
         aura.style.display = "none";

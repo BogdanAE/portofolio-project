@@ -134,6 +134,9 @@ function createFullViewElements() {
         img2.setAttribute('id', 'full1img2');
         var img3 = document.createElement('div');
         img3.setAttribute('id', 'full1img3');
+        var projectsText = document.createElement('p');
+        projectsText.setAttribute('id', 'projectsText1');
+        div1.appendChild(projectsText);
         div1.appendChild(img1);
         div1.appendChild(img2);
         div1.appendChild(img3);
@@ -142,6 +145,9 @@ function createFullViewElements() {
         var div2 = document.createElement('div');
         div2.setAttribute('id', 'full2');
         fullView.appendChild(div2);
+        var projectsText2 = document.createElement('p');
+        projectsText2.setAttribute('id', 'projectsText2');
+        div2.appendChild(projectsText2);
         var img4 = document.createElement('div');
         img4.setAttribute('id', 'full2img1');
         var img5 = document.createElement('div');
@@ -156,6 +162,10 @@ function createFullViewElements() {
         var div3 = document.createElement('div');
         div3.setAttribute('id', 'full3');
         fullView.appendChild(div3);
+        var projectsText3 = document.createElement('p');
+        projectsText3.setAttribute('id', 'projectsText3');
+        div3.appendChild(projectsText3);
+
 
         var img7 = document.createElement('div');
         img7.setAttribute('id', 'full3img1');
@@ -168,6 +178,9 @@ function createFullViewElements() {
         var div4 = document.createElement('div');
         div4.setAttribute('id', 'full4');
         fullView.appendChild(div4);
+        var projectsText4 = document.createElement('p');
+        projectsText4.setAttribute('id', 'projectsText4');
+        div4.appendChild(projectsText4);
 
         var video1 = document.createElement('video');
         video1.setAttribute('id', 'full4video');
@@ -184,6 +197,7 @@ function createFullViewElements() {
         div4.appendChild(img11);
 
         projectsCreated = true;
+        createBigProjects('en');
     }
     else if (id == 'st8i6'/*EDUCATION*/) {
         if (projectsCreated == true)
@@ -305,6 +319,7 @@ function createFullViewElements() {
             div6.appendChild(div8);
 
             educationCreated = true;
+            createBigEducation('en');
         }
     }
     else if (id == 'st8i2' /*ABOUT*/) {
@@ -338,11 +353,17 @@ function createFullViewElements() {
             //page 2
             var div2 = document.createElement('div');
             div2.setAttribute('id', 'full2');
-            var t2 = document.createTextNode('ABOUT PAGE // PAGE 2')
-            div2.appendChild(t2);
+            
+            for (let q = 1; q<= 3; q++){
+                var divTextAbout = document.createElement('p');
+                divTextAbout.setAttribute('id', 'bigTextAbout' + q);
+                div2.appendChild(divTextAbout);
+            }
+
             fullView.appendChild(div2);
 
             aboutCreated = true;
+            createBigAbout('en');
         }
     }
 
@@ -449,7 +470,7 @@ function createFullViewElements() {
             //page 2
             var headingContact = document.createElement('h2');
             headingContact.innerHTML = 'Contact Page';
-            var textCoP2 = [['Nume: Epure', ''], ['', 'Prenume: Bogdan-Alin'], ['23.02.1990', ''], ['Sex: M', 'Nationality: Ro'], ['Adresa:', ' Clabucet nr. 4, 400537 Cluj-Napoca (Romania)'], ['Telefon:', ' +40754671417'], ['Gmail:', ' ep.bogdy@gmail.com']];
+            //var textCoP2 = [['Nume: Epure', ''], ['', 'Prenume: Bogdan-Alin'], ['23.02.1990', ''], ['Sex: M', 'Nationality: Ro'], ['Adresa:', ' Clabucet nr. 4, 400537 Cluj-Napoca (Romania)'], ['Telefon:', ' +40754671417'], ['Gmail:', ' ep.bogdy@gmail.com']];
             var div20 = document.createElement('div');
             div20.setAttribute('id', 'full2');
             div20.appendChild(headingContact);
@@ -463,23 +484,25 @@ function createFullViewElements() {
                 for (let j = 1; j <= 2; j++) {
                     var divC = document.createElement('td');
                     divC.setAttribute('id', 'col' + i + j);
-                    divC.innerHTML = textCoP2[i - 1][j - 1]
                     divR.appendChild(divC);
                 }
             }
 
             var form = document.createElement('form');
-            form.setAttribute('action', 'http://localhost:3000/add');
+            form.setAttribute('action', '/addMessage');
             form.setAttribute('method', 'post')
             var input1 = document.createElement('input');
             input1.setAttribute('type', 'text');
             input1.setAttribute('name', 'nume');
             input1.setAttribute('placeholder', 'Name');
+            input1.setAttribute("required", "true");
+            input1.attributes.required = 'required';
             form.appendChild(input1);
             var input2 = document.createElement('input');
             input2.setAttribute('type', 'email');
             input2.setAttribute('name', 'mail');
             input2.setAttribute('placeholder', 'Email adress');
+            input2.setAttribute("required", "true");
             form.appendChild(input2);
             var input3 = document.createElement('textarea');
             input3.setAttribute('type', 'text');
@@ -487,6 +510,7 @@ function createFullViewElements() {
             input3.setAttribute('rows', '4');
             input3.setAttribute('cols', '25');
             input3.setAttribute('placeholder', 'Message');
+            input3.setAttribute("required", "true");
             form.appendChild(input3);
             var submit = document.createElement('input');
             submit.setAttribute('type', 'submit');
@@ -499,7 +523,7 @@ function createFullViewElements() {
             div20.appendChild(div21);
             fullView.appendChild(div20);
 
-
+            createBigContact('en');
             contactCreated = true;
         }
     }
@@ -517,7 +541,7 @@ function animateShow(elem) {
         { opacity: '1' }
     ], {
             // timing options
-            duration: 5000,
+            duration: 2000,
         });
 }
 
@@ -610,7 +634,7 @@ fullPageButton.addEventListener('click', () => {
             animateShow(full2);
             animateShow(homeButton);
             animateEdPg1();
-        }, 2000);
+        }, 1500);
         setTimeout(() => {
             ed1d1.addEventListener('mouseover', animateEdPg1Individual1);
             ed1d2.addEventListener('mouseover', animateEdPg1Individual2);
@@ -685,33 +709,34 @@ function nextFullPage(value, times) {
     // var topMenuOffset = window.innerHeight * 0.05;
 
     //move the selected page on the top of the view with an animation
+    value.style.opacity = '1';
     value.animate([
         // keyframes
         { transform: 'translate(0,0)' },
         { transform: 'translate(0,' + -window.innerHeight + 'px' }
     ], {
             // timing options
-            duration: 2000,
+            duration: 1000,
         });
 
     //animate the current viewed page to height 0
-    document.getElementById('full' + fullPageCounter).animate([
-        { innerHeight: '100%' },
-        { innerHeight: '0%' }
-    ],
-        {
-            duration: 2000,
-        })
+    // document.getElementById('full' + fullPageCounter).animate([
+    //     { innerHeight: '100%' },
+    //     { innerHeight: '0%' }
+    // ],
+    //     {
+    //         duration: 1000,
+    //     })
 
     //hide the current viewed page with opacity
     setTimeout(() => {
         document.getElementById('full' + times).style.transform = 'translate(0,' + - 2 * window.innerHeight + 'px';
         document.getElementById('full' + times).style.opacity = '0';
-    }, 2000);
-    value.style.opacity = '1';
+    }, 1000);
+    
     setTimeout(() => {
         value.style.transform = 'translate(0,' + -window.innerHeight + 'px';
-    }, 2000);
+    }, 950);
 };
 
 function previousFullPage(value, times) {
@@ -732,12 +757,12 @@ function previousFullPage(value, times) {
             }
         ], {
                 // timing options
-                duration: 2000,
+                duration: 1100,
             });
         setTimeout(() => {
             value.style.transform = 'translate(0,' + 0 + 'px)';
             value.style.opacity = '1';
-        }, 2000);
+        }, 1000);
         document.getElementById('full' + previous).animate([
             {
                 opacity: '1',
@@ -747,12 +772,12 @@ function previousFullPage(value, times) {
             }
         ],
             {
-                duration: 2000,
+                duration: 500,
             });
         setTimeout(() => {
             document.getElementById('full' + previous).style.transform = 'translate(0,' + window.innerHeight + 'px';
             document.getElementById('full' + previous).style.opacity = '0';
-        }, 2000)
+        }, 100)
     }
     else {
         value.animate([
@@ -767,7 +792,7 @@ function previousFullPage(value, times) {
             }
         ], {
                 // timing options
-                duration: 2000,
+                duration: 1000,
             });
         //animate the current viewed page to height 0
         document.getElementById('full' + previous).animate([
@@ -775,18 +800,18 @@ function previousFullPage(value, times) {
             { opacity: '0' }
         ],
             {
-                duration: 2000,
+                duration: 950,
             });
         //hide the current viewed page with opacity
         setTimeout(() => {
             document.getElementById('full' + previous).style.transform = 'translate(0,' + window.innerHeight + 'px';
             document.getElementById('full' + previous).style.opacity = '0';
-        }, 2000)
+        }, 950)
 
         setTimeout(() => {
             value.style.transform = 'translate(0,' + -window.innerHeight + 'px)';
             value.style.opacity = '1';
-        }, 2000);
+        }, 950);
     }
 };
 
@@ -800,19 +825,25 @@ fullView.addEventListener('mousewheel', (event) => {
     else
         max = 1
     if (event.deltaY > 0) {
+        console.log(fullPageCounter);
+
+        setTimeout(() => {
+            letScroll = true;
+        }, 200)
         if (letScroll == true && fullPageCounter < max) {
+            letScroll = false;
             fullPageCounter++;
             if (fullPageCounter == 1) {
-                nextFullPage(full2, fullPageCounter);
+                nextFullPage(full2, 1);
                 if (educationCreated == true) {
                     animateSoftwareSkill();
                     animateProgrammingSkill();
                 }
             }
             else if (fullPageCounter == 2)
-                nextFullPage(full3, fullPageCounter);
+                nextFullPage(full3, 2);
             else if (fullPageCounter == 3) {
-                nextFullPage(full4, fullPageCounter);
+                nextFullPage(full4, 3);
             }
             else if (fullPageCounter >= max) {
                 letScroll = false;
@@ -820,19 +851,29 @@ fullView.addEventListener('mousewheel', (event) => {
         }
     }
     else {
+        console.log(fullPageCounter);
+
         if (fullPageCounter > max) {
             fullPageCounter--;
-            letScroll = true;
+            // letScroll = true;
         }
+        // setTimeout(() => {
+        //     letScroll = false;
+        // }, 10);
+        setTimeout(() => {
+            letScroll = true;
+        }, 200);
         if (letScroll == true && fullPageCounter > min) {
+            letScroll = false;
             fullPageCounter--;
             if (fullPageCounter == 2) {
-                previousFullPage(full3, fullPageCounter);
+                previousFullPage(full3, 2);
             }
-            else if (fullPageCounter == 1)
-                previousFullPage(full2, fullPageCounter);
+            else if (fullPageCounter == 1) {
+                previousFullPage(full2, 1);
+            }
             else if (fullPageCounter == 0) {
-                previousFullPage(full1, fullPageCounter);
+                previousFullPage(full1, 0);
             }
         }
     }
@@ -1267,21 +1308,21 @@ function showOthers(el1, el2, el3) {
             { opacity: '0' },
             { opacity: '1' }
         ], {
-                duration: 500,
+                duration: 200,
             });
         el2.animate([
             { opacity: '0' },
             { opacity: '1' }
         ], {
-                duration: 500,
+                duration: 200,
             });
         el3.animate([
             { opacity: '0' },
             { opacity: '1' }
         ], {
-                duration: 500,
+                duration: 200,
             });
-    }, 1000);
+    }, 1300);
     setTimeout(() => {
         el1.style.opacity = '1';
         el2.style.opacity = '1';
@@ -1398,10 +1439,10 @@ function animateBoxes(el) {
     let neighbour2;
     let neighbour3;
     if (boxAnimateControl) {
-        boxAnimateControl =  false;
+        boxAnimateControl = false;
         setTimeout(() => {
             boxAnimateControl = true;
-        }, 1200);
+        }, 1500);
         if (el == ed1d1) {
             transformMode = 'translate(75%, -20%) rotate(90deg)';
             neighbour1 = ed1d2;
@@ -1542,10 +1583,10 @@ function animateSoftwareSkill() {
         document.getElementById('ed2line' + i).style.opacity = '0';
     }
     lineAnim(line1, 0, 70);
-    lineAnim(line2, 1000, 80);
-    lineAnim(line3, 2000, 65);
-    lineAnim(line4, 3000, 75);
-    lineAnim(line5, 4000, 90);
+    lineAnim(line2, 750, 80);
+    lineAnim(line3, 1500, 65);
+    lineAnim(line4, 2250, 75);
+    lineAnim(line5, 3000, 90);
 
 
     function lineAnim(el, elDelay, elHeight) {
@@ -1573,7 +1614,7 @@ function animateSoftwareSkill() {
                 document.getElementById('ed2line' + i).style.opacity = '1';
                 document.getElementById('ed2line' + i).style.display = 'block';
 
-            }, 2000 + 1000 * i);
+            }, 2000 + 750 * i);
         }
     }
 
@@ -1596,7 +1637,7 @@ function animateSoftwareSkill() {
                         duration: 1200
                     })
                 lineText[j - 1].style.opacity = '1';
-            }, 3500 + 1000 * j)
+            }, 2500 + 500 * j)
         }
     }
 }
@@ -1619,13 +1660,13 @@ function animateProgrammingSkill() {
         document.getElementById('ed2bline' + i).style.opacity = '0';
     }
     lineAnim(line1, 0, 90);
-    lineAnim(line2, 1000, 90);
-    lineAnim(line3, 2000, 80);
-    lineAnim(line4, 3000, 50);
-    lineAnim(line5, 4000, 60);
-    lineAnim(line6, 5000, 55);
-    lineAnim(line7, 6000, 45);
-    lineAnim(line8, 7000, 50);
+    lineAnim(line2, 500, 90);
+    lineAnim(line3, 1000, 80);
+    lineAnim(line4, 1500, 50);
+    lineAnim(line5, 2000, 60);
+    lineAnim(line6, 2500, 55);
+    lineAnim(line7, 3000, 45);
+    lineAnim(line8, 3500, 50);
 
 
     function lineAnim(el, elDelay, elHeight) {
@@ -1653,7 +1694,7 @@ function animateProgrammingSkill() {
                 document.getElementById('ed2bline' + i).style.opacity = '1';
                 document.getElementById('ed2bline' + i).style.display = 'block';
 
-            }, 2000 + 1000 * i);
+            }, 2000 + 500 * i);
         }
     }
 
@@ -1676,7 +1717,7 @@ function animateProgrammingSkill() {
                         duration: 1200
                     })
                 lineText[j - 1].style.opacity = '1';
-            }, 3500 + 1000 * j)
+            }, 2200 + 550 * j)
         }
     }
 }
