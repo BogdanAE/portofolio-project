@@ -561,7 +561,7 @@ p {
     position: relative;
 
     border: 1px solid white;
-    height: 30%;
+    height: 37.5%;
     width: 40%;
     background-color: pink;
     /* word-wrap: break-word; */
@@ -570,7 +570,7 @@ p {
 
 #full1ed2, #full1ed4 {
     float: right;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 #full1ed1, #full1ed3 {
@@ -579,7 +579,7 @@ p {
 }
 
 #full1ed4, #full1ed3 {
-    margin-top: 7.5%;
+    margin-top: 2.5%;
 }
 
 #ed1text1, #ed1text2, #ed1text3, #ed1text4 {
