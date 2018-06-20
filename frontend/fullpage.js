@@ -1298,44 +1298,47 @@ function rotateBoxText90(el) {
     if (el == ed1d1) {
         ed1text1.animate([
             { transform: 'translate(0,0)', width: '100%' },
-            { transform: 'translate(0px, 100%) rotate(-90deg)', width: '75%'}
+            { transform: 'translate(250px, 0%) rotate(-90deg)', width: '75%'}
         ],
             {
                 duration: 700
             });
-        ed1text1.style.transform = 'translate(0px, 100%) rotate(-90deg)';
+        ed1text1.style.transform = 'translate(250px, 0%) rotate(-90deg)';
         ed1text1.style.width = '75%';
     }
     else if (el == ed1d2) {
         ed1text2.animate([
-            { transform: 'translate(0,0)' },
-            { transform: 'translate(250px, -50%) rotate(90deg)' }
+            { transform: 'translate(0,0)' , width: '100%'},
+            { transform: 'translate(-150px, -50px) rotate(90deg)' , width: '75%'}
         ],
             {
                 duration: 700
             });
-        ed1text2.style.transform = 'translate(250px, -50%) rotate(90deg)';
+        ed1text2.style.transform = 'translate(-150px, -50px) rotate(90deg)';
+        ed1text2.style.width = '75%';
+
     }
     else if (el == ed1d3) {
         ed1text3.animate([
             { transform: 'translate(0,0)', width: '100%' },
-            { transform: 'translate(-25%, -100%) rotate(-90deg)', width: '75%' }
+            { transform: 'translate(250px, 0%) rotate(-90deg)', width: '75%' }
         ],
             {
                 duration: 700
             });
-        ed1text3.style.transform = 'translate(-40%, 250%) rotate(-90deg)';
+        ed1text3.style.transform = 'translate(250px, 0%) rotate(-90deg)';
         ed1text3.style.width = '75%';
     }
     else if (el == ed1d4) {
         ed1text4.animate([
-            { transform: 'translate(0,0)' },
-            { transform: 'translate(250px, -25%) rotate(90deg)' }
+            { transform: 'translate(0,0)', width: '100%' },
+            { transform: 'translate(-150px, -50px) rotate(90deg)' , width: '75%'}
         ],
             {
                 duration: 700
             });
-        ed1text4.style.transform = 'translate(250px, -25%) rotate(90deg)';
+        ed1text4.style.transform = 'translate(-150px, -50px) rotate(90deg)';
+        ed1text4.style.width = '75%';
     }
 }
 
@@ -1347,7 +1350,7 @@ function rotateBoxText0(el) {
 
     if (el == ed1d1) {
         ed1text1.animate([
-            { transform: 'translate(200px, 0%) rotate(-90deg)' },
+            { transform: 'translate(250px, 0%) rotate(-90deg)' },
             { transform: 'translate(0%,0%) rotate(0deg)' }
         ],
             {
@@ -1357,7 +1360,7 @@ function rotateBoxText0(el) {
     }
     else if (el == ed1d2) {
         ed1text2.animate([
-            { transform: 'translate(250px, -50%) rotate(90deg)' },
+            { transform: 'translate(-150px, -50px) rotate(90deg)' },
             { transform: 'translate(0%,0%) rotate(0deg)' }
         ],
             {
@@ -1367,7 +1370,7 @@ function rotateBoxText0(el) {
     }
     else if (el == ed1d3) {
         ed1text3.animate([
-            { transform: 'translate(0%, -25%) rotate(-90deg)' },
+            { transform: 'translate(250px, 0%) rotate(-90deg)' },
             { transform: 'translate(0%,0%) rotate(0deg)' }
         ],
             {
@@ -1377,7 +1380,7 @@ function rotateBoxText0(el) {
     }
     else if (el == ed1d4) {
         ed1text4.animate([
-            { transform: 'translate(0%, 25%) rotate(90deg)' },
+            { transform: 'translate(-150px, -50px) rotate(90deg)' },
             { transform: 'translate(0%,0%) rotate(0deg)' }
         ],
             {
@@ -1393,7 +1396,7 @@ function animateBoxes(el) {
     let neighbour2;
     let neighbour3;
     if (el == ed1d1) {
-        transformMode = 'translate(75%, 20%) rotate(90deg)';
+        transformMode = 'translate(75%, 0%) rotate(90deg)';
         neighbour1 = ed1d2;
         neighbour2 = ed1d3;
         neighbour3 = ed1d4;
@@ -1402,7 +1405,7 @@ function animateBoxes(el) {
         ed1d4.removeEventListener("mouseover", animateEdPg1Individual4);
     }
     else if (el == ed1d2) {
-        transformMode = 'translate(-75%, 0%) rotate(-90deg)';
+        transformMode = 'translate(-75%, -20%) rotate(-90deg)';
         neighbour1 = ed1d1;
         neighbour2 = ed1d3;
         neighbour3 = ed1d4;
@@ -1420,7 +1423,7 @@ function animateBoxes(el) {
         ed1d4.removeEventListener("mouseover", animateEdPg1Individual4);
     }
     else if (el == ed1d4) {
-        transformMode = 'translate(-75%, -75%) rotate(-90deg)';
+        transformMode = 'translate(-75%, -65%) rotate(-90deg)';
         neighbour1 = ed1d1;
         neighbour2 = ed1d2;
         neighbour3 = ed1d3;
@@ -1438,13 +1441,13 @@ function animateBoxes(el) {
                 },
                 {
                     transform: transformMode,
-                    height: '60%'
+                    height: '800px'
                 }
             ],
                 { duration: 1500 });
             setTimeout(() => {
                 el.style.transform = transformMode;
-                el.style.height = '60%';
+                el.style.height = '800px';
             }, 1400);
             hideOthers(neighbour1, neighbour2, neighbour3);
             rotateBoxText90(el);
@@ -1453,7 +1456,7 @@ function animateBoxes(el) {
             el.animate([
                 {
                     transform: transformMode,
-                    height: '60%'
+                    height: '800px'
                 },
                 {
                     transform: 'translate(0%,0%) rotate(0deg)',

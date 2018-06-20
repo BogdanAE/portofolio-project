@@ -558,11 +558,13 @@ p {
 /* -----------------Education page -------------------------*/
 
 #full1ed1, #full1ed2, #full1ed3, #full1ed4 {
+    position: relative;
+
     border: 1px solid white;
     height: 30%;
     width: 40%;
     background-color: pink;
-    word-wrap: break-word;
+    /* word-wrap: break-word; */
     word-break: break-all;
 }
 
@@ -581,7 +583,10 @@ p {
 }
 
 #ed1text1, #ed1text2, #ed1text3, #ed1text4 {
+    position: absolute;
     color: black;
+    width: 100%;
+    height: 100%;
 }
 
 .arrowRight {
