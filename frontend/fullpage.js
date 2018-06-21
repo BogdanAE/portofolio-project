@@ -30,6 +30,9 @@ var p3i2;
 var p4i1;
 var p4i2;
 var p4i3;
+var p5i1;
+var p5i2;
+var p5i3;
 
 //educatiopage variables
 var ed1d1;
@@ -44,6 +47,7 @@ var mapS1;
 var mapS2;
 var map3;
 var map4;
+var map5;
 var mapB = document.getElementById('map');
 
 //pages variables
@@ -51,6 +55,7 @@ var full1;
 var full2;
 var full3;
 var full4;
+var full5;
 
 
 //control variables
@@ -74,6 +79,7 @@ function removeChildren(idValue) {
         full2.remove();
         full3.remove();
         full4.remove();
+        full5.remove();
         projectsCreated = false;
     }
     else if (idValue == 2) {
@@ -93,6 +99,8 @@ function removeMap() {
         map2.remove();
         map3.remove();
         map4.remove();
+        map5.remove();
+
         mapCreatedBig = false;
         mapCreatedSmall = false;
         fullPageCounter = 0;
@@ -102,6 +110,7 @@ function removeMap() {
         map2.remove();
         map3.remove();
         map4.remove();
+        map5.remove();
         mapCreatedBig = false;
         fullPageCounter = 0;
     }
@@ -136,10 +145,11 @@ function createFullViewElements() {
         img3.setAttribute('id', 'full1img3');
         var projectsText = document.createElement('p');
         projectsText.setAttribute('id', 'projectsText1');
-        div1.appendChild(projectsText);
+        
         div1.appendChild(img1);
         div1.appendChild(img2);
         div1.appendChild(img3);
+        div1.appendChild(projectsText);
 
         //page 2
         var div2 = document.createElement('div');
@@ -147,7 +157,7 @@ function createFullViewElements() {
         fullView.appendChild(div2);
         var projectsText2 = document.createElement('p');
         projectsText2.setAttribute('id', 'projectsText2');
-        div2.appendChild(projectsText2);
+        
         var img4 = document.createElement('div');
         img4.setAttribute('id', 'full2img1');
         var img5 = document.createElement('div');
@@ -157,6 +167,7 @@ function createFullViewElements() {
         div2.appendChild(img4);
         div2.appendChild(img5);
         div2.appendChild(img6);
+        div2.appendChild(projectsText2);
 
         //page 3
         var div3 = document.createElement('div');
@@ -164,7 +175,6 @@ function createFullViewElements() {
         fullView.appendChild(div3);
         var projectsText3 = document.createElement('p');
         projectsText3.setAttribute('id', 'projectsText3');
-        div3.appendChild(projectsText3);
 
 
         var img7 = document.createElement('div');
@@ -173,6 +183,7 @@ function createFullViewElements() {
         img8.setAttribute('id', 'full3img2');
         div3.appendChild(img7);
         div3.appendChild(img8);
+        div3.appendChild(projectsText3);
 
         //page 4
         var div4 = document.createElement('div');
@@ -180,7 +191,7 @@ function createFullViewElements() {
         fullView.appendChild(div4);
         var projectsText4 = document.createElement('p');
         projectsText4.setAttribute('id', 'projectsText4');
-        div4.appendChild(projectsText4);
+        
 
         var video1 = document.createElement('video');
         video1.setAttribute('id', 'full4video');
@@ -195,6 +206,27 @@ function createFullViewElements() {
         div4.appendChild(img9);
         div4.appendChild(img10);
         div4.appendChild(img11);
+        div4.appendChild(projectsText4);
+
+        //page 5  
+        var div5 = document.createElement('div');
+        div5.setAttribute('id', 'full5');
+        fullView.appendChild(div5);
+        var projectsText5 = document.createElement('p');
+        projectsText5.setAttribute('id', 'projectsText5');
+        
+
+
+        var img12 = document.createElement('div');
+        img12.setAttribute('id', 'full5img1');
+        var img13 = document.createElement('div');
+        img13.setAttribute('id', 'full5img2');
+        var img14 = document.createElement('div');
+        img14.setAttribute('id', 'full5img3');
+        div5.appendChild(img12);
+        div5.appendChild(img13);
+        div5.appendChild(img14);
+        div5.appendChild(projectsText5);
 
         projectsCreated = true;
         createBigProjects('en');
@@ -338,6 +370,12 @@ function createFullViewElements() {
                 var divContainer = document.createElement('div');
                 divContainer.setAttribute('id', 'co1d' + i);
                 div1.appendChild(divContainer);
+                var abText1 = document.createElement('p');
+                abText1.setAttribute('id', 'co'+ i +'text1');
+                divContainer.appendChild(abText1);
+                var abText2 = document.createElement('p');
+                abText2.setAttribute('id', 'co'+ i +'text2');
+                divContainer.appendChild(abText2);
                 var divFlag = document.createElement('div');
                 divFlag.setAttribute('id', 'co1f' + i);
                 div1.appendChild(divFlag);
@@ -359,6 +397,14 @@ function createFullViewElements() {
                 divTextAbout.setAttribute('id', 'bigTextAbout' + q);
                 div2.appendChild(divTextAbout);
             }
+            var meImg = document.createElement('div');
+            meImg.setAttribute('id', 'myPic');
+            // meImg.setAttribute('src', './srcs/eu1.svg');
+            // meImg.setAttribute('height', '100%')
+            // meImg.setAttribute('width', '100%');
+            
+            // height="5%" width="10%" 
+            div2.appendChild(meImg);
 
             fullView.appendChild(div2);
 
@@ -552,7 +598,7 @@ fullPageButton.addEventListener('click', () => {
         removeMap();
 
         for (let i = 1; i <= fullView.childNodes.length; i++) {
-            if (fullView.childNodes.length == 4) {
+            if (fullView.childNodes.length == 5) {
                 var div = document.createElement('div');
                 div.setAttribute('id', 'map' + i);
                 mapB.appendChild(div);
@@ -572,6 +618,7 @@ fullPageButton.addEventListener('click', () => {
         full2 = document.getElementById('full2');
         full3 = document.getElementById('full3');
         full4 = document.getElementById('full4');
+        full5 = document.getElementById('full5');
         eventsImageProjectPage();
     }
     else {
@@ -597,6 +644,7 @@ fullPageButton.addEventListener('click', () => {
             full2.style.display = 'block';
             full3.style.display = 'block';
             full4.style.display = 'block';
+            full5.style.display = 'block';
             // fullView.style.transition = '1s linear'; 
             fullView.style.opacity = '1';
             homeButton.style.display = 'block';
@@ -608,6 +656,7 @@ fullPageButton.addEventListener('click', () => {
             animateShow(full2);
             animateShow(full3);
             animateShow(full4);
+            animateShow(full5);
             animateShow(homeButton);
 
         }, 2000)
@@ -675,10 +724,10 @@ fullPageButton.addEventListener('click', () => {
         displayNoneMedia();
         hideMediaButtons();
         smallCirclesAnimate();
-        cvButton.addEventListener('click', () => { console.log('cv') })
-        fbButton.addEventListener('click', () => { console.log('fb') })
-        ghButton.addEventListener('click', () => { console.log('gh') })
-        liButton.addEventListener('click', () => { console.log('li') })
+        // cvButton.addEventListener('click', () => { console.log('cv') })
+        // fbButton.addEventListener('click', () => { console.log('fb') })
+        // ghButton.addEventListener('click', () => { console.log('gh') })
+        // liButton.addEventListener('click', () => { console.log('li') })
         bigCircle.addEventListener('click', () => {
             bigCircleTransform();
         });
@@ -820,7 +869,7 @@ fullView.addEventListener('mousewheel', (event) => {
     let max;
     let min = 0;
     if (id == 'st8i4') {
-        max = 3;
+        max = 4;
     }
     else
         max = 1
@@ -845,6 +894,9 @@ fullView.addEventListener('mousewheel', (event) => {
             else if (fullPageCounter == 3) {
                 nextFullPage(full4, 3);
             }
+            else if (fullPageCounter == 4) {
+                nextFullPage(full5, 4);
+            }
             else if (fullPageCounter >= max) {
                 letScroll = false;
             }
@@ -866,7 +918,10 @@ fullView.addEventListener('mousewheel', (event) => {
         if (letScroll == true && fullPageCounter > min) {
             letScroll = false;
             fullPageCounter--;
-            if (fullPageCounter == 2) {
+            if (fullPageCounter == 3) {
+                previousFullPage(full4, 3);
+            }
+            else if (fullPageCounter == 2) {
                 previousFullPage(full3, 2);
             }
             else if (fullPageCounter == 1) {
@@ -890,6 +945,8 @@ function resetMap() {
         map3.style.filter = "blur(0px)";
         map4.style.background = "white";
         map4.style.filter = "blur(0px)";
+        map5.style.background = "white";
+        map5.style.filter = "blur(0px)";
     }
     else {
         mapS1.style.background = "white";
@@ -905,6 +962,7 @@ function map() {
         map2 = document.getElementById('map2');
         map3 = document.getElementById('map3');
         map4 = document.getElementById('map4');
+        map5 = document.getElementById('map5');
         if (fullPageCounter == 0) {
             resetMap();
             map1.style.background = "yellow";
@@ -924,6 +982,11 @@ function map() {
             resetMap();
             map4.style.background = "yellow";
             map4.style.filter = "blur(2px)";
+        }
+        else if (fullPageCounter == 4) {
+            resetMap();
+            map5.style.background = "yellow";
+            map5.style.filter = "blur(2px)";
         }
     }
     else {
@@ -982,6 +1045,7 @@ homeButton.addEventListener('click', () => {
             full2.style.display = 'none';
             full3.style.display = 'none';
             full4.style.display = 'none';
+            full5.style.display = 'none';
             fullView.style.transition = '1s linear';
             fullView.style.opacity = '1';
             homeButton.style.display = 'none';
@@ -1072,6 +1136,9 @@ function eventsImageProjectPage() {
     p4i1 = document.getElementById('full4img1');
     p4i2 = document.getElementById('full4img2');
     p4i3 = document.getElementById('full4img3');
+    p5i1 = document.getElementById('full5img1');
+    p5i2 = document.getElementById('full5img2');
+    p5i3 = document.getElementById('full5img3');
 
     //-----------------P1I1--------------------
     p1i1.addEventListener('mouseover', () => {
@@ -1208,6 +1275,35 @@ function eventsImageProjectPage() {
         document.getElementById('full4video').pause()
     });
     //---------------END P4V------------------
+
+
+    //---------------P5i1 i2 and i3------------------
+    p5i1.addEventListener('mouseover', () => {
+        pageFull2In(p5i1, p5i2, p5i3);
+    });
+
+    p5i2.addEventListener('mouseover', () => {
+        pageFull2In(p5i2, p5i1, p5i3);
+    });
+
+    p5i3.addEventListener('mouseover', () => {
+        pageFull2In(p5i3, p5i1, p5i2);
+    });
+
+    p5i1.addEventListener('mouseout', () => {
+        pageFull2Out(p5i1, p5i2, p5i3);
+    });
+
+    p5i2.addEventListener('mouseout', () => {
+        pageFull2Out(p5i2, p5i1, p5i3);
+    });
+
+    p5i3.addEventListener('mouseout', () => {
+        pageFull2Out(p5i3, p5i1, p5i2);
+    });
+
+    
+    //-------------END P5i1 i2 and i3----------------
 };
 
 
@@ -1391,43 +1487,47 @@ function rotateBoxText0(el) {
 
     if (el == ed1d1) {
         ed1text1.animate([
-            { transform: 'translate(250px, 0%) rotate(-90deg)' },
-            { transform: 'translate(0%,0%) rotate(0deg)' }
+            { transform: 'translate(250px, 0%) rotate(-90deg)', width: '75%' },
+            { transform: 'translate(0%,0%) rotate(0deg)', width: '100%' }
         ],
             {
                 duration: 700
             });
         ed1text1.style.transform = 'translate(0%, 0%) rotate(0deg)';
+        ed1text1.style.width = '100%';
     }
     else if (el == ed1d2) {
         ed1text2.animate([
-            { transform: 'translate(-150px, -50px) rotate(90deg)' },
-            { transform: 'translate(0%,0%) rotate(0deg)' }
+            { transform: 'translate(-150px, -50px) rotate(90deg)', width: '75%' },
+            { transform: 'translate(0%,0%) rotate(0deg)', width: '100%' }
         ],
             {
                 duration: 700
             });
         ed1text2.style.transform = 'translate(0%, 0%) rotate(0deg)';
+        ed1text2.style.width = '100%';
     }
     else if (el == ed1d3) {
         ed1text3.animate([
-            { transform: 'translate(250px, 0%) rotate(-90deg)' },
-            { transform: 'translate(0%,0%) rotate(0deg)' }
+            { transform: 'translate(250px, 0%) rotate(-90deg)', width: '75%' },
+            { transform: 'translate(0%,0%) rotate(0deg)', width: '100%' }
         ],
             {
                 duration: 700
             });
         ed1text3.style.transform = 'translate(0%, 0%) rotate(0deg)';
+        ed1text3.style.width = '100%';
     }
     else if (el == ed1d4) {
         ed1text4.animate([
-            { transform: 'translate(-150px, -50px) rotate(90deg)' },
-            { transform: 'translate(0%,0%) rotate(0deg)' }
+            { transform: 'translate(-150px, -50px) rotate(90deg)', width: '75%' },
+            { transform: 'translate(0%,0%) rotate(0deg)', width: '100%' }
         ],
             {
                 duration: 700
             });
         ed1text4.style.transform = 'translate(0%, 0%) rotate(0deg)';
+        ed1text4.style.width = '100%';
     }
 }
 

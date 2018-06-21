@@ -413,7 +413,7 @@ p {
     /* z-index: -2; */
 }
 
-#full1, #full2, #full3, #full4 {
+#full1, #full2, #full3, #full4, #full5 {
     position: absolute;
     bottom: -100%;
     height: 95%;
@@ -433,7 +433,7 @@ p {
 
 #full1img1 {
     float: left;
-    /* position: relative; */
+    position: relative;
     height: 40%;
     width: 30%;
     background: url('./srcs/projects/cv1.png');
@@ -442,6 +442,7 @@ p {
 
 #full1img2 {
     float: left;
+    position: relative;
     margin-left: -10%;
     margin-top: 15%;
     height: 40%;
@@ -482,7 +483,7 @@ p {
 
 #full2img2 {
     float: left;
-    /* position: relative; */
+    position: relative;
     margin-left: -10%;
     margin-top: 15%;
     height: 40%;
@@ -495,6 +496,7 @@ p {
 
 #full2img3 {
     float: left;
+    position: relative;
     margin-left: -40%;
     margin-top: 40%;
     height: 40%;
@@ -522,71 +524,90 @@ p {
     width: 30%;
     background: url('./srcs/projects/welcome2.png');
     background-size: 100% 100%;
-    margin-right: 25px;
+    margin-left: 25px;
     margin-bottom: 15px;
 }
 
 #full4video {
     height: 65%;
     float: left;
+    margin-right: 10px;
 }
 
 #full4img1 {
     float: right;
-    /* position: relative; */
+    position: relative;
     height: 40%;
     width: 30%;
     background: url('./srcs/projects/chat1.png');
     background-size: 100% 100%;
+    margin-left: 10px;
 }
 
 #full4img2 {
     float: right;
-    /* position: relative; */
+    position: relative;
     height: 40%;
     width: 30%;
     margin-right: -25%;
     margin-top: 15%;
     background: url('./srcs/projects/chat2.png');
     background-size: 100% 100%;
+    margin-left: 10px;
 }
 
 #full4img3 {
     float: right;
+    position: relative;
     height: 40%;
     width: 30%;
     margin-right: -35%;
     margin-top: 30%;
     background: url('./srcs/projects/chat3.png');
     background-size: 100% 100%;
+    margin-left: 10px;
 }
 
-#projectsText1 {
-    /* float: left; */
-    font-size: 2.5em;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    word-break: break-all;
+#full5img1 {
+    float: left;
+    position: relative;
+    height: 40%;
+    width: 30%;
+    margin-right: 0%;
+    margin-top: 0%;
+    background: url('./srcs/projects/bjack.png');
+    background-size: 100% 100%;
+    margin-right: 10px;
 }
 
-#projectsText2 {
-    /* float: left; */
-    font-size: 2.5em;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    word-break: break-all;
+#full5img2 {
+    float: left;
+    position: relative;
+    height: 40%;
+    width: 30%;
+    margin-left: -20%;
+    margin-top: 15%;
+    background: url('./srcs/projects/xo.png');
+    background-size: 100% 100%;
+    margin-right: 10px;
 }
 
-#projectsText3 {
-    /* float: left; */
-    font-size: 2.5em;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    word-break: break-all;
+#full5img3 {
+    float: right;
+    position: relative;
+    height: 40%;
+    width: 30%;
+    margin-left: 0%;
+    margin-top: 30%;
+    background: url('./srcs/projects/dart.png');
+    background-size: 100% 100%;
+    margin-left: 10px;
 }
 
-#projectsText4 {
-    /* float: left; */
-    font-size: 2.5em;
+#projectsText1, #projectsText2, #projectsText3, #projectsText4, #projectsText5 {
+    font-size: 1.7em;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    word-break: break-all;
+    padding: 15px;
 }
 
 /* -----------------Education page -------------------------*/
@@ -1026,6 +1047,10 @@ form>textarea {
 
 /* -----------------about page -------------------------*/
 
+#co1d1, #co1d2, #co1d3, #co1d4 {
+    overflow: scroll;
+}
+
 #co1d1 {
     position: absolute;
     width: 40%;
@@ -1049,6 +1074,10 @@ form>textarea {
     border-bottom-left-radius: 10px;
     box-shadow: -2px -3px 6px gray;
     color: black;
+    padding-top: 12px;
+    padding-left: 12px;
+    box-sizing: border-box;
+    font-family: 'Lobster', cursive;
 }
 
 #co1t1 {
@@ -1098,6 +1127,10 @@ form>textarea {
     background: linear-gradient(to bottom left, white, rgb(170, 161, 161));
     box-shadow: 2px -3px 6px gray;
     color: black;
+    padding-top: 12px;
+    padding-left: 8px;
+    box-sizing: border-box;
+    font-family: 'Lobster', cursive;
 }
 
 #co1t2 {
@@ -1147,6 +1180,10 @@ form>textarea {
     border-bottom-left-radius: 10px;
     box-shadow: -2px 3px 6px gray;
     color: black;
+    padding-top: 12px;
+    padding-left: 8px;
+    box-sizing: border-box;
+    font-family: 'Lobster', cursive;
 }
 
 #co1t3 {
@@ -1197,6 +1234,10 @@ form>textarea {
     box-shadow: 2px 3px 6px gray;
     background: linear-gradient(to bottom left, white, rgb(170, 161, 161));
     color: black;
+    padding-top: 12px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    font-family: 'Lobster', cursive;
 }
 
 #co1t4 {
@@ -1223,10 +1264,36 @@ form>textarea {
     box-shadow: 2px 3px 6px gray;
 }
 
-#bigTextAbout1 {
-    color: white;
-    font-size: 1.2em;
+#bigTextAbout1, #bigTextAbout2, #bigTextAbout3 {
+    font-size: 1.4em;
+    font-family: 'Lobster', cursive;
+    color: #dddfd4;
+    word-break: keep-all;
+    text-shadow: 1px 1px 2px #e8edf3;
 }
+
+#co1text1, #co1text2, #co2text1, #co2text2, #co3text1, #co3text2, #co4text1, #co4text2 {
+    margin-top: 2.5%;
+    font-size: 1em;
+    font-family: 'Sunflower', sans-serif;
+    color: #173e43;
+}
+
+#co1text1, #co2text1, #co3text1, #co4text1 {
+    margin-top: 14%;
+    font-weight: bold;
+    font-family: 'Sunflower', sans-serif;
+}
+
+#myPic{
+    background: url('./srcs/eu1.png');
+    /* background: url(./srcs/eu1.svg); */
+    /* background-image: src('./srcs/eu.svg'); */
+    width: 500px;
+    height: 500px;
+    /* float: left; */
+}
+
 
 /* -----------------end about page -------------------------*/
 
@@ -1288,7 +1355,7 @@ form>textarea {
     display: none;
 }
 
-#map1, #map2, #map3, #map4 {
+#map1, #map2, #map3, #map4, #map5 {
     margin-top: calc(100vh / 8 - 10px);
     margin-left: calc(100% / 2 - 11px);
     height: 20px;
@@ -1298,7 +1365,7 @@ form>textarea {
     transition: 2s linear;
 }
 
-#map1:after, #map2:after, #map3:after {
+#map1:after, #map2:after, #map3:after, #map4:after {
     margin-top: 20px;
     right: calc(100% / 2);
     position: absolute;
