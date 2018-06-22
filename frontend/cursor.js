@@ -20,6 +20,7 @@ function itsOut() {
 
 function addAura() {
     if (startHover) {
+        aura2.style.display = 'none';
         aura.style.display = "block";
         aura.style.left = event.clientX - 10 + "px";
         aura.style.top = event.clientY - 10 + "px";
@@ -76,10 +77,57 @@ setTimeout(() => {
             liButton.addEventListener('mouseout', itsOut1);
             ghButton.addEventListener('mouseover', itsIn1);
             ghButton.addEventListener('mouseout', itsOut1);
+
+            document.getElementById('tabelC').addEventListener('mouseover', itsIn1);
+            document.getElementById('tabelC').addEventListener('mouseout', itsOut1);
+            document.getElementById('submitButton').addEventListener('mouseover', itsIn1);
+            document.getElementById('submitButton').addEventListener('mouseout', itsOut1);
         }
         else if (projectsHover) {
             document.getElementById('full1img1').addEventListener('mouseover', itsIn1);
             document.getElementById('full1img1').addEventListener('mouseout', itsOut1);
+            document.getElementById('full1img2').addEventListener('mouseover', itsIn1);
+            document.getElementById('full1img2').addEventListener('mouseout', itsOut1);
+            document.getElementById('full1img3').addEventListener('mouseover', itsIn1);
+            document.getElementById('full1img3').addEventListener('mouseout', itsOut1);
+
+            document.getElementById('full2img1').addEventListener('mouseover', itsIn1);
+            document.getElementById('full2img1').addEventListener('mouseout', itsOut1);
+            document.getElementById('full2img2').addEventListener('mouseover', itsIn1);
+            document.getElementById('full2img2').addEventListener('mouseout', itsOut1);
+            document.getElementById('full2img3').addEventListener('mouseover', itsIn1);
+            document.getElementById('full2img3').addEventListener('mouseout', itsOut1);
+
+            document.getElementById('full3img1').addEventListener('mouseover', itsIn1);
+            document.getElementById('full3img1').addEventListener('mouseout', itsOut1);
+            document.getElementById('full3img2').addEventListener('mouseover', itsIn1);
+            document.getElementById('full3img2').addEventListener('mouseout', itsOut1);
+
+            document.getElementById('full4img1').addEventListener('mouseover', itsIn1);
+            document.getElementById('full4img1').addEventListener('mouseout', itsOut1);
+            document.getElementById('full4img2').addEventListener('mouseover', itsIn1);
+            document.getElementById('full4img2').addEventListener('mouseout', itsOut1);
+            document.getElementById('full4img3').addEventListener('mouseover', itsIn1);
+            document.getElementById('full4img3').addEventListener('mouseout', itsOut1);
+            document.getElementById('full4video').addEventListener('mouseover', itsIn1);
+            document.getElementById('full4video').addEventListener('mouseout', itsOut1);
+
+            document.getElementById('full5img1').addEventListener('mouseover', itsIn1);
+            document.getElementById('full5img1').addEventListener('mouseout', itsOut1);
+            document.getElementById('full5img2').addEventListener('mouseover', itsIn1);
+            document.getElementById('full5img2').addEventListener('mouseout', itsOut1);
+            document.getElementById('full5img3').addEventListener('mouseover', itsIn1);
+            document.getElementById('full5img3').addEventListener('mouseout', itsOut1);
+        }
+        else if(educationHover){
+            document.getElementById('full1ed1').addEventListener('mouseover', itsIn1);
+            document.getElementById('full1ed1').addEventListener('mouseout', itsOut1);
+            document.getElementById('full1ed2').addEventListener('mouseover', itsIn1);
+            document.getElementById('full1ed2').addEventListener('mouseout', itsOut1);
+            document.getElementById('full1ed3').addEventListener('mouseover', itsIn1);
+            document.getElementById('full1ed3').addEventListener('mouseout', itsOut1);
+            document.getElementById('full1ed4').addEventListener('mouseover', itsIn1);
+            document.getElementById('full1ed4').addEventListener('mouseout', itsOut1);
         }
         else if(projectsHover == false && contactHover == false){
             window.addEventListener('mousemove', one);
@@ -110,7 +158,4 @@ function addAura1() {
         aura2.style.display = "none";
     }
 };
-
-
-
 

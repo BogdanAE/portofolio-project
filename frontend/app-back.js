@@ -92,9 +92,9 @@ function createBigContact(lang) {
                 document.getElementById('col71').innerHTML = data[36].text;
                 document.getElementById('col72').innerHTML = data[37].text;
 
-                document.getElementById('bigTextAbout1').innerHTML = data[13].text;
-                document.getElementById('bigTextAbout2').innerHTML = data[14].text;
-                document.getElementById('bigTextAbout3').innerHTML = data[15].text;
+                // document.getElementById('bigTextAbout1').innerHTML = data[13].text;
+                // document.getElementById('bigTextAbout2').innerHTML = data[14].text;
+                // document.getElementById('bigTextAbout3').innerHTML = data[15].text;
 
                 // setTimeout(() => {
                 document.getElementById('loading').style.display = 'none';
@@ -121,9 +121,9 @@ function createBigContact(lang) {
                 document.getElementById('col71').innerHTML = data[28].text;
                 document.getElementById('col72').innerHTML = data[29].text;
 
-                document.getElementById('bigTextAbout1').innerHTML = data[13].text;
-                document.getElementById('bigTextAbout2').innerHTML = data[14].text;
-                document.getElementById('bigTextAbout3').innerHTML = data[15].text;
+                // document.getElementById('bigTextAbout1').innerHTML = data[13].text;
+                // document.getElementById('bigTextAbout2').innerHTML = data[14].text;
+                // document.getElementById('bigTextAbout3').innerHTML = data[15].text;
 
                 // setTimeout(() => {
                 document.getElementById('loading').style.display = 'none';
@@ -209,19 +209,19 @@ function createSmallPage(data) {
         let p = 0;
         for (let a = 0; a < data.length; a++) {
             if (data[a].where1 === 'about') {
-                document.querySelectorAll('#aboutPage > p')[m].innerHTML = data[a].text;
+                document.querySelectorAll('#aboutPage > p')[m].innerHTML = data[a].text + "<br>";
                 m++;
             }
             else if (data[a].where1 === 'projects') {
-                document.querySelectorAll('#projectsPage > p')[n].innerHTML = data[a].text;
+                document.querySelectorAll('#projectsPage > p')[n].innerHTML = data[a].text+ "<br>";
                 n++;
             }
             else if (data[a].where1 === 'contact') {
-                document.querySelectorAll('#contactPage > p')[o].innerHTML = data[a].text;
+                document.querySelectorAll('#contactPage > p')[o].innerHTML = data[a].text+ "<br>";
                 o++;
             }
             else if (data[a].where1 === 'education') {
-                document.querySelectorAll('#educationPage > p')[p].innerHTML = data[a].text;
+                document.querySelectorAll('#educationPage > p')[p].innerHTML = data[a].text+ "<br>";
                 p++;
             }
         }
@@ -231,22 +231,22 @@ function createSmallPage(data) {
             if (data[a].where1 === 'about') {
                 var p = document.createElement('p');
                 document.getElementById('aboutPage').appendChild(p);
-                p.innerHTML = data[a].text;
+                p.innerHTML = data[a].text + "<br>";
             }
             else if (data[a].where1 === 'projects') {
                 var p = document.createElement('p');
                 document.getElementById('projectsPage').appendChild(p);
-                p.innerHTML = data[a].text;
+                p.innerHTML = data[a].text + "<br>";
             }
             else if (data[a].where1 === 'contact') {
                 var p = document.createElement('p');
                 document.getElementById('contactPage').appendChild(p);
-                p.innerHTML = data[a].text;
+                p.innerHTML = data[a].text + "<br>";
             }
             else if (data[a].where1 === 'education') {
                 var p = document.createElement('p');
                 document.getElementById('educationPage').appendChild(p);
-                p.innerHTML = data[a].text;
+                p.innerHTML = data[a].text + "<br>";
             }
         }
     }

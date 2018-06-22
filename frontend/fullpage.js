@@ -4,6 +4,8 @@ var homeButton = document.getElementById('homeButton');
 //let aura be created on dinamically created pages CONTROL
 let contactHover = false;
 let projectsHover = false;
+let aboutHover =  false;
+let educationHover = false;
 
 
 //contact variables
@@ -146,6 +148,16 @@ function createFullViewElements() {
         var projectsText = document.createElement('p');
         projectsText.setAttribute('id', 'projectsText1');
         
+        img1.addEventListener('click', () =>{
+            window.open("https://bogdanepure.000webhostapp.com/");
+        });
+        img2.addEventListener('click', () =>{
+            window.open("https://bogdanepure.000webhostapp.com/");
+        })
+        img3.addEventListener('click', () =>{
+            window.open("https://bogdanepure.000webhostapp.com/");
+        })
+
         div1.appendChild(img1);
         div1.appendChild(img2);
         div1.appendChild(img3);
@@ -164,6 +176,17 @@ function createFullViewElements() {
         img5.setAttribute('id', 'full2img2');
         var img6 = document.createElement('div');
         img6.setAttribute('id', 'full2img3');
+
+        img4.addEventListener('click', () =>{
+            window.open("https://apps-bogdan.herokuapp.com/");
+        })
+        img5.addEventListener('click', () =>{
+            window.open("https://apps-bogdan.herokuapp.com/");
+        })
+        img6.addEventListener('click', () =>{
+            window.open("https://apps-bogdan.herokuapp.com/");
+        })
+
         div2.appendChild(img4);
         div2.appendChild(img5);
         div2.appendChild(img6);
@@ -181,6 +204,16 @@ function createFullViewElements() {
         img7.setAttribute('id', 'full3img1');
         var img8 = document.createElement('div');
         img8.setAttribute('id', 'full3img2');
+
+        //
+        img7.addEventListener('click', () =>{
+            window.open("https://bogdanae.github.io/welcome-page/");
+        })
+        img8.addEventListener('click', () =>{
+            window.open("https://bogdanae.github.io/welcome-page/");
+        })
+
+
         div3.appendChild(img7);
         div3.appendChild(img8);
         div3.appendChild(projectsText3);
@@ -203,6 +236,18 @@ function createFullViewElements() {
         img10.setAttribute('id', 'full4img2');
         var img11 = document.createElement('div');
         img11.setAttribute('id', 'full4img3');
+
+        //https://bogdanae.github.io/
+        img9.addEventListener('click', () =>{
+            window.open("https://bogdanae.github.io/");
+        })
+        img10.addEventListener('click', () =>{
+            window.open("https://bogdanae.github.io/");
+        })
+        img11.addEventListener('click', () =>{
+            window.open("https://bogdanae.github.io/");
+        })
+
         div4.appendChild(img9);
         div4.appendChild(img10);
         div4.appendChild(img11);
@@ -216,13 +261,24 @@ function createFullViewElements() {
         projectsText5.setAttribute('id', 'projectsText5');
         
 
-
+        
         var img12 = document.createElement('div');
         img12.setAttribute('id', 'full5img1');
         var img13 = document.createElement('div');
         img13.setAttribute('id', 'full5img2');
         var img14 = document.createElement('div');
         img14.setAttribute('id', 'full5img3');
+
+      
+        img12.addEventListener('click', () =>{
+            window.open("https://bogdanae.github.io/welcome-page/21.html");
+        })
+        img13.addEventListener('click', () =>{
+            window.open("https://bogdanae.github.io/welcome-page/tictactoc.html");
+        })
+        img14.addEventListener('click', () =>{
+            window.open("https://bogdanae.github.io/welcome-page/darts.html");
+        })
         div5.appendChild(img12);
         div5.appendChild(img13);
         div5.appendChild(img14);
@@ -238,7 +294,7 @@ function createFullViewElements() {
             removeChildren(2);
         if (educationCreated == false) {
             //page 1
-
+            educationHover =  true;
             //arrows
             let arrowR1 = document.createElement('div');
             arrowR1.setAttribute('class', 'arrowRight');
@@ -306,7 +362,9 @@ function createFullViewElements() {
             fullView.appendChild(div6);
             var div7 = document.createElement('div');
             div7.setAttribute('id', 'full2ed1');
-            var div7text = document.createTextNode('Software Skills');
+            var div7text = document.createElement('p');
+            div7text.innerHTML = 'Software Skills';
+            div7text.setAttribute('id', 'softSkill');
             div7.appendChild(div7text);
 
             var wrapperTop = document.createElement('div');
@@ -345,7 +403,9 @@ function createFullViewElements() {
                 div8.appendChild(line2);
             }
 
-            var div8text = document.createTextNode('Programming Skills');
+            var div8text = document.createElement('p');
+            div8text.innerHTML = 'Programming Skills';
+            div8text.setAttribute('id', 'progSkill')
             div8.appendChild(div8text);
             div6.appendChild(div7);
             div6.appendChild(div8);
@@ -362,6 +422,7 @@ function createFullViewElements() {
         if (aboutCreated == false) {
             //page 1
 
+            aboutHover = true;
             var div1 = document.createElement('div');
             div1.setAttribute('id', 'full1');
             fullView.appendChild(div1);
@@ -391,20 +452,21 @@ function createFullViewElements() {
             //page 2
             var div2 = document.createElement('div');
             div2.setAttribute('id', 'full2');
-            
+            var meImg = document.createElement('div');
+            meImg.setAttribute('id', 'myPic');
+            div2.appendChild(meImg);
             for (let q = 1; q<= 3; q++){
                 var divTextAbout = document.createElement('p');
                 divTextAbout.setAttribute('id', 'bigTextAbout' + q);
                 div2.appendChild(divTextAbout);
             }
-            var meImg = document.createElement('div');
-            meImg.setAttribute('id', 'myPic');
+            
             // meImg.setAttribute('src', './srcs/eu1.svg');
             // meImg.setAttribute('height', '100%')
             // meImg.setAttribute('width', '100%');
             
             // height="5%" width="10%" 
-            div2.appendChild(meImg);
+            
 
             fullView.appendChild(div2);
 
@@ -592,6 +654,7 @@ function animateShow(elem) {
 }
 
 fullPageButton.addEventListener('click', () => {
+    clearInterval(randomLinesVar);
     //console.log(fullView.childNodes.length);
     if (projectsCreated == false || contactCreated == false || educationCreated == false || aboutCreated == false) {
         createFullViewElements();
@@ -1011,6 +1074,8 @@ homeButton.addEventListener('click', () => {
     hide.style.opacity = '0';
     contactHover = false;
     projectsHover = false;
+    educationHover = false;
+    aboutHover = false;
     removeMap();
     fullPageCounter = 0;
     console.log(projectsCreated);
@@ -1078,7 +1143,7 @@ function bringInFront(element1, element2) {
     element1.style.zIndex = '10';
     element1.style.boxShadow = "2px 2px 4px white";
     element1.style.transform = "scale(1.15)";
-    element2.style.filter = "blur(2px)";
+    element2.style.filter = "blur(4px)";
 }
 
 function elementBehind(elem1, elem2) {
@@ -1100,10 +1165,9 @@ function pageFull2In(el1, el2, el3) {
     el1.style.transform = "scale(1.15)";
     el1.style.zIndex = '10';
 
-    el2.style.filter = "blur(2px)";
-    el3.style.filter = "blur(2px)";
-    el2.style.zIndex = '-1';
-    el3.style.zIndex = '-1';
+    el2.style.filter = "blur(4px)";
+    el3.style.filter = "blur(4px)";
+   
 
 }
 

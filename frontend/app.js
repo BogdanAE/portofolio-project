@@ -134,9 +134,9 @@ function blinkFullPage() {
   if (fullPageButton.style.display == 'block') {
     setTimeout(() => {
       fullPageButton.animate([
-        { transform: 'scale(1)', boxShadow: '0px 0px 0px', borderColor: 'white', background: 'transparent'},
-        { transform: 'scale(1.3)' , boxShadow: '2px 2px 4px yellow', borderColor: 'yellow', background: 'yellow'},
-        { transform: 'scale(1)', boxShadow: '0px 0px 0px', borderColor: 'white', background: 'transparent'}
+        { transform: 'scale(1)', boxShadow: '0px 0px 0px', borderColor: 'white', background: 'transparent' },
+        { transform: 'scale(1.3)', boxShadow: '2px 2px 4px yellow', borderColor: 'yellow', background: 'yellow' },
+        { transform: 'scale(1)', boxShadow: '0px 0px 0px', borderColor: 'white', background: 'transparent' }
       ], {
           duration: 1000
         })
@@ -217,14 +217,28 @@ function removePage() {
   else if (pArray[0] == 1) {
     abPg.style.opacity = '0';
     edPg.style.transform = 'translate(0, -115%)';
-    edPg.style.transition = '1.5s linear';
+    // edPg.style.transition = '1.5s linear';
+    edPg.animate([
+      { transform: 'translate(0, 0)', color: 'white' },
+      { transform: 'translate(-50px,0px)', color: 'red' },
+      { transform: 'translate(110%, 0%)', color: 'gray' }
+    ], {
+        duration: 1500
+      })
 
     //pArray[0] = 0;
   }
   else if (pArray[1] == 1) {
     abPg.style.opacity = '0';
     coPg.style.transform = 'translate(0, -115%)';
-    coPg.style.transition = '1.5s linear';
+    // coPg.style.transition = '1.5s linear';
+    coPg.animate([
+      { transform: 'translate(0, 0)', color: 'white' },
+      { transform: 'translate(50px,0px)', color: 'red' },
+      { transform: 'translate(-110%, 0%)', color: 'gray' }
+    ], {
+        duration: 1500
+      })
 
     pArray[1] = 0;
   }
@@ -232,14 +246,28 @@ function removePage() {
     //console.log('REMOVE projects');
     abPg.style.opacity = '0';
     prPg.style.transform = 'translate(0, -115%)';
-    prPg.style.transition = '1.5s linear';
+    // prPg.style.transition = '1.5s linear';
+    prPg.animate([
+      { transform: 'translate(0, 0)', color: 'white' },
+      { transform: 'translate(-50px,0px)', color: 'red' },
+      { transform: 'translate(110%, 0%)', color: 'gray' }
+    ], {
+        duration: 1500
+      })
 
     //pArray[2] = 0;
   }
   else if (pArray[3] == 1) {
     abPg.style.opacity = '0';
     abPg.style.transform = 'translate(0, -115%)';
-    abPg.style.transition = '1.5s linear';
+    // abPg.style.transition = '1.5s linear';
+    abPg.animate([
+      { transform: 'translate(0, 0)', color: 'white' },
+      { transform: 'translate(50px,0px)', color: 'red' },
+      { transform: 'translate(-110%, 0%)', color: 'gray' }
+    ], {
+        duration: 1500
+      })
 
     //pArray[3] = 0;
   }
@@ -286,7 +314,6 @@ function dropPage(value) {
   //console.log(pArray);
   scrollHeightCheck();
 }
-
 
 
 function showPage() {
@@ -432,6 +459,7 @@ function scrollHeightCheck() {
 
 //-----------LINE ANIMATION-----------
 
+
 setInterval(() => {
   line.style.transition = '1s';
   line.style.height = '40%';
@@ -440,6 +468,85 @@ setInterval(() => {
     line.style.height = '25%';
   }, 5000)
 }, 10000);
+
+var rline1 = document.getElementById('randomLine1');
+var rline2 = document.getElementById('randomLine2');
+
+function randomLines() {
+  setInterval(() => {
+    var upDown = Math.round(Math.random());
+    if (upDown == 1) {
+      animateLines();
+    }
+    else
+      animateLines2();
+  }, 3000)
+}
+
+var randomLinesVar = randomLines();
+
+
+function animateLines() {
+  var random = Math.random() * 5;
+  var randomVal = Math.round(Math.random() + 1 * random);
+  var random1 = Math.random() * 5;
+  var randomVal1 = Math.round(Math.random() + 1 * random1);
+  rline1.animate([
+    {
+      transform: 'translate(' + (window.innerWidth + 300) + 'px' + ',' + window.innerHeight / 10 * randomVal + 'px) rotate(-180deg)'
+
+    },
+    {
+      transform: 'translate(0px,' + window.innerHeight / 10 * randomVal + 300 + 'px) rotate(-180deg)'
+    }
+  ], {
+      duration: 2000,
+      delay: 500
+    });
+  rline2.animate([
+    {
+      transform: 'translate(' + window.innerHeight / 5 * randomVal1 + 'px,' + (window.innerHeight + 300 )+ 'px) rotate(-180deg)'
+    },
+    {
+
+      transform: 'translate(' + window.innerHeight / 5 * randomVal1 + 'px, 0px) rotate(-180deg)'
+    }
+  ], {
+      duration: 2000,
+      delay: 800
+    });
+};
+
+function animateLines2() {
+  var random = Math.random() * 5;
+  var randomVal = Math.round(Math.random() + 1 * random);
+  var random1 = Math.random() * 5;
+  var randomVal1 = Math.round(Math.random() + 1 * random1);
+  rline1.animate([
+    {
+      transform: 'translate(0px,' + window.innerHeight / 10 * randomVal + 'px) '
+    },
+    {
+      transform: 'translate(' + (window.innerWidth + 300 )+  'px' + ',' + window.innerHeight / 10 * randomVal + 'px) '
+    }
+
+  ], {
+      duration: 2000,
+      delay: 500
+    });
+  rline2.animate([
+    {
+      transform: 'translate(' + window.innerHeight / 5 * randomVal1 + 'px, 0px)' 
+    },
+    {
+      transform: 'translate(' + window.innerHeight / 5 * randomVal1 + 'px,' + (window.innerHeight + 300) + 'px) '
+    }
+
+  ], {
+      duration: 2000,
+      delay: 800
+    });
+}
 //-----------END LINE ANIMATION-----------
 
 //-----------------------------RESCALE MANDALA---------------------

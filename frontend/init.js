@@ -3,6 +3,7 @@ var random = Math.floor(Math.random() * 4) + 1;
 fullPageButton.style.display = 'none';
 
 init();
+randomLines();
 function init() {
   //PAGE INIT
   keepRoling();
