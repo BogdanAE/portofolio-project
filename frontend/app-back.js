@@ -16,7 +16,7 @@ function createBigEducation(lang) {
                 document.getElementById('ed1text2').innerHTML = data[22].text + '<br>' + data[21].text;
                 document.getElementById('ed1text3').innerHTML = data[24].text + '<br>' + data[23].text;
                 document.getElementById('ed1text4').innerHTML = data[26].text + '<br>' + data[25].text;
-                
+
 
                 // setTimeout(() => {
                 document.getElementById('loading').style.display = 'none';
@@ -37,8 +37,8 @@ function createBigProjects(lang) {
             success: (data) => {
                 document.getElementById('projectsText1').innerHTML = data[14].text;
                 document.getElementById('projectsText2').innerHTML = data[15].text;
-                document.getElementById('projectsText3').innerHTML = data[16].text;
-                document.getElementById('projectsText4').innerHTML = data[17].text;
+                document.getElementById('projectsText3').innerHTML = data[17].text;
+                document.getElementById('projectsText4').innerHTML = data[16].text;
                 document.getElementById('projectsText5').innerHTML = data[18].text;
 
                 // setTimeout(() => {
@@ -56,10 +56,10 @@ function createBigProjects(lang) {
             success: (data) => {
                 document.getElementById('projectsText1').innerHTML = data[14].text;
                 document.getElementById('projectsText2').innerHTML = data[15].text;
-                document.getElementById('projectsText3').innerHTML = data[16].text;
-                document.getElementById('projectsText4').innerHTML = data[17].text;
+                document.getElementById('projectsText3').innerHTML = data[32].text;
+                document.getElementById('projectsText4').innerHTML = data[16].text;
                 document.getElementById('projectsText5').innerHTML = data[18].text;
-                
+
                 // setTimeout(() => {
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('loaded').style.display = 'block';
@@ -143,16 +143,16 @@ function createBigAbout(lang) {
             success: (data) => {
 
 
-                document.getElementById('co1text1').innerHTML = data[1].text + "<br>" ;
+                document.getElementById('co1text1').innerHTML = data[1].text + "<br>";
                 document.getElementById('co1text2').innerHTML = data[2].text;
                 document.getElementById('co1f1').innerHTML = data[3].text;
-                document.getElementById('co2text1').innerHTML = data[4].text + "<br>" ;
+                document.getElementById('co2text1').innerHTML = data[4].text + "<br>";
                 document.getElementById('co2text2').innerHTML = data[5].text;
                 document.getElementById('co1f2').innerHTML = data[6].text;
-                document.getElementById('co3text1').innerHTML = data[7].text + "<br>" ;
+                document.getElementById('co3text1').innerHTML = data[7].text + "<br>";
                 document.getElementById('co3text2').innerHTML = data[8].text;
                 document.getElementById('co1f3').innerHTML = data[9].text;
-                document.getElementById('co4text1').innerHTML = data[10].text + "<br>" ;
+                document.getElementById('co4text1').innerHTML = data[10].text + "<br>";
                 document.getElementById('co4text2').innerHTML = '';
                 document.getElementById('co1f4').innerHTML = data[0].text;
 
@@ -173,16 +173,16 @@ function createBigAbout(lang) {
             url: "/getTextEnBig",
             dataType: 'json',
             success: (data) => {
-                document.getElementById('co1text1').innerHTML = data[2].text + "<br>" ;
+                document.getElementById('co1text1').innerHTML = data[2].text + "<br>";
                 document.getElementById('co1text2').innerHTML = data[30].text;
                 document.getElementById('co1f1').innerHTML = data[3].text;
-                document.getElementById('co2text1').innerHTML = data[4].text + "<br>" ;
+                document.getElementById('co2text1').innerHTML = data[4].text + "<br>";
                 document.getElementById('co2text2').innerHTML = data[31].text;
                 document.getElementById('co1f2').innerHTML = data[5].text;
-                document.getElementById('co3text1').innerHTML = data[6].text + "<br>" ;
+                document.getElementById('co3text1').innerHTML = data[6].text + "<br>";
                 document.getElementById('co3text2').innerHTML = data[7].text;
                 document.getElementById('co1f3').innerHTML = data[8].text;
-                document.getElementById('co4text1').innerHTML = data[9].text + "<br>" ;
+                document.getElementById('co4text1').innerHTML = data[9].text + "<br>";
                 document.getElementById('co4text2').innerHTML = data[10].text;
                 document.getElementById('co1f4').innerHTML = data[1].text;
 
@@ -213,15 +213,15 @@ function createSmallPage(data) {
                 m++;
             }
             else if (data[a].where1 === 'projects') {
-                document.querySelectorAll('#projectsPage > p')[n].innerHTML = data[a].text+ "<br>";
+                document.querySelectorAll('#projectsPage > p')[n].innerHTML = data[a].text + "<br>";
                 n++;
             }
             else if (data[a].where1 === 'contact') {
-                document.querySelectorAll('#contactPage > p')[o].innerHTML = data[a].text+ "<br>";
+                document.querySelectorAll('#contactPage > p')[o].innerHTML = data[a].text + "<br>";
                 o++;
             }
             else if (data[a].where1 === 'education') {
-                document.querySelectorAll('#educationPage > p')[p].innerHTML = data[a].text+ "<br>";
+                document.querySelectorAll('#educationPage > p')[p].innerHTML = data[a].text + "<br>";
                 p++;
             }
         }
@@ -274,10 +274,14 @@ function createSmallPage(data) {
 enButton.addEventListener('click', () => {
     document.getElementById('loaded').style.display = 'none';
     document.getElementById('loading').style.display = 'block';
-    createBigContact('en');
-    createBigAbout('en');
-    createBigProjects('en');
-    createBigEducation('en');
+    if (contactHover)
+        createBigContact('en');
+    else if (aboutHover)
+        createBigAbout('en');
+    else if (projectsHover)
+        createBigProjects('en');
+    else if (educationHover)
+        createBigEducation('en');
     $.ajax({
         type: "GET",
         url: "/getTextEnSmall",
@@ -296,10 +300,14 @@ enButton.addEventListener('click', () => {
 });
 
 roButton.addEventListener('click', () => {
-    createBigContact('ro');
-    createBigAbout('ro');
-    createBigProjects('ro');
-    createBigEducation('ro');
+    if (contactHover)
+        createBigContact('ro');
+    else if (aboutHover)
+        createBigAbout('ro');
+    else if (projectsHover)
+        createBigProjects('ro');
+    else if (educationHover)
+        createBigEducation('ro');
     document.getElementById('loaded').style.display = 'none';
     document.getElementById('loading').style.display = 'block';
     $.ajax({

@@ -289,14 +289,15 @@ p {
 
 #mouse {
     position: absolute;
-    bottom: 40%;
-    height: 50px;
-    width: 30px;
+    bottom: 41.5%;
+    height: 35px;
+    width: 24px;
     border-radius: 25px;
     border: 3px solid white;
     margin-left: calc(100vw/2.26);
     box-sizing: border-box;
-    padding: 11px;
+    padding: 8px;
+    padding-top: 3px; 
     opacity: 0;
 }
 
@@ -510,7 +511,7 @@ p {
 }
 
 #full1img3 {
-    float: right;
+    float: left;
     height: 40%;
     width: 30%;
     background: url('./srcs/projects/cv3.png');
@@ -557,7 +558,7 @@ p {
     float: left;
     position: relative;
     margin-left: -40%;
-    margin-top: 40%;
+    margin-top: 25%;
     height: 40%;
     width: 30%;
     background: url('./srcs/projects/pens3.png');
@@ -674,7 +675,7 @@ p {
 
 #projectsText1, #projectsText2, #projectsText3, #projectsText4, #projectsText5 {
     text-align: right;
-    font-size: 1.7em;
+    font-size: 1.4em;
     font-family: 'Indie Flower', cursive;
     padding: 15px;
     z-index: -3;
@@ -685,7 +686,7 @@ p {
 #projectsText1:hover, #projectsText2:hover, #projectsText3:hover, #projectsText4:hover, #projectsText5:hover {
     color: #e05915;
     padding: 20px;
-    font-size: 1.75em;
+    font-size: 1.5em;
 }
 
 /* -----------------Education page -------------------------*/
@@ -723,6 +724,7 @@ p {
     width: 100%;
     height: 100%;
     font-family: 'Indie Flower', cursive;
+    word-break: keep-all;
 }
 
 .arrowRight {
@@ -793,7 +795,7 @@ p {
     /* height: 80%; */
     width: 10px;
     background-color: purple;
-    bottom: 20px;
+    bottom: 0px;
     left: 17.5%;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -825,6 +827,7 @@ p {
     transform: rotate(-90deg) translate(-35%, -85px);
     width: 150px;
     font-size: 1.25em;
+    font-family: 'Permanent Marker', cursive;
 }
 
 #ed2bline1, #ed2bline2, #ed2bline3, #ed2bline4, #ed2bline5, #ed2bline6, #ed2bline7, #ed2bline8 {
@@ -842,9 +845,10 @@ p {
 
 .ed2text2 {
     color: white;
-    transform: rotate(-90deg) translate(-35%, -85px);
+    transform: rotate(-90deg) translate(-7.5%, -85px);
     width: 150px;
     font-size: 1.05em;
+    font-family: 'Permanent Marker', cursive;
 }
 
 /* #full2 {
@@ -1133,7 +1137,7 @@ form>textarea {
 #co1d1 {
     position: absolute;
     width: 40%;
-    height: 30%;
+    height: 34%;
     left: 5%;
     top: 5%;
     border-radius: 5px;
@@ -1153,8 +1157,8 @@ form>textarea {
     border-bottom-left-radius: 10px;
     box-shadow: -2px -3px 6px gray;
     color: black;
-    padding-top: 12px;
-    padding-left: 12px;
+    /* padding-top: 12px;
+    padding-left: 12px; */
     box-sizing: border-box;
     font-family: 'Lobster', cursive;
 }
@@ -1186,7 +1190,7 @@ form>textarea {
 #co1d2 {
     position: absolute;
     width: 40%;
-    height: 30%;
+    height: 34%;
     right: 5%;
     top: 15%;
     background: linear-gradient(to bottom, #e9ece5, #1d2120);
@@ -1206,8 +1210,8 @@ form>textarea {
     background: linear-gradient(to bottom left, white, rgb(170, 161, 161));
     box-shadow: 2px -3px 6px gray;
     color: black;
-    padding-top: 12px;
-    padding-left: 8px;
+    /* padding-top: 12px;
+    padding-left: 8px; */
     box-sizing: border-box;
     font-family: 'Lobster', cursive;
 }
@@ -1259,8 +1263,8 @@ form>textarea {
     border-bottom-left-radius: 10px;
     box-shadow: -2px 3px 6px gray;
     color: black;
-    padding-top: 12px;
-    padding-left: 8px;
+    /* padding-top: 12px;
+    padding-left: 8px; */
     box-sizing: border-box;
     font-family: 'Lobster', cursive;
 }
@@ -1313,8 +1317,8 @@ form>textarea {
     box-shadow: 2px 3px 6px gray;
     background: linear-gradient(to bottom left, white, rgb(170, 161, 161));
     color: black;
-    padding-top: 12px;
-    padding-left: 10px;
+    /* padding-top: 12px;
+    padding-left: 10px; */
     box-sizing: border-box;
     font-family: 'Lobster', cursive;
 }
@@ -1365,6 +1369,16 @@ form>textarea {
     margin-top: 5%;
     font-weight: bold;
     font-family: 'Sunflower', sans-serif;
+}
+
+#co2text1, #co3text1, #co4text1 {
+    margin-top: 10%;
+    font-size: 0.8em;
+    text-align: right;
+}
+
+#co3text1{
+    text-align: left;
 }
 
 #myPic {

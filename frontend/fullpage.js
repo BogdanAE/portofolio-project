@@ -375,7 +375,7 @@ function createFullViewElements() {
             div7.appendChild(wrapperBot);
 
             //page2 up container lines
-            var textContent = ['nimic :)', 'Windows', 'Linux / Ubuntu', 'Adobe Illustrator', 'Microsoft Office', 'Autocad/Surfer/ArcMap']
+            var textContent = ['nimic :)', 'Windows', 'Linux / Ubuntu', 'Illustrator', 'M. Office', 'Autocad/Surfer/ArcMap']
             for (let i = 1; i <= 5; i++) {
                 var line1 = document.createElement('div');
                 line1.setAttribute('id', 'ed2line' + i);
@@ -1205,37 +1205,58 @@ function eventsImageProjectPage() {
     p5i3 = document.getElementById('full5img3');
 
     //-----------------P1I1--------------------
+    // p1i1.addEventListener('mouseover', () => {
+    //     bringInFront(p1i1, p1i2);
+    // });
+
+    // p1i1.addEventListener('mouseout', () => {
+    //     elementBehind(p1i1, p1i2);
+    // });
     p1i1.addEventListener('mouseover', () => {
-        bringInFront(p1i1, p1i2);
+        pageFull2In(p1i1, p1i2, p1i3);
     });
 
     p1i1.addEventListener('mouseout', () => {
-        elementBehind(p1i1, p1i2);
+        pageFull2Out(p1i1, p1i2, p1i3);
     });
     //---------------END P1I1------------------
 
     //-----------------P1I2--------------------
+    // p1i2.addEventListener('mouseover', () => {
+    //     bringInFront(p1i2, p1i1);
+    // });
+
+    // p1i2.addEventListener('mouseout', () => {
+    //     elementBehind(p1i2, p1i1);
+    // });
     p1i2.addEventListener('mouseover', () => {
-        bringInFront(p1i2, p1i1);
+        pageFull2In(p1i2, p1i1, p1i3);
     });
 
     p1i2.addEventListener('mouseout', () => {
-        elementBehind(p1i2, p1i1);
+        pageFull2Out(p1i2, p1i1, p1i3);
     });
     //---------------END P1I2------------------
 
     //-----------------P1I3--------------------
+    // p1i3.addEventListener('mouseover', () => {
+    //     p1i3.style.transition = "0.5s";
+    //     p1i3.style.zIndex = '10';
+    //     p1i3.style.boxShadow = "2px 2px 4px white";
+    //     p1i3.style.transform = "scale(1.15)";
+    // });
+
+    // p1i3.addEventListener('mouseout', () => {
+    //     p1i3.style.zIndex = '0';
+    //     p1i3.style.boxShadow = "none";
+    //     p1i3.style.transform = "scale(1)";
+    // });
     p1i3.addEventListener('mouseover', () => {
-        p1i3.style.transition = "0.5s";
-        p1i3.style.zIndex = '10';
-        p1i3.style.boxShadow = "2px 2px 4px white";
-        p1i3.style.transform = "scale(1.15)";
+        pageFull2In(p1i3, p1i1, p1i2);
     });
 
     p1i3.addEventListener('mouseout', () => {
-        p1i3.style.zIndex = '0';
-        p1i3.style.boxShadow = "none";
-        p1i3.style.transform = "scale(1)";
+        pageFull2Out(p1i3, p1i1, p1i2);
     });
     //---------------END P1I3------------------
 
@@ -1876,7 +1897,7 @@ function animateProgrammingSkill() {
             setTimeout(() => {
                 lineText[j - 1].animate([
                     { transform: 'translate(0 , 0) ', opacity: '0' },
-                    { transform: 'translate(-55%,55px) rotate(-90deg)', opacity: '1' }
+                    { transform: 'translate(-55%,15px) rotate(-90deg)', opacity: '1' }
                 ], {
                         duration: 1200
                     })
